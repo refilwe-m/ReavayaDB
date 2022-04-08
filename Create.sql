@@ -54,7 +54,7 @@ GO
 
 CREATE TABLE Phases(
 	PhaseID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	CityCode int NOT NULL,
+	CityCode varchar(5) NOT NULL,
 	Description nvarchar (500) NOT NULL
 	
 );
