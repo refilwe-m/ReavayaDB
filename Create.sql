@@ -12,7 +12,8 @@ GO
 
 CREATE TABLE Users(
 	UserID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
-	UserFullNames nvarchar(100) NOT NULL,
+	FirstName nvarchar(100) NOT NULL,
+	LastName nvarchar(100) NOT NULL,
 	ResAddress varchar(100) NOT NULL,
 	CellphoneNum varchar(10) UNIQUE NOT NULL,
 	EmailAddress nvarchar(50) UNIQUE NOT NULL,
@@ -42,7 +43,8 @@ GO
 CREATE TABLE Employees(
 	EmployeeID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	DepartmentID int ,
-	FullName varchar (100) NOT NULL,
+	FirstName nvarchar(100) NOT NULL,
+	LastName nvarchar(100) NOT NULL,
 	DateOfBirth date NOT NULL,
 	CellphoneNum varchar(10) UNIQUE NOT NULL,
 	EmailAddress nvarchar(50) UNIQUE NOT NULL,
