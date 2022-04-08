@@ -74,8 +74,7 @@ GO
 CREATE TABLE Stations(
 	StationID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	RouteID int,
-	CityCode int NOT NULL,
-	Description nvarchar (500)
+	Name varchar(30) NOT NULL,
 	FOREIGN KEY (RouteID) REFERENCES BusRoutes(RouteID)
 );
 GO
