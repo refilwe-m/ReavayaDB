@@ -62,6 +62,8 @@ GO
 CREATE TABLE BusRoutes(
 	RouteID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	PhaseID int,
+	FromCity varchar(30) NOT NULL,
+	ToCity varchar(30) NOT NULL,
 	FOREIGN KEY (PhaseID) REFERENCES Phases (PhaseID)
 	
 );
