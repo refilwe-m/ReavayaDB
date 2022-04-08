@@ -14,6 +14,7 @@ CREATE TABLE Users(
 	UserID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	FirstName nvarchar(100) NOT NULL,
 	LastName nvarchar(100) NOT NULL,
+	DateOfBirth date NOT NULL,
 	ResAddress varchar(100) NOT NULL,
 	CellphoneNum varchar(10) UNIQUE NOT NULL,
 	EmailAddress nvarchar(50) UNIQUE NOT NULL,
