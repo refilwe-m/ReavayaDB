@@ -23,7 +23,7 @@ GO
 CREATE TABLE Accounts(
 
 	AccountID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	CardNumber int NOT NULL,
+	CardNumber int UNIQUE NOT NULL,
 	UserID int,
 	AccountType varchar(20) NOT NULL,
 	Points int DEFAULT 0,
