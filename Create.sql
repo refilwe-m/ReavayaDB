@@ -130,7 +130,7 @@ CREATE TABLE Tickets(
 	TicketID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	StationID int,
 	TicketType varchar(100) NOT NULL,
-	Description nvarchar (500)
+	SoldBy INT FOREIGN KEY REFERENCES Employees (EmployeeID),
 	FOREIGN KEY (StationID) REFERENCES Stations(StationID)
 );
 
