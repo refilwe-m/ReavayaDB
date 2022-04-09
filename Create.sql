@@ -38,9 +38,6 @@ GO
 CREATE TABLE Departments(
 	DepartmentID INT NOT NULL IDENTITY(1,1),
 	DepartmentName VARCHAR(50) NOT NULL,
-
-	FOREIGN KEY (DepartmentUserID) REFERENCES Users(UserID)
-
 );
 GO
 
