@@ -1,4 +1,3 @@
---Create Tables
 USE master
 GO
 
@@ -9,7 +8,7 @@ GO
 USE ReaVayaDB
 GO
 
-
+DROP TABLE IF EXISTS Users;
 CREATE TABLE Users(
 	UserID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	FirstName nvarchar(100) NOT NULL,
@@ -21,7 +20,7 @@ CREATE TABLE Users(
 
 );
 GO
-
+DROP TABLE IF EXISTS Accounts;
 CREATE TABLE Accounts(
 
 	AccountID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -35,16 +34,13 @@ CREATE TABLE Accounts(
 );
 GO
 
+DROP TABLE IF EXISTS Departments;
 CREATE TABLE Departments(
-<<<<<<< HEAD
-	DepartmentID INT NOT NULL IDENTITY(1,1),
-	DepartmentName VARCHAR(50) NOT NULL,
-=======
 	DepartmentID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	DepName varchar (30) NOT NULL,
->>>>>>> parent of 0167695 (Updated Tables)
 );
 GO
+
 
 CREATE TABLE Employees(
 	EmployeeID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
@@ -108,6 +104,7 @@ CREATE TABLE Buses(
 );
 GO
 
+DROP TABLE IF EXISTS Bookings;
 CREATE TABLE Bookings(
 	BookingID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	AccountID int,
