@@ -15,6 +15,7 @@ CREATE TABLE Users(
 	LastName nvarchar(100) NOT NULL,
 	DateOfBirth date NOT NULL,
 	ResAddress varchar(100) NOT NULL,
+	City varchar(100) NOT NULL,
 	CellphoneNum varchar(10) UNIQUE NOT NULL,
 	EmailAddress nvarchar(50) UNIQUE NOT NULL,
 
@@ -48,6 +49,8 @@ CREATE TABLE Employees(
 	FirstName nvarchar(100) NOT NULL,
 	LastName nvarchar(100) NOT NULL,
 	DateOfBirth date NOT NULL,
+	ResAddress varchar(100) NOT NULL,
+	City varchar(100) NOT NULL,
 	CellphoneNum varchar(10) UNIQUE NOT NULL,
 	EmailAddress nvarchar(50) UNIQUE NOT NULL,
 	FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
