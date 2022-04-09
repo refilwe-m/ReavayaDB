@@ -21,17 +21,26 @@ CREATE TABLE Users(
 
 );
 GO
+
+CREATE TABLE AccountTypes(
+	TypeID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	TypeName varchar (50) NOT NULL,
+
+);
+GO
+
 DROP TABLE IF EXISTS Accounts;
 CREATE TABLE Accounts(
 
 	AccountID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	UserID int,
 	CardNumber int UNIQUE NOT NULL,	
-	AccountType varchar(20) NOT NULL,
+	TypeID int,
 	Points int DEFAULT 0,
 	CreatedAT date NOT NULL,
 	Balance money DEFAULT 0.0,
-	FOREIGN KEY (UserID) REFERENCES Users(UserID)   
+	FOREIGN KEY (UserID) REFERENCES Users(UserID),   
+	FOREIGN KEY (TypeID) REFERENCES AccountTypes (TypeID)
 );
 GO
 
@@ -112,7 +121,10 @@ CREATE TABLE Bookings(
 	BookingID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	AccountID int,
 	BusID int FOREIGN KEY REFERENCES Buses (BusID),
-	TravellingTime date NOT NULL,
+	StationID int FOREIGN KEY REFERENCES Stations (StationID),
+	TimeOfTravel time NOT NULL,
+	DateOfTravel date NOT NULL,
+	
 	FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
 	
 );
