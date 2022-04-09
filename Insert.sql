@@ -147,3 +147,36 @@ VALUES
         '0742569565',
         'davids@gmail.com'
     );
+    
+USE ReaVayaDB;
+GO
+
+
+INSERT INTO Users (FirstName, LastName, DateOfBirth, ResAddress, City, CellphoneNum, EmailAddress)
+VALUES ('Refilwe', 'Mashile', '1995-12-27', '806 Grandrose Ave', 'Soweto','0845434648','refilwe-mashile@yahoo.com'),
+		('Nomcebo', 'Ndimande', '1999-12-29', '26 Market Drive', 'Park Town', '0817217371', 'ndimandnomcebo1@gmail.com' ),
+		('Itumeleng', 'Matheba', '1997-02-26', '60 Mandela St', 'Braamfontein', '0674545321', 'itumeleng123@gmail.com'),
+		('Ryan', 'Williams', '1990-11-23', '16 James St', 'Park Town', '0804359867', 'williams.ryan@yahoo.com' ),
+		('Andrew', 'Brown', '1989-10-27', '75 East Hanry Lane', 'Lake View', '0675145325','andrewcool123@gmail.com'),
+		('Aaron', 'Wilson', '2000-01-01', '81 Baker Av', 'Thokoza', '0876573902', 'aaronaaron@gmail.com'),
+		('Jordan', 'Smith', '1985-06-27', '63 Thompson Lane', 'Ellis Park', '0839838784', 'jordan1120@gmail.com'),
+		('August', 'Alsina', '1989-04-24', '167 Gartner St', 'Braamfontein', '0849709865', 'augustalsin@yahho.com'),
+		('Buhle', 'Mlilo', '1994-06-07', '73 Cambridge St', 'Dobsonville', '0739843621', 'mlilobuhle23@yahoo.com'),
+		('Thando', 'Mvubu', '1999-07-21', '72 Daffodil Cres', 'Cresta', '0659782975', 'thandom@gmail.com'),
+		('Emily', 'Jones', '2001-08-01', '720 West Port Drive', 'Soweto', '0651629852', 'jonesemy@gmail.com');
+
+INSERT INTO AccountTypes (TypeName)
+VALUES ('Online'),('On-Site');
+
+INSERT INTO Accounts (UserID, CardNumber, TypeID, Points, CreatedAT, Balance)
+VALUES ('1', '0001', '1', '23', '2020-01-17', '80'),
+		('2', '0002', '2', '10', '2022-12-01', '23'),
+		('3', '0003', '2', '20', '2018-03-08', '56'),
+		('4', '0004', '1', '50', '2020-02-05', '0'),
+		('5', '0005', '1', '0', '2022-11-01', '0'),
+		('6', '0006', '1', '28', '2021-07-26', '15'),
+		('7', '0007', '1', '30', '2017-08-01', '74'),
+		('8', '0008', '2', '100', '2022-01-08', '89'),
+		('9', '0009', '1', '78', '2021-10-30', '51'),
+		('10', '0010', '2', '63', '2022-04-01', '23'),
+		('11', '0011', '2', '0', '2022-04-09', '0');
