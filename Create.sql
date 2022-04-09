@@ -41,13 +41,6 @@ CREATE TABLE Departments(
 );
 GO
 
-ALTER TABLE Departments
-ADD Admin nvarchar(100) NOT NULL,
-	BookingClerk nvarchar(100) NOT NULL,
-	Driver nvarchar(100) NOT NULL,
-	StationManager nvarchar(100) NOT NULL;
-GO
-
 CREATE TABLE Employees(
 	EmployeeID int IDENTITY (1,1) PRIMARY KEY NOT NULL,
 	DepartmentID int ,
