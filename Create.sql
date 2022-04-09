@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS Accounts;
 CREATE TABLE Accounts(
 
 	AccountID int IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	CardNumber int UNIQUE NOT NULL,
 	UserID int,
+	CardNumber int UNIQUE NOT NULL,	
 	AccountType varchar(20) NOT NULL,
 	Points int DEFAULT 0,
 	CreatedAT date NOT NULL,
