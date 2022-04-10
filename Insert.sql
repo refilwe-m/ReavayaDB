@@ -50,7 +50,7 @@ VALUES
 --INSERT INTO Tickets(StationID, TicketType, SoldBy) VALUES(ADD AFTER EMPLOYEES ARE POPULATED);
 -- Employees
 INSERT INTO
-    Departments (DepName)
+    Positions (PositionName)
 VALUES
     ('Admin'),
     ('BookingClerk'),
