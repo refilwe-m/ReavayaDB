@@ -100,3 +100,12 @@ Where
     BookingID = @BookingID
 END
 GO
+    --Stored Procedure for Changing User's Email Address
+    CREATE PROCEDURE ChangeUserEmail @UserID int,
+    @EmailAddress nvarchar(50) AS BEGIN
+Update
+    Users
+set
+    EmailAddress = @EmailAddress
+END
+GO
