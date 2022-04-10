@@ -1,3 +1,4 @@
+USE master;
 USE ReaVayaDB
 GO
 	DROP TABLE IF EXISTS Positions,
@@ -94,7 +95,6 @@ GO
 		TypeID int,
 		RouteID int,
 		BusCode varchar (10) NOT NULL,
-		BusType varchar (50) NOT NULL,
 		HealthStatus bit NOT NULL,
 		Active bit NOT NULL,
 		FOREIGN KEY (TypeID) REFERENCES BusType(TypeID),

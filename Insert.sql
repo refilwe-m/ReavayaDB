@@ -74,7 +74,8 @@ VALUES
         'Lebo',
         'Matheba',
         '21 September 1950',
-        '3 Olivia Road', 'Berea',
+        '3 Olivia Road',
+        'Berea',
         '0728974565',
         'lebom@gmail.com'
     ),
@@ -82,7 +83,9 @@ VALUES
         1,
         'Thabo',
         'Zuma',
-        '21 January 1990', '3 Proes Street', 'Pretoria',
+        '21 January 1990',
+        '3 Proes Street',
+        'Pretoria',
         '0718964566',
         'thaboz@gmail.com'
     ),
@@ -90,7 +93,9 @@ VALUES
         3,
         'Benny',
         'Thomas',
-        '01 May 1984', '33 Bendile Street', 'Soweto',
+        '01 May 1984',
+        '33 Bendile Street',
+        'Soweto',
         '0838974545',
         'Bennyt@gmail.com'
     ),
@@ -98,7 +103,9 @@ VALUES
         4,
         'Sam',
         'Tau',
-        '21 August 1950', '05 5th Street', 'Pretoria',
+        '21 August 1950',
+        '05 5th Street',
+        'Pretoria',
         '0728574562',
         'samt@gmail.com'
     ),
@@ -106,7 +113,9 @@ VALUES
         3,
         'Thembi',
         'Moroka',
-        '21 June 1997', '1 13th Road', 'Midrand',
+        '21 June 1997',
+        '1 13th Road',
+        'Midrand',
         '0728974261',
         'Thembim@gmail.com'
     ),
@@ -114,7 +123,9 @@ VALUES
         3,
         'Lebo',
         'Davids',
-        '05 September 1989', '25 Church Street', 'Pretoria',
+        '05 September 1989',
+        '25 Church Street',
+        'Pretoria',
         '0728921567',
         'lebod@gmail.com'
     ),
@@ -122,7 +133,9 @@ VALUES
         2,
         'kate',
         'Bosworth',
-        '21 July 1995', '09 First Avenue', 'Soweto',
+        '21 July 1995',
+        '09 First Avenue',
+        'Soweto',
         '0738973665',
         'kateb@gmail.com'
     ),
@@ -130,7 +143,9 @@ VALUES
         4,
         'Zandile',
         'Dhlamini',
-        '01 September 1996', '28 Sunset Street', 'Johannesburg',
+        '01 September 1996',
+        '28 Sunset Street',
+        'Johannesburg',
         '0728974258',
         'zandiled@gmail.com'
     ),
@@ -138,33 +153,39 @@ VALUES
         1,
         'Nicole',
         'Dhlamini',
-        '07 March 1998','02 Sunset Street', 'Sandton',
+        '07 March 1998',
+        '02 Sunset Street',
+        'Sandton',
         '072891001',
         'nicoled@gmail.com'
     ),
-  (
+    (
         2,
         'Sam',
         'Zulu',
-        '07 May 1998','19 Winter Street', 'Sandton',
+        '07 May 1998',
+        '19 Winter Street',
+        'Sandton',
         '073891401',
         'samz@gmail.com'
     ),
-
-      (
+    (
         1,
         'Nick',
         'Davids',
-        '09 December 1998','05 Hilton Street', 'Sandton',
+        '09 December 1998',
+        '05 Hilton Street',
+        'Sandton',
         '072491701',
         'nickd@gmail.com'
     ),
-
     (
         4,
         'David',
         'Smith',
-        '08 December 1976','28 Sunset Street', 'Braamfontein',
+        '08 December 1976',
+        '28 Sunset Street',
+        'Braamfontein',
         '0742569565',
         'davids@gmail.com'
     );
@@ -287,7 +308,7 @@ INSERT INTO
     AccountTypes (TypeName)
 VALUES
     ('Online'),
-('On-Site');
+    ('On-Site');
 
 INSERT INTO
     Accounts (
@@ -311,4 +332,18 @@ VALUES
     ('10', '0010', '2', '63', '2022-04-01', '23'),
     ('11', '0011', '2', '0', '2022-04-09', '0');
 
-    
+-- Buses Data
+INSERT INTO
+    Buses(
+        TypeID,
+        RouteID,
+        BusCode,
+        Healthstatus,
+        Active
+    )
+VALUES
+    (1, 1, 'T2', 1, 1),
+    (2, 3, 'T3', 0, 1),
+    (3, 2, 'F12', 1, 1),
+    (2, 3, 'C2', 1, 0),
+    (1, 3, 'C3', 1, 0);
