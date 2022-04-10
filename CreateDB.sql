@@ -1,0 +1,5 @@
+USE master
+GO
+    DROP DATABASE IF EXISTS ReaVayaDB;
+
+CREATE DATABASE ReaVayaDB;

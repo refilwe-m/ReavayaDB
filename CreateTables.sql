@@ -1,13 +1,12 @@
-USE master
+USE ReaVayaDB
 GO
-	DROP DATABASE IF EXISTS ReaVayaDB;
-
-CREATE DATABASE ReaVayaDB;
-
-GO
-	USE ReaVayaDB
-GO
-DROP TABLE IF EXISTS Positions, Phases, Employees, BusRoutes, BusType, EmployeeBuses, Stations;
+	DROP TABLE IF EXISTS Positions,
+	Phases,
+	Employees,
+	BusRoutes,
+	BusType,
+	EmployeeBuses,
+	Stations;
 
 CREATE TABLE Users(
 	UserID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
@@ -27,31 +26,28 @@ GO
 	);
 
 GO
-
-
-CREATE TABLE Accounts(
-	AccountID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-	UserID int,
-	CardNumber int UNIQUE NOT NULL,
-	TypeID int,
-	Points int DEFAULT 0,
-	CreatedAT date NOT NULL,
-	Balance money DEFAULT 0.0,
-	FOREIGN KEY (UserID) REFERENCES Users(UserID),
-	FOREIGN KEY (TypeID) REFERENCES AccountTypes (TypeID)
-);
+	CREATE TABLE Accounts(
+		AccountID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		UserID int,
+		CardNumber int UNIQUE NOT NULL,
+		TypeID int,
+		Points int DEFAULT 0,
+		CreatedAT date NOT NULL,
+		Balance money DEFAULT 0.0,
+		FOREIGN KEY (UserID) REFERENCES Users(UserID),
+		FOREIGN KEY (TypeID) REFERENCES AccountTypes (TypeID)
+	);
 
 GO
-
-CREATE TABLE Positions(
-	PositionID INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
-	PositionName VARCHAR (30) NOT NULL UNIQUE,
-);
+	CREATE TABLE Positions(
+		PositionID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
+		PositionName VARCHAR (30) NOT NULL UNIQUE,
+	);
 
 GO
 	CREATE TABLE Employees(
 		EmployeeID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
-		DepartmentID int,
+		PositionID INT FOREIGN KEY REFERENCES Positions(PositionID),
 		FirstName nvarchar(100) NOT NULL,
 		LastName nvarchar(100) NOT NULL,
 		DateOfBirth date NOT NULL,
@@ -59,7 +55,6 @@ GO
 		City varchar(100) NOT NULL,
 		CellphoneNum varchar(10) UNIQUE NOT NULL,
 		EmailAddress nvarchar(50) UNIQUE NOT NULL,
-		FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
 	);
 
 GO
@@ -107,16 +102,15 @@ GO
 	);
 
 GO
-
-CREATE TABLE Bookings(
-	BookingID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-	AccountID int,
-	BusID int FOREIGN KEY REFERENCES Buses (BusID),
-	StationID int FOREIGN KEY REFERENCES Stations (StationID),
-	TimeOfTravel time NOT NULL,
-	DateOfTravel date NOT NULL,
-	FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
-);
+	CREATE TABLE Bookings(
+		BookingID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		AccountID int,
+		BusID int FOREIGN KEY REFERENCES Buses (BusID),
+		StationID int FOREIGN KEY REFERENCES Stations (StationID),
+		TimeOfTravel time NOT NULL,
+		DateOfTravel date NOT NULL,
+		FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
+	);
 
 GO
 	CREATE TABLE EmployeeBuses (
