@@ -94,7 +94,7 @@ GO
 		BusID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
 		TypeID int,
 		RouteID int,
-		BusCode varchar (10) NOT NULL,
+		BusCode varchar (10) NOT NULL UNIQUE,
 		HealthStatus bit NOT NULL,
 		Active bit NOT NULL,
 		FOREIGN KEY (TypeID) REFERENCES BusType(TypeID),
