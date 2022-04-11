@@ -32,3 +32,9 @@ EXECUTE ChangeBookingDate '4','12:00:00','2022-04-15';
 
 -- Change User's Email Address
 EXECUTE ChangeUserEmail '1','nomcebosndimande@gmail.com';
+
+-- View to See Company Stats
+SELECT
+	*
+from
+	CompanyStats;
