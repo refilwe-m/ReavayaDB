@@ -1,5 +1,9 @@
 -- ReaVaya UDFs ----
+USE master;
 
+GO
+    USE ReaVayaDB;
+	GO
 
 	-- Count InActive Buses
 CREATE FUNCTION UDF_InactiveBuses()
@@ -9,7 +13,7 @@ BEGIN
 	SELECT @InactiveBuses = COUNT(Active) FROM Buses WHERE Active = 0
 	RETURN @InactiveBuses
 END
-GO;
+GO
 
 	-- Count Active Buses
 CREATE FUNCTION UDF_ActiveBuses()
@@ -19,7 +23,7 @@ BEGIN
 	SELECT @ActiveBuses = COUNT(Active) FROM Buses WHERE Active = 1
 	RETURN @ActiveBuses
 END
-GO;
+GO
 
 
 

@@ -1,4 +1,8 @@
 --Queries---
+USE master;
+
+GO
+    USE ReaVayaDB;
 --Get all the buses that are not working anymore using UDF
 SELECT
     dbo.UDF_InactiveBuses() AS 'Buses not Working';
