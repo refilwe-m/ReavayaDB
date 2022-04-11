@@ -2,42 +2,47 @@ USE master;
 
 USE ReaVayaDB
 GO
-	DROP TABLE IF EXISTS Positions,
-	Phases,
-	Employees,
-	BusRoutes,
-	BusType,
+	DROP TABLE IF EXISTS Users,
+	Positions,
+	Accounts,
+	AccountTypes,
+	Fares,
+	Buses,
+	Bookings,
 	EmployeeBuses,
-	Stations;
+	Phases,
+	BusRoutes,
+	Stations,
+	Tickets,
+	Employees;
 
-CREATE TABLE Users(
-	UserID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
-	FirstName nvarchar(100) NOT NULL,
-	LastName nvarchar(100) NOT NULL,
-	DateOfBirth date NOT NULL,
-	ResAddress varchar(100) NOT NULL,
-	City varchar(100) NOT NULL,
-	CellphoneNum varchar(10) UNIQUE NOT NULL,
-	EmailAddress nvarchar(50) UNIQUE NOT NULL,
-);
+GO
+	CREATE TABLE Users(
+		UserID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
+		FirstName NVARCHAR(100) NOT NULL,
+		LastName NVARCHAR(100) NOT NULL,
+		DateOfBirth DATE NOT NULL,
+		ResAddress VARCHAR(100) NOT NULL,
+		City VARCHAR(100) NOT NULL,
+		CellphoneNum VARCHAR(10) UNIQUE NOT NULL,
+		EmailAddress NVARCHAR(50) UNIQUE NOT NULL,
+	);
 
 GO
 	CREATE TABLE AccountTypes(
-		TypeID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		TypeName varchar (50) NOT NULL,
+		TypeID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		TypeName NVARCHAR (7) NOT NULL,
 	);
 
 GO
 	CREATE TABLE Accounts(
-		AccountID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		UserID int,
-		CardNumber int UNIQUE NOT NULL,
-		TypeID int,
-		Points int DEFAULT 0,
-		CreatedAT date NOT NULL,
-		Balance money DEFAULT 0.0,
-		FOREIGN KEY (UserID) REFERENCES Users(UserID),
-		FOREIGN KEY (TypeID) REFERENCES AccountTypes (TypeID)
+		AccountID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		UserID INT FOREIGN KEY REFERENCES Users(UserID),
+		TypeID INT FOREIGN KEY REFERENCES AccountTypes (TypeID),
+		CardNumber INT UNIQUE NOT NULL,
+		Points INT DEFAULT 0,
+		CreatedAt DATE NOT NULL,
+		Balance MONEY DEFAULT 0.0,
 	);
 
 GO
@@ -48,67 +53,64 @@ GO
 
 GO
 	CREATE TABLE Fares(
-		FareID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		FareID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 		StartKM DECIMAL NOT NULL,
 		EndKM DECIMAL NOT NULL,
-		Fare DECIMAL NOT NULL,
+		Fare SMALLMONEY NOT NULL,
 	);
 
 GO
 	CREATE TABLE Employees(
-		EmployeeID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
+		EmployeeID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
 		PositionID INT FOREIGN KEY REFERENCES Positions(PositionID),
-		FirstName nvarchar(100) NOT NULL,
-		LastName nvarchar(100) NOT NULL,
-		DateOfBirth date NOT NULL,
-		ResAddress varchar(100) NOT NULL,
-		City varchar(100) NOT NULL,
-		CellphoneNum varchar(10) UNIQUE NOT NULL,
-		EmailAddress nvarchar(50) UNIQUE NOT NULL,
+		FirstName NVARCHAR(100) NOT NULL,
+		LastName NVARCHAR(100) NOT NULL,
+		DateOfBirth DATE NOT NULL,
+		ResAddress VARCHAR(100) NOT NULL,
+		City VARCHAR(100) NOT NULL,
+		CellphoneNum VARCHAR(10) UNIQUE NOT NULL,
+		EmailAddress NVARCHAR(50) UNIQUE NOT NULL,
 	);
 
 GO
 	CREATE TABLE Phases(
-		PhaseID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		CityCode varchar(5) NOT NULL,
-		Description nvarchar (500) NOT NULL
+		PhaseID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		CityCode VARCHAR(5) NOT NULL,
+		Description NVARCHAR (500) NOT NULL
 	);
 
 GO
 	CREATE TABLE BusRoutes(
-		RouteID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		PhaseID int,
-		FromCity varchar(30) NOT NULL,
-		ToCity varchar(30) NOT NULL,
-		FOREIGN KEY (PhaseID) REFERENCES Phases (PhaseID)
+		RouteID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		PhaseID INT FOREIGN KEY REFERENCES Phases (PhaseID),
+		FromCity VARCHAR(50) NOT NULL,
+		ToCity VARCHAR(50) NOT NULL,
 	);
 
 GO
 	CREATE TABLE Stations(
-		StationID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		RouteID int,
-		Name varchar(30) NOT NULL,
-		FOREIGN KEY (RouteID) REFERENCES BusRoutes(RouteID)
+		StationID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		RouteID INT FOREIGN KEY REFERENCES BusRoutes(RouteID),
+		Name VARCHAR(30) UNIQUE NOT NULL,
 	);
 
 GO
 	CREATE TABLE BusTypes(
-		TypeID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		TypeName varchar(30) NOT NULL,
-		SeatNumber int NOT NULL
+		TypeID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		TypeName VARCHAR(30) NOT NULL,
+		SeatsNumber INT NOT NULL
 	);
 
 GO
 	CREATE TABLE BusCodes(
-		CodeID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		CodeID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 		CodeName VARCHAR(3) UNIQUE NOT NULL,
-
 	);
 
 GO
 	CREATE TABLE Buses(
 		BusID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
-		TypeID INT FOREIGN KEY REFERENCES BusType(TypeID),
+		TypeID INT FOREIGN KEY REFERENCES BusTypes(TypeID),
 		RouteID INT FOREIGN KEY REFERENCES BusRoutes(RouteID),
 		CodeID INT NOT NULL FOREIGN KEY REFERENCES BusCodes(CodeID),
 		HealthStatus BIT NOT NULL,
@@ -117,34 +119,36 @@ GO
 
 GO
 	CREATE TABLE Bookings(
-		BookingID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		BookingID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 		FareID INT FOREIGN KEY REFERENCES Fares(FareID),
-		AccountID int,
-		BusID int FOREIGN KEY REFERENCES Buses (BusID),
-		StationID int FOREIGN KEY REFERENCES Stations (StationID),
+		AccountID INT FOREIGN KEY REFERENCES Accounts(AccountID),
+		BusID INT FOREIGN KEY REFERENCES Buses (BusID),
+		StationID INT FOREIGN KEY REFERENCES Stations (StationID),
 		TimeOfTravel time NOT NULL,
 		DateOfTravel date NOT NULL,
-		FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
 	);
 
 GO
 	CREATE TABLE EmployeeBuses (
-		EmployeeBusID int IDENTITY (1, 1) PRIMARY KEY NOT NULL,
-		EmployeeID int,
-		BusID int,
-		StartDate date NOT NULL,
-		EndDate date NOT NULL,
-		FOREIGN KEY (EmployeeID) REFERENCES Employees (EmployeeID),
-		FOREIGN KEY (BusID) REFERENCES Buses (BusID)
+		EmployeeBusID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
+		EmployeeID INT FOREIGN KEY REFERENCES Employees (EmployeeID),
+		BusID INT FOREIGN KEY REFERENCES Buses (BusID),
+		StartDate DATE NOT NULL,
+		EndDate DATE NULL,
+	);
+
+GO
+	CREATE TABLE TicketTypes(
+		TypeID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		TicketType VARCHAR(6) NOT NULL,
 	);
 
 GO
 	CREATE TABLE Tickets(
-		TicketID int IDENTITY(1, 1) PRIMARY KEY NOT NULL,
-		StationID int,
-		TicketType varchar(100) NOT NULL,
-		SoldBy INT FOREIGN KEY REFERENCES Employees (EmployeeID),
-		FOREIGN KEY (StationID) REFERENCES Stations(StationID)
+		TicketID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		StationID INT FOREIGN KEY (StationID) REFERENCES Stations(StationID),
+		TicketType INT FOREIGN KEY REFERENCES TicketTypes(TypeID),
+		SoldBy INT FOREIGN KEY REFERENCES Employees (EmployeeID)
 	);
 
 GO

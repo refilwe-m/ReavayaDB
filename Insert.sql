@@ -1,54 +1,154 @@
 USE master;
 
-USE ReaVayaDB;
+GO
+    USE ReaVayaDB;
 
---Phases Data
+--Users Data
 INSERT INTO
-    Phases(CityCode, Description)
+    Users (
+        FirstName,
+        LastName,
+        DateOfBirth,
+        ResAddress,
+        City,
+        CellphoneNum,
+        EmailAddress
+    )
 VALUES
-    ('SACB', 'Soweto though Auckland Park until CBD'),
     (
-        'CWPY',
-        'Cresta, Windsor West, Parktown, Yeoville'
+        'Refilwe',
+        'Mashile',
+        '1995-12-27',
+        '806 Grandrose Ave',
+        'Soweto',
+        '0845434648',
+        'refilwe-mashile@yahoo.com'
     ),
-    ('PAS', 'Parktown, Alexandra, Sandton');
+    (
+        'Nomcebo',
+        'Ndimande',
+        '1999-12-29',
+        '26 Market Drive',
+        'Park Town',
+        '0817217371',
+        'ndimandnomcebo1@gmail.com'
+    ),
+    (
+        'Itumeleng',
+        'Matheba',
+        '1997-02-26',
+        '60 Mandela St',
+        'Braamfontein',
+        '0674545321',
+        'itumeleng123@gmail.com'
+    ),
+    (
+        'Ryan',
+        'Williams',
+        '1990-11-23',
+        '16 James St',
+        'Park Town',
+        '0804359867',
+        'williams.ryan@yahoo.com'
+    ),
+    (
+        'Andrew',
+        'Brown',
+        '1989-10-27',
+        '75 East Hanry Lane',
+        'Lake View',
+        '0675145325',
+        'andrewcool123@gmail.com'
+    ),
+    (
+        'Aaron',
+        'Wilson',
+        '2000-01-01',
+        '81 Baker Av',
+        'Thokoza',
+        '0876573902',
+        'aaronaaron@gmail.com'
+    ),
+    (
+        'Jordan',
+        'Smith',
+        '1985-06-27',
+        '63 Thompson Lane',
+        'Ellis Park',
+        '0839838784',
+        'jordan1120@gmail.com'
+    ),
+    (
+        'August',
+        'Alsina',
+        '1989-04-24',
+        '167 Gartner St',
+        'Braamfontein',
+        '0849709865',
+        'augustalsin@yahho.com'
+    ),
+    (
+        'Buhle',
+        'Mlilo',
+        '1994-06-07',
+        '73 Cambridge St',
+        'Dobsonville',
+        '0739843621',
+        'mlilobuhle23@yahoo.com'
+    ),
+    (
+        'Thando',
+        'Mvubu',
+        '1999-07-21',
+        '72 Daffodil Cres',
+        'Cresta',
+        '0659782975',
+        'thandom@gmail.com'
+    ),
+    (
+        'Emily',
+        'Jones',
+        '2001-08-01',
+        '720 West Port Drive',
+        'Soweto',
+        '0651629852',
+        'jonesemy@gmail.com'
+    );
 
--- Routes Data
+GO
+    --AccountTypes Data
 INSERT INTO
-    BusRoutes(PhaseID, FromCity, ToCity)
+    AccountTypes (TypeName)
 VALUES
-    ('1', 'Protea Glen', 'Thokoza Park'),
-    ('1', 'Eldorado Park', 'Lakeview'),
-    ('1', 'Hillbrow', ' Ellis Park'),
-    ('1', 'Braamfontein', ' Ellis Park'),
-    ('2', 'Auckland Park', 'Braamfontein'),
-    ('2', 'Rissik Street', 'Parktown'),
-    ('2', 'Auckland Park', 'Braamfontein'),
-    ('2', 'Noordgesig', 'Metro Centre'),
-    ('3', 'Wynberg', 'Alexandra'),
-    ('3', 'Joburg CBD', 'Sandton'),
-    ('3', 'Orange Grove', 'Hillbrow'),
-    ('3', 'Yeoville', 'Bramley');
+    ('Online'),
+    ('On-Site');
 
--- Stations
+GO
+    --Accounts Data
 INSERT INTO
-    Stations(RouteID, Name)
+    Accounts (
+        UserID,
+        CardNumber,
+        TypeID,
+        Points,
+        CreatedAT,
+        Balance
+    )
 VALUES
-    (1, 'Lakeview'),
-    (1, 'Thokoza Park'),
-    (2, 'Wits Station'),
-    (2, 'UJ Sophiatown Res'),
-    (2, 'Parktown'),
-    (2, 'Joburg Theatre'),
-    (2, 'Russik Street'),
-    (2, 'Library Gardens'),
-    (2, 'Milpark'),
-    (2, 'SABC Media Park'),
-    (3, 'Hillbrow');
+    ('1', '0001', '1', '23', '2020-01-17', '80'),
+    ('2', '0002', '2', '10', '2022-12-01', '23'),
+    ('3', '0003', '2', '20', '2018-03-08', '56'),
+    ('4', '0004', '1', '50', '2020-02-05', '0'),
+    ('5', '0005', '1', '0', '2022-11-01', '0'),
+    ('6', '0006', '1', '28', '2021-07-26', '15'),
+    ('7', '0007', '1', '30', '2017-08-01', '74'),
+    ('8', '0008', '2', '100', '2022-01-08', '89'),
+    ('9', '0009', '1', '78', '2021-10-30', '51'),
+    ('10', '0010', '2', '63', '2022-04-01', '23'),
+    ('11', '0011', '2', '0', '2022-04-09', '0');
 
--- Tickets
---INSERT INTO Tickets(StationID, TicketType, SoldBy) VALUES(ADD AFTER EMPLOYEES ARE POPULATED);
--- Employees
+GO
+    --Positions Data
 INSERT INTO
     Positions (PositionName)
 VALUES
@@ -57,9 +157,23 @@ VALUES
     ('Driver'),
     ('StationManager');
 
+GO
+    --Fares Data
+INSERT INTO
+    Fares (StartKM, EndKM, Fare)
+VALUES
+    (0, 5, 9),
+    (5.1, 10, 11),
+    (10.1, 15, 13.50),
+    (15.1, 25, 16),
+    (25.1, 35, 17),
+    (35.1, 50, 18);
+
+GO
+    --Employees Data
 INSERT INTO
     Employees (
-        DepartmentID,
+        PositionID,
         FirstName,
         LastName,
         DateOfBirth,
@@ -191,148 +305,39 @@ VALUES
     );
 
 GO
+    --Phases Data
 INSERT INTO
-    Users (
-        FirstName,
-        LastName,
-        DateOfBirth,
-        ResAddress,
-        City,
-        CellphoneNum,
-        EmailAddress
-    )
+    Phases(CityCode, Description)
 VALUES
+    ('SACB', 'Soweto though Auckland Park until CBD'),
     (
-        'Refilwe',
-        'Mashile',
-        '1995-12-27',
-        '806 Grandrose Ave',
-        'Soweto',
-        '0845434648',
-        'refilwe-mashile@yahoo.com'
+        'CWPY',
+        'Cresta, Windsor West, Parktown, Yeoville'
     ),
-    (
-        'Nomcebo',
-        'Ndimande',
-        '1999-12-29',
-        '26 Market Drive',
-        'Park Town',
-        '0817217371',
-        'ndimandnomcebo1@gmail.com'
-    ),
-    (
-        'Itumeleng',
-        'Matheba',
-        '1997-02-26',
-        '60 Mandela St',
-        'Braamfontein',
-        '0674545321',
-        'itumeleng123@gmail.com'
-    ),
-    (
-        'Ryan',
-        'Williams',
-        '1990-11-23',
-        '16 James St',
-        'Park Town',
-        '0804359867',
-        'williams.ryan@yahoo.com'
-    ),
-    (
-        'Andrew',
-        'Brown',
-        '1989-10-27',
-        '75 East Hanry Lane',
-        'Lake View',
-        '0675145325',
-        'andrewcool123@gmail.com'
-    ),
-    (
-        'Aaron',
-        'Wilson',
-        '2000-01-01',
-        '81 Baker Av',
-        'Thokoza',
-        '0876573902',
-        'aaronaaron@gmail.com'
-    ),
-    (
-        'Jordan',
-        'Smith',
-        '1985-06-27',
-        '63 Thompson Lane',
-        'Ellis Park',
-        '0839838784',
-        'jordan1120@gmail.com'
-    ),
-    (
-        'August',
-        'Alsina',
-        '1989-04-24',
-        '167 Gartner St',
-        'Braamfontein',
-        '0849709865',
-        'augustalsin@yahho.com'
-    ),
-    (
-        'Buhle',
-        'Mlilo',
-        '1994-06-07',
-        '73 Cambridge St',
-        'Dobsonville',
-        '0739843621',
-        'mlilobuhle23@yahoo.com'
-    ),
-    (
-        'Thando',
-        'Mvubu',
-        '1999-07-21',
-        '72 Daffodil Cres',
-        'Cresta',
-        '0659782975',
-        'thandom@gmail.com'
-    ),
-    (
-        'Emily',
-        'Jones',
-        '2001-08-01',
-        '720 West Port Drive',
-        'Soweto',
-        '0651629852',
-        'jonesemy@gmail.com'
-    );
+    ('PAS', 'Parktown, Alexandra, Sandton');
 
+GO
+    -- Routes Data
 INSERT INTO
-    AccountTypes (TypeName)
+    BusRoutes(PhaseID, FromCity, ToCity)
 VALUES
-    ('Online'),
-    ('On-Site');
+    ('1', 'Protea Glen', 'Thokoza Park'),
+    ('1', 'Eldorado Park', 'Lakeview'),
+    ('1', 'Hillbrow', ' Ellis Park'),
+    ('1', 'Braamfontein', ' Ellis Park'),
+    ('2', 'Auckland Park', 'Braamfontein'),
+    ('2', 'Rissik Street', 'Parktown'),
+    ('2', 'Auckland Park', 'Braamfontein'),
+    ('2', 'Noordgesig', 'Metro Centre'),
+    ('3', 'Wynberg', 'Alexandra'),
+    ('3', 'Joburg CBD', 'Sandton'),
+    ('3', 'Orange Grove', 'Hillbrow'),
+    ('3', 'Yeoville', 'Bramley');
 
+GO
+    --Insert Bus Codes
 INSERT INTO
-    Accounts (
-        UserID,
-        CardNumber,
-        TypeID,
-        Points,
-        CreatedAT,
-        Balance
-    )
-VALUES
-    ('1', '0001', '1', '23', '2020-01-17', '80'),
-    ('2', '0002', '2', '10', '2022-12-01', '23'),
-    ('3', '0003', '2', '20', '2018-03-08', '56'),
-    ('4', '0004', '1', '50', '2020-02-05', '0'),
-    ('5', '0005', '1', '0', '2022-11-01', '0'),
-    ('6', '0006', '1', '28', '2021-07-26', '15'),
-    ('7', '0007', '1', '30', '2017-08-01', '74'),
-    ('8', '0008', '2', '100', '2022-01-08', '89'),
-    ('9', '0009', '1', '78', '2021-10-30', '51'),
-    ('10', '0010', '2', '63', '2022-04-01', '23'),
-    ('11', '0011', '2', '0', '2022-04-09', '0');
-
---Insert Bus Codes
-INSERT INTO
-    BusCodes (Code)
+    BusCodes (CodeName)
 VALUES
     ('T1'),
     ('T2'),
@@ -341,6 +346,8 @@ VALUES
     ('C2'),
     ('C3'),
     ('C4'),
+    ('F1'),
+    ('F2'),
     ('F3'),
     ('F4'),
     ('F6'),
@@ -351,38 +358,74 @@ VALUES
     ('F11'),
     ('F12');
 
--- Buses Data
+GO
+    -- Stations
+INSERT INTO
+    Stations(RouteID, Name)
+VALUES
+    (3, 'Lakeview'),
+    (2, 'Thokoza Park'),
+    (5, 'Wits Station'),
+    (8, 'UJ Sophiatown Res'),
+    (7, 'Parktown'),
+    (2, 'Joburg Theatre'),
+    (11, 'Russik Street'),
+    (7, 'Library Gardens'),
+    (13, 'Milpark'),
+    (8, 'SABC Media Park'),
+    (12, 'Hillbrow');
+
+GO
+    --Bus Types
+INSERT INTO
+    BusTypes (TypeName, SeatsNumber)
+VALUES
+    ('Feeder', 100),
+    ('Complementary', 150),
+    ('Trunk', 300);
+
+GO
+    -- Buses Data
 INSERT INTO
     Buses(
         TypeID,
         RouteID,
-        BusCode,
+        CodeID,
         Healthstatus,
         Active
     )
 VALUES
-    (1, 1, 1, 1, 1),
-    (1, 1, 2, 1, 1),
-    (2, 3, 3, 0, 1),
-    (2, 3, 3, 0, 1),
-    (1, 1, 1, 1),
-    (2, 3, 1, 0),
-    (1, 3, 1, 0),
-    (1, 1, 1, 1),
-    (1, 1, 1, 1),
-    (3, 2, 1, 1),
-    (3, 2, 0, 1),
-    (3, 2, 1, 1),
-    (3, 2, 1, 1),
-    (3, 2, 1, 1),
-    (3, 2, 1, 1),
-    (3, 2, 1, 0),
-    (3, 2, 1, 1),
-    (3, 2, 1, 1);
+    (3, 2, 1, 1, 1),
+    (3, 5, 2, 1, 1),
+    (3, 7, 1, 0, 1),
+    (3, 3, 3, 0, 1),
+    (3, 3, 3, 0, 1),
+    (2, 3, 4, 0, 1),
+    (2, 4, 5, 1, 0),
+    (2, 6, 5, 1, 1),
+    (1, 3, 6, 0, 1),
+    (1, 3, 6, 0, 1),
+    (1, 5, 7, 0, 0),
+    (1, 10, 8, 1, 0),
+    (1, 8, 9, 1, 1),
+    (1, 2, 10, 1, 1),
+    (1, 12, 11, 1, 1),
+    (1, 11, 12, 1, 1),
+    (1, 2, 13, 1, 1),
+    (1, 9, 14, 1, 0),
+    (1, 11, 15, 1, 0),
+    (1, 6, 16, 0, 1),
+    (1, 7, 17, 1, 1),
+    (1, 4, 18, 1, 1);
 
--- Insert Ticket Types
+GO
+    -- Insert Ticket Types
 INSERT INTO
-    TicketTypes (TypeName)
+    TicketTypes (TicketType)
 VALUES
     ('Single'),
     ('Return');
+
+GO
+    -- Tickets
+    --INSERT INTO Tickets(StationID, TicketType, SoldBy) VALUES(ADD AFTER EMPLOYEES ARE POPULATED);
