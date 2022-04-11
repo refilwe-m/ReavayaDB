@@ -421,11 +421,28 @@ VALUES
 GO
     -- Insert Ticket Types
 INSERT INTO
-    TicketTypes (TicketType)
+    TicketTypes (TicketType, Price)
 VALUES
-    ('Single'),
-    ('Return');
+    ('Single', 25),
+    ('Return', 50);
 
 GO
     -- Tickets
-    --INSERT INTO Tickets(StationID, TicketType, SoldBy) VALUES(ADD AFTER EMPLOYEES ARE POPULATED);
+INSERT INTO
+    Tickets(StationID, TicketType, SoldBy)
+VALUES
+    (11, 1, 12),
+    (2, 1, 12),
+    (3, 2, 12),
+    (4, 1, 12),
+    (5, 1, 4),
+    (6, 2, 4),
+    (7, 1, 12),
+    (8, 2, 4),
+    (9, 1, 4),
+    (10, 1, 4),
+    (10, 2, 12),
+    (10, 2, 12),
+    (10, 1, 4),
+    (11, 2, 12),
+    (12, 1, 4);
