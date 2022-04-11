@@ -3,6 +3,7 @@ USE master;
 GO
     USE ReaVayaDB;
 
+
 --Users Data
 INSERT INTO
     Users (
@@ -453,10 +454,17 @@ VALUES
 
 GO
     --EmployeeBuses Data
---INSERT INTO
---    EmployeeBuses(EmployeeID, BusID, StartDate, EndDate)
---VALUES
---    ();
+INSERT INTO EmployeeBuses (EmployeeID, BusID, StartDate, EndDate)
+VALUES ('1', '1', '2022-04-01', '2022-04-15'),
+		('3', '2', '2022-04-16', '2022-04-30'),
+		('5', '3', '2022-05-01', '2022-05-15'),
+		('6', '4','2022-05-16', '2022-05-31'),
+		('1', '5','2022-06-01', '2022-06-15'),
+		('1', '6', '2022-06-16', '2022-06-30'),
+		('3', '7', '2022-07-01', '2022-07-15'),
+		('5', '8', '2022-07-16', '2022-07-31'),
+		('3', '9', '2022-08-01', '2022-08-15');
+GO
 
 GO
     -- Insert Ticket Types
