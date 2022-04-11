@@ -419,6 +419,27 @@ VALUES
     (1, 4, 18, 1, 1);
 
 GO
+    --Bookings Data
+INSERT INTO
+    Bookings(
+        FareID,
+        AccountID,
+        BusID,
+        StationID,
+        TimeOfTravel,
+        DateOfTravel
+    )
+VALUES
+();
+
+GO
+    --EmployeeBuses Data
+INSERT INTO
+    EmployeeBuses(EmployeeID, BusID, StartDate, EndDate)
+VALUES
+();
+
+GO
     -- Insert Ticket Types
 INSERT INTO
     TicketTypes (TicketType, Price)
