@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main id = "logins">
+        <section class = "login" id="login-stuff">
+           
+            <h1>Login | Stuff</h1>
+            <p>Bus Driver, Station Clerk</p>
+                    
+            <button type="submit" id="btn-stuff" class="btn modal-btn">Login</button>
+
+             
+        </section>
+
+        <section class = "login" id="login-hr">
+            <h1>Login | Admin</h1>
+            <p>HR, IT</p>
+            <button type="submit" id = "btn-hr" class="btn modal-btn">Login</button>
+
+        </section>
+    </main>
+
+    <section class="modal-bg">
+        <section id="modal">
+            <p id="close-modal">X</p>
+            <h2 id = "welcome-msg">Welcome,</h2>
+            <i class='fa-solid fa-xl fa-circle-user' style='color: red'></i>
+            <p>Please enter your credentials to login</p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <button type="submit" class="btn">Login</button>
+        </section>
+    </section>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
