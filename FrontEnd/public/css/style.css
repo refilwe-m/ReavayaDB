@@ -1,7 +1,31 @@
+/* Custom Variables*/
+html{
+    /*--main-bg-color:#FAFAFA,
+    --main-sub-color:#FFFFFF,
+    --btn-color:#3F7CAC,
+    --seconday-color:#EE3134,
+    --font-family:Poppins, sans-serif;
+    --footer-bg-color:#666666*/
+    --main-dark-bg: #131313,
+    --main-dark-font-color:#FAFAFA
+}
+
+body{
+    background-color: #131313;
+    color: #FAFAFA;
+    font: Poppins, sans-serif;
+    margin: 0;
+
+}
+
+/* I N D E X */
 section{
 padding: 40px 0;
 text-align: center;
+}
 
+footer{
+    background-color: #D32F2F;
 }
 
 #logins{
@@ -14,7 +38,6 @@ text-align: center;
 
 .btn{
     display: inline-block;
-    color: white;
     font-weight: 500;
     font-size: 20px;
     background: #3F7CAC;
@@ -49,7 +72,7 @@ input{
 }
 #modal{
     position: relative;
-    background-color: white;
+    background-color: #222222;
     padding: 5em;
     width: 30%;
     height: 30%;
@@ -77,3 +100,14 @@ input{
     visibility: visible;
     opacity: 1;
 }
+
+/* N A V I G A T I O N */
+ul{
+    display: flex;
+}
+
+li{
+    text-decoration: none;    
+}
+
+/* D A S H B O A R D */
