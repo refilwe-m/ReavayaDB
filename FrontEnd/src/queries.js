@@ -10,7 +10,7 @@ const dbConnect = new sql.connect(config, (err) =>
 );
 
 //Functions to interact with DB
-const getAllBuses = async ()=>{
+const getAllBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool.request().query("SELECT * FROM dbo.Buses");
@@ -18,9 +18,9 @@ const getAllBuses = async ()=>{
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-const getAllEmployees = async ()=>{
+const getAllEmployees = async () => {
   try {
     const pool = await sql.connect(config);
     const employees = await pool.request().query("SELECT * FROM dbo.Employees");
@@ -28,139 +28,236 @@ const getAllEmployees = async ()=>{
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-const getAllDrivers = async ()=>{try {
-  const pool = await sql.connect(config);
-  const drivers = await pool.request().query("SELECT * FROM dbo.Employees WHERE PositionID = 3");
-  return drivers.recordsets[0];
-} catch (error) {
-  console.log(error);
-}
-}
+const getAllDrivers = async () => {
+  try {
+    const pool = await sql.connect(config);
+    const drivers = await pool
+      .request()
+      .query("SELECT * FROM dbo.Employees WHERE PositionID = 3");
+    return drivers.recordsets[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //Get All working busses
-getAllWorkingBuses = async ()=>{
+getAllWorkingBuses = async () => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("SELECT * FROM dbo.Buses WHERE HealthStatus = 1");
+    const buses = await pool
+      .request()
+      .query("SELECT * FROM dbo.Buses WHERE HealthStatus = 1");
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //Get Working & Unallocated Buses
-getReadyForAllocationBuses = async ()=>{
+getReadyForAllocationBuses = async () => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("SELECT * FROM dbo.Buses WHERE BusID NOT IN (SELECT BusID FROM dbo.EmployeeBuses) AND HealthStatus = 1");
+    const buses = await pool
+      .request()
+      .query(
+        "SELECT * FROM dbo.Buses WHERE BusID NOT IN (SELECT BusID FROM dbo.EmployeeBuses) AND HealthStatus = 1"
+      );
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //Get All Allocated Buses
-getAllAllocatedBuses = async ()=>{
+getAllAllocatedBuses = async () => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("SELECT * FROM dbo.Buses WHERE BusID IN (SELECT BusID FROM dbo.EmployeeBuses)");
+    const buses = await pool
+      .request()
+      .query(
+        "SELECT * FROM dbo.Buses WHERE BusID IN (SELECT BusID FROM dbo.EmployeeBuses)"
+      );
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //Get Faulty Buses
-getAllFaultyBuses = async ()=>{
+getAllFaultyBuses = async () => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("SELECT * FROM dbo.Buses WHERE HealthStatus = 0");
+    const buses = await pool
+      .request()
+      .query("SELECT * FROM dbo.Buses WHERE HealthStatus = 0");
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //Remove Bus
-const removeBus = async (busID)=>{
+const removeBus = async (busID) => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("DELETE FROM dbo.Buses WHERE BusID = " + busID);
+    const buses = await pool
+      .request()
+      .query("DELETE FROM dbo.Buses WHERE BusID = " + busID);
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //Remove Employee
-removeEmployee = async (employeeID)=>{
+removeEmployee = async (employeeID) => {
   try {
     const pool = await sql.connect(config);
-    const employees = await pool.request().query("DELETE FROM dbo.Employees WHERE EmployeeID = " + employeeID);
+    const employees = await pool
+      .request()
+      .input("EMPLOYEE_ID", sql.Int, employeeID)
+      .query("DELETE FROM dbo.Employees WHERE EmployeeID = @EMPLOYEE_ID");
     return employees.recordsets[0];
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 //add new bus
-const addBus = async (busID, busType, busModel, busCapacity, busHealthStatus)=>{
+const addBus = async (
+  busID,
+  busType,
+  busModel,
+  busCapacity,
+  busHealthStatus
+) => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("INSERT INTO dbo.Buses (BusID, BusType, BusModel, BusCapacity, HealthStatus) VALUES (" + busID + ", '" + busType + "', '" + busModel + "', " + busCapacity + ", " + busHealthStatus + ")");
-    return buses.recordsets[0];
+    pool
+      .request()
+      .query(
+        "INSERT INTO dbo.Buses (BusID, BusType, BusModel, BusCapacity, HealthStatus) VALUES (" +
+          busID +
+          ", '" +
+          busType +
+          "', '" +
+          busModel +
+          "', " +
+          busCapacity +
+          ", " +
+          busHealthStatus +
+          ")"
+      );
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //add new employee
-const addEmployee = async (employeeID, employeeName, employeeSurname, employeeEmail, employeePhone, employeeAddress, employeePositionID, employeeHealthStatus)=>{
+const addEmployee = async (
+  employeeID,
+  employeeName,
+  employeeSurname,
+  employeeEmail,
+  employeePhone,
+  employeeAddress,
+  employeePositionID,
+  employeeHealthStatus
+) => {
   try {
     const pool = await sql.connect(config);
-    const employees = await pool.request().query("INSERT INTO dbo.Employees (EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus) VALUES (" + employeeID + ", '" + employeeName + "', '" + employeeSurname + "', '" + employeeEmail + "', '" + employeePhone + "', '" + employeeAddress + "', " + employeePositionID + ", " + employeeHealthStatus + ")");
-    return employees.recordsets[0];
+    await pool
+      .request()
+      .query(
+        "INSERT INTO dbo.Employees (EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus) VALUES (" +
+          employeeID +
+          ", '" +
+          employeeName +
+          "', '" +
+          employeeSurname +
+          "', '" +
+          employeeEmail +
+          "', '" +
+          employeePhone +
+          "', '" +
+          employeeAddress +
+          "', " +
+          employeePositionID +
+          ", " +
+          employeeHealthStatus +
+          ")"
+      );
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //allocate bus to employee
-const allocateBus = async (busID, employeeID)=>{
+const allocateBus = async (busID, employeeID) => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("INSERT INTO dbo.EmployeeBuses (BusID, EmployeeID) VALUES (" + busID + ", " + employeeID + ")");
-    return buses.recordsets[0];
+    await pool
+      .request()
+      .query(
+        "INSERT INTO dbo.EmployeeBuses (BusID, EmployeeID) VALUES (" +
+          busID +
+          ", " +
+          employeeID +
+          ")"
+      );
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //deallocate bus from employee
-const deallocateBus = async (busID, employeeID)=>{
+const deallocateBus = async (busID, employeeID) => {
   try {
     const pool = await sql.connect(config);
-    const buses = await pool.request().query("DELETE FROM dbo.EmployeeBuses WHERE BusID = " + busID + " AND EmployeeID = " + employeeID);
-    return buses.recordsets[0];
+    await pool
+      .request()
+      .query(
+        "DELETE FROM dbo.EmployeeBuses WHERE BusID = " +
+          busID +
+          " AND EmployeeID = " +
+          employeeID
+      );
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 //sell ticket
-const sellTicket = async (ticketID, ticketPrice, ticketSeat, ticketBusID, ticketEmployeeID)=>{
+const sellTicket = async (
+  ticketID,
+  ticketPrice,
+  ticketSeat,
+  ticketBusID,
+  ticketEmployeeID
+) => {
   try {
     const pool = await sql.connect(config);
-    const tickets = await pool.request().query("INSERT INTO dbo.Tickets (TicketID, TicketPrice, TicketSeat, BusID, EmployeeID) VALUES (" + ticketID + ", " + ticketPrice + ", " + ticketSeat + ", " + ticketBusID + ", " + ticketEmployeeID + ")");
-    return tickets.recordsets[0];
+    await pool
+      .request()
+      .query(
+        "INSERT INTO dbo.Tickets (TicketID, TicketPrice, TicketSeat, BusID, EmployeeID) VALUES (" +
+          ticketID +
+          ", " +
+          ticketPrice +
+          ", " +
+          ticketSeat +
+          ", " +
+          ticketBusID +
+          ", " +
+          ticketEmployeeID +
+          ")"
+      );
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 //getAllBuses().then((result) =>console.log("Buses: \n",result));
 //getAllEmployees().then((result) =>console.log("Employees: \n",result));
@@ -172,6 +269,19 @@ const sellTicket = async (ticketID, ticketPrice, ticketSeat, ticketBusID, ticket
 //removeBus(1).then((result) =>console.log("Removed Bus: \n",result));
 //removeEmployee(1).then((result) =>console.log("Removed Employee: \n",result));
 
-
-
-module.exports = {getAllBuses, getAllEmployees};
+module.exports = {
+  getAllBuses,
+  getAllEmployees,
+  getAllDrivers,
+  getAllWorkingBuses,
+  getReadyForAllocationBuses,
+  getAllAllocatedBuses,
+  getAllFaultyBuses,
+  removeBus,
+  removeEmployee,
+  addBus,
+  addEmployee,
+  allocateBus,
+  deallocateBus,
+  sellTicket,
+};
