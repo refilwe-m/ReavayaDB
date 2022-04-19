@@ -17,12 +17,17 @@ app.get("/dashboard", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/dashboard.html"));
 });
 
-app.post("/addBus",async (req, res) => {
-  const { BusID, BusNumber, BusType, HealthStatus } = req.body;
-  const result = await addBus(BusID, BusNumber, BusType, HealthStatus)
-  res.status(201).send("Bus Added Successfully");
+app.get("/addBus", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/addBus.html"));
 });
 
+app.post("/addBus",async (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/addBus.html"));
+  // const { BusID, BusNumber, BusType, HealthStatus } = req.body;
+  // const result = await addBus(BusID, BusNumber, BusType, HealthStatus)
+  // res.status(201).send("Bus Added Successfully");
+});
+/*
 app.post("/addEmployee", (req, res) => {
   const { EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus } = req.body;
   addEmployee(EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus).then((result) => {result.send("Employee Added Successfully");}
@@ -40,6 +45,6 @@ app.post("/sellTicket", (req) => {
   sellTicket(TicketID, TicketPrice, TicketSeat, BusID, EmployeeID).then((result) => {result.send("Ticket Sold Successfully");}
   );
 });
-
+*/
 const port = 3000;
 app.listen(port, () => console.log(`Running on port http://localhost:${port}`));
