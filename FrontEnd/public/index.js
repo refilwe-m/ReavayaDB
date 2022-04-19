@@ -1,25 +1,24 @@
 // js code
-fakeLoginSchema = {
-  "refilweIT22": "passwoRd",
-  "wisaniHR23": "passwoRd",
-}
+const btnAddBus = document.getElementsByClassName("btn")[0];
+
+btnAddBus.addEventListener("click", () => {
+  document.getElementById("seats").value !== "" ? alert("Added Your slow bus"): alert("Please enter the number of seats");
+})
+
+
+
 /* Modal */
 const btnLogin = document.querySelectorAll(".modal-btn");
 const btnClose = document.querySelector("#close-modal");
 const welcomeMsg = document.querySelector("#welcome-msg");
 //Stuff Login
 btnLogin[0].addEventListener("click", () => {
-  welcomeMsg.innerText = "Welcome, Stuff Member";
+  welcomeMsg.innerText = "Welcome, Administrator";
+  alert("Hello Sibongile")
   const modal = document.querySelector(".modal-bg");
   modal.classList.add("modal-active");
 });
 
-//HR Login
-btnLogin[1].addEventListener("click", () => {
-  welcomeMsg.innerText = "Welcome, Admin";
-  const modal = document.querySelector(".modal-bg");
-  modal.classList.add("modal-active");
-});
 
 btnClose.addEventListener("click", () => {
   document.querySelector(".modal-bg").classList.remove("modal-active");
