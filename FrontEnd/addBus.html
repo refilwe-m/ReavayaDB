@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Adding A New Bus</title>
+ 
+</head>
+<body>
+
+
+  <div><h3>Add Bus</h3></div>
+  <form action="" method="post">      
+    <label for="bustype">Bus Type</label>
+    <select  id="type" name="bustype" >
+      <option value="PleaseSelectBusType">Please Select Bus Type</option>
+      <option value="feeder">Feeder</option>
+      <option value="complimentary">Complimentary</option>
+      <option value="trunk">Trunk</option>
+    </select>
+
+    <label for="buscode">Bus Code</label>
+    <input type="text" id="code" name="code" placeholder="" required>
+
+    <label for="seatnum">Number Of Seats</label>
+    <input type="number" name="seats" id="seats" min="50" max="300" step="10">
+
+    <label for="phases">Phase</label>
+    <select id="phases" name="phases" >
+      <option value="please">Please Select A Phase</option>
+      <option value="P1A">P1A</option>
+      <option value="P1B">P1B</option>
+      <option value="P1C">P1C</option>
+    </select>
+  
+    <button type="submit" class="btn">Add Bus</button>
+  </form>
+
+</body>
+</html>
