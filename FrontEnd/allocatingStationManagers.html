@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 6.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+#employeeName{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#stationname{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+.btn {
+  width: 50%;
+  background-color: #3F7CAC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+div{
+  border-radius: 5px;
+  background-color: white;
+ 
+  margin: auto; 
+  width: 50%;
+}
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: auto; 
+  width: 50%;
+}
+
+h3{
+  font-size: 2em;
+  border-left: 5px solid red;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div><h3>Allocate Station Managers</h3></div>
+    <form action="" method="post">  
+
+    <label for="employeeName">Employee Name</label>
+    <input list="managers" name="employeeName" id="employeeName" />
+    <datalist  id="managers"  >      
+      <option value="Sam Tau(4)">
+      <option value="Zandile Dlamini(8)">
+      <option value="David Smith(12)">
+    </datalist>
+
+    <label for="stationname">Bus Code</label>
+    <input list="stations" name="stationname" id="stationname"/>
+    <datalist  id="stations"  >        
+        <option value="Lake View">
+        <option value="Thokoza Park">
+        <option value="Wits Station">
+        <option value="UJ Sophiatown Res">
+        <option value="Park Town">
+        <option value="Joburg Theatre">
+        <option value="Russik Street">
+        <option value="Library Gardens">
+        <option value="Mil Park">
+        <option value="SABC Media Park">
+        <option value="Hillbrow">
+      
+    </datalist>
+
+    
+  
+    <button type="submit" class="btn">Allocate Station Manager</button>
+  </form>
+</body>
+</html>
