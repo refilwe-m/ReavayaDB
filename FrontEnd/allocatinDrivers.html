@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocating Drivers</title>
+
+    <style>
+
+          
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  height: 6.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+#employeeName{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#buscode{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 50%;
+  background-color: #3F7CAC;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+div{
+  border-radius: 5px;
+  background-color: white;
+ 
+  margin: auto; 
+  width: 50%;
+}
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: auto; 
+  width: 50%;
+}
+
+h3{
+  font-size: 2em;
+  border-left: 5px solid red;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    
+  <div><h3>Allocate Drivers</h3></div>
+  <form action="" method="post">  
+
+    <label for="employeeName">Employee Name</label>
+    <input list="drivers" name="employeeName" id="employeeName" />
+    <datalist  id="drivers"  >      
+      <option value="Lebo Matheba(1)">
+      <option value="Benny Thomas(3)">
+      <option value="Thembi Moroka(5)">
+      <option value="Lebo Davids(6)">
+    </datalist>
+
+    <label for="buscode">Bus Code</label>
+    <input list="codes" name="buscode" id="buscode"/>
+    <datalist  id="codes"  >        
+        <option value="C1">
+        <option value="C2">
+        <option value="C3">
+        <option value="C4">
+        <option value="F1">
+        <option value="F2">
+        <option value="F3">
+        <option value="F4">
+        <option value="F5">
+        <option value="F6">
+        <option value="F7">
+        <option value="F8">
+        <option value="F9">
+        <option value="F10">
+        <option value="T1">
+        <option value="T2">
+        <option value="T3">      
+    </datalist>
+
+    <label for="startdate">Start Date</label>
+     <input type="date" name="startdate"  >
+
+     <label for="enddate">End Date</label>
+     <input type="date" name="date"  >
+  
+    <button type="submit" class="btn">Allocate Driver</button>
+  </form>
+</body>
+</html>
