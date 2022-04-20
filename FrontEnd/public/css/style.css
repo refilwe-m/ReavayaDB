@@ -102,12 +102,52 @@ input{
 }
 
 /* N A V I G A T I O N */
-ul{
-    display: flex;
-}
 
-li{
+ul li{
     text-decoration: none;    
+    display: block;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(3, 26, 26);
+    min-width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #f0627a;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  header {
+    margin: 0;
+    height:fit-content;
+  }
+  
+  #nav {
+    display: inline;
+    background-color: var(--color-primary);
+  }
+  
+  .nav_icon {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  #profile-pic {
+    width: 33px;
+  }
+  
 /* D A S H B O A R D */

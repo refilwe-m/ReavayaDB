@@ -16,8 +16,22 @@
 <body>
     <nav>
         <ul>
-            <li><i class="fa-solid fa-plus" style="color:red"></i></li>
-            <li><i class="fa-regular fa-user" style="color:red"></i></li>
+            <li class="nav-item tooltip dropdown">    
+                <div class="nav_icon">
+                  <img id="profile-pic" src="images/BusY_Logo.png" alt="Refilwe's logo" />
+                  <i class="fa-solid fa-plus" style="color:red"></i><i class="fas fa-caret-down navIco"></i>
+                  <div class="dropdown-content">
+                      <ul>
+                          <li><a href="/addBus">Add Bus</a></li>
+                          <li><a href="#">Add Employee</a></li>
+                          <li> <a href="#">Allocate Buses</a></li>
+                          <li> <a href="#footer">Allocate Stations</a></li>
+                      </ul>
+    
+                  </div>
+                </div>
+            </li>
+            <li><a href=""><i class="fa-regular fa-user" style="color:red"></i></a></li>
         </ul>
     </nav>
    

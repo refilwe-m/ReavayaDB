@@ -2,6 +2,7 @@ USE master;
 
 USE ReaVayaDB
 GO
+
 	DROP TABLE IF EXISTS Users,
 	Positions,
 	Accounts,
@@ -108,13 +109,19 @@ GO
 	);
 
 GO
+	CREATE TABLE BusStatuses(
+		StatusID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
+		Status VARCHAR(15) NOT NULL UNIQUE,
+		Description NVARCHAR(250) NOT NULL UNIQUE
+	);
+
+GO
 	CREATE TABLE Buses(
 		BusID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
 		TypeID INT FOREIGN KEY (TypeID) REFERENCES BusTypes(TypeID),
 		RouteID INT FOREIGN KEY (RouteID) REFERENCES BusRoutes(RouteID),
 		CodeID INT NOT NULL FOREIGN KEY (CodeID) REFERENCES BusCodes(CodeID),
-		HealthStatus BIT NOT NULL,
-		Active BIT NOT NULL,
+		StatusID INT FOREIGN KEY (StatusID) REFERENCES BusStatuses(StatusID),
 	);
 
 GO
@@ -138,8 +145,7 @@ GO
 	);
 
 GO
-DROP TABLE IF EXISTS TicketTypes
-	CREATE TABLE TicketTypes(
+	DROP TABLE IF EXISTS TicketTypes CREATE TABLE TicketTypes(
 		TypeID INT IDENTITY(1, 1) PRIMARY KEY NOT NULL,
 		TicketType VARCHAR(6) NOT NULL,
 		Price SMALLMONEY NOT NULL
