@@ -9,87 +9,86 @@
 
   <title>Adding A New Bus</title>
   <style>
-  
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
+      
+    .busBody {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      height: 6.2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
 
-select{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=number] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+    #bustype{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #seats {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
 
-.btn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-   display:block;
-   margin: 0 auto;
-}
+    .busBtn {
+      width: 50%;
+      background-color: #3F7CAC;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      display:block;
+      margin: 0 auto;
+    }
 
-section{
-  border-radius: 5px;
-  background-color: white;
- 
-  margin: auto; 
-  width: 50%;
-}
-form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-}
+    .busSect{
+      border-radius: 5px;
+      background-color: white;
+    
+      margin: auto; 
+      width: 50%;
+    }
+    .busForm {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: auto; 
+      width: 50%;
+    }
 
-h3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-}
+    #busH3{
+      font-size: 2em;
+      border-left: 5px solid red;
+      padding: 10px;
+      color: #000;
+      letter-spacing: 5px;
+      margin-bottom: 60px;
+      font-weight: bold;
+      padding-left: 10px;
+    }
 
 
   </style>
 </head>
-<body>
+<body class="busBody">
 
-
-  <section><h3>Add Bus</h3></section>
-  <form action="" method="post">      
+  <section class="busSect"><h3 id="busH3">Add Bus</h3></section>
+  <form class="busForm" action="" method="post">      
     <label for="bustype">Bus Type</label>
-    <select  id="type" name="bustype" >
+    <select  id="bustype" name="bustype" >
       <option value="PleaseSelectBusType">Please Select Bus Type</option>
       <option value="feeder">Feeder</option>
       <option value="complimentary">Complimentary</option>
@@ -97,9 +96,9 @@ h3{
     </select>
 
     <label for="seatnum">Number Of Seats</label>
-    <input type="number" name="seats" id="seats" min="50" max="300" step="10">
+    <input type="number" name="seats" id="seats" min="30" max="300" step="10">
   
-    <button type="submit" class="btn">Add Bus</button>
+    <button type="submit" class="busBtn">Add Bus</button>
   </form>
 
 </body>
