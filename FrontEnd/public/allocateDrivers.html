@@ -83,7 +83,7 @@
   <form class="driverForm" action="" method="post">  
 
     <label for="employeeName">Employee Name</label>
-    <input list="drivers" name="employeeName" id="employeeName" />
+    <input list="drivers" name="employeeName" id="employeeName" required/>
     <datalist  id="drivers"  >      
       <option value="Lebo Matheba(1)">
       <option value="Benny Thomas(3)">
@@ -92,11 +92,11 @@
     </datalist>
 
     <label for="busID">Bus ID</label>
-    <input type="number" name="busId" id="busId" >
+    <input type="number" name="busId" id="busId" required>
 
    
     <label for="phases">Phase</label>
-    <select id="phases" name="phases" >
+    <select id="phases" name="phases" required >
       <option value="please">Please Select A Phase</option>
       <option value="P1A">P1A</option>
       <option value="P1B">P1B</option>
@@ -105,7 +105,7 @@
   
 
     <label for="startdate">Start Date</label>
-     <input type="date" name="startdate" id="startdate" >
+     <input type="date" name="startdate" id="startdate" required>
 
      <label for="enddate">End Date</label>
      <input type="date" name="date"  id="enddate">
