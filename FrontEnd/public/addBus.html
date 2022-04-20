@@ -30,7 +30,7 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-    #seats {
+    #seats, #buscode {
       width: 100%;
       padding: 12px 20px;
       margin: 8px 0;
@@ -94,6 +94,28 @@
       <option value="complimentary">Complimentary</option>
       <option value="trunk">Trunk</option>
     </select>
+
+    <label for="buscode">Bus Code</label>
+    <input list="codes" name="buscode" id="buscode"/>
+    <datalist  id="codes"  >        
+        <option value="C1">
+        <option value="C2">
+        <option value="C3">
+        <option value="C4">
+        <option value="F1">
+        <option value="F2">
+        <option value="F3">
+        <option value="F4">
+        <option value="F5">
+        <option value="F6">
+        <option value="F7">
+        <option value="F8">
+        <option value="F9">
+        <option value="F10">
+        <option value="T1">
+        <option value="T2">
+        <option value="T3">      
+    </datalist>
 
     <label for="seatnum">Number Of Seats</label>
     <input type="number" name="seats" id="seats" min="30" max="300" step="10">
