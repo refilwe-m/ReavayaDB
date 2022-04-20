@@ -5,6 +5,7 @@ let routeCode = "";
 typeOptions.addEventListener("change", function () {
   const selectedBusType = typeOptions.options[typeOptions.selectedIndex].value;
   const prefix = selectedBusType[0].toUpperCase();
+  //DataList Object and append child
   let html = '<datalist  id="codes"  > ';
   for (let i = 1; i <= busTypes[prefix]; i++) {
     html += `<option value="${prefix}${i}">`;
@@ -29,12 +30,12 @@ btnAddBus.addEventListener("click", function () {
     registration: document.getElementById("registration").value,
     seats: document.getElementById("seats").value,
   };
+  //console.log(inputData);
   $.ajax({
     url: "/addBus",
     type: "POST",
     data: inputData,
     success: (res) => {
-      console.log(res);
       alert("Bus Added Successfully");
     },
     error: function (res) {

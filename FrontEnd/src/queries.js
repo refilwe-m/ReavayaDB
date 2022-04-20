@@ -13,8 +13,8 @@ const dbConnect = new sql.connect(config, (err) =>
 const getRouteFromCode = async (Code) => {
   try {
     const pool = await sql.connect(config);
-    const result = await pool.request().query(`SELECT RouteID FROM dbo.RouteCodes WHERE CodeName = '${Code}'`);
-    return result.recordset[0];
+    const result = await pool.request().input('CODE', Code).query(`SELECT CodeID FROM dbo.RouteCodes WHERE CodeName = @CODE`);
+    return result.recordset[0].RouteID;
   } catch (error) {
     console.log(error);
   }
@@ -251,7 +251,8 @@ const sellTicket = async (
 };
 
 // getAllBuses().then((result) =>console.log("Buses: \n",result));
-// addBus("BZT 743 MP", 2, 50);
+// getRouteFromCode("T2").then((result) => console.log(result["RouteID"]));
+//addBus('BZT 743 MP', 2, 50);
 // getAllEmployees().then((result) =>console.log("Employees: \n",result));
 // getAllDrivers().then((result) =>console.log("Drivers: \n",result));
 // getAllWorkingBuses().then((result) =>console.log("Working: \n",result));

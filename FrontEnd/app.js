@@ -34,6 +34,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/addBus", (req, res) => {
+  // console.log('get');
   res.sendFile(path.join(__dirname, "/public/addBus.html"));
 });
 
@@ -52,14 +53,13 @@ app.get("/addEmployee", (req, res) => {
 });
 
 app.post("/addBus", async (req, res) => {
-  const { buscode, registration, seats } = req.body;
-  const output = await getRouteFromCode(buscode).then((result) => {
-    return addBus(buscode, registration, seats, output);
-  });
-  //console.log(result["RouteID"]);
-
-
-  //res.status(201).send("Bus Added Successfully");
+  console.log("here",req.body);
+  const { routeCode, registration, seats } = req.body;
+  const codeId = await getRouteFromCode(routeCode);
+  let response = await addBus(codeId, registration, seats);
+  console.log(response);
+  res.send(response);
+  
 });
 /*
 app.post("/addEmployee", (req, res) => {
