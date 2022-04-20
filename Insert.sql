@@ -3,7 +3,6 @@ USE master;
 GO
     USE ReaVayaDB;
 
-
 --Users Data
 INSERT INTO
     Users (
@@ -308,14 +307,20 @@ VALUES
 GO
     --Phases Data
 INSERT INTO
-    Phases(CityCode, Description)
+    Phases(PhaseCode, Description)
 VALUES
-    ('SACB', 'Soweto though Auckland Park until CBD'),
     (
-        'CWPY',
-        'Cresta, Windsor West, Parktown, Yeoville'
+        '1A',
+        'Ellis Park in Doornfontein and Thokoza Park in Soweto'
     ),
-    ('PAS', 'Parktown, Alexandra, Sandton');
+    (
+        '1B',
+        'From Thokoza Park through Noordgesig Extension, Westbury, Auckland Park, Milpark, Parktown and to Library Gardens in the Joburg CBD'
+    ),
+    (
+        '1C',
+        'from the inner city through Hillbrow, Yeoville, Orange Grove, Bramley, Wynberg to Alexanda and Sandton.'
+    );
 
 GO
     -- Routes Data
@@ -338,26 +343,26 @@ VALUES
 GO
     --Insert Bus Codes
 INSERT INTO
-    BusCodes (CodeName)
+    RouteCodes (CodeName, RouteID)
 VALUES
-    ('T1'),
-    ('T2'),
-    ('T3'),
-    ('C1'),
-    ('C2'),
-    ('C3'),
-    ('C4'),
-    ('F1'),
-    ('F2'),
-    ('F3'),
-    ('F4'),
-    ('F6'),
-    ('F7'),
-    ('F8'),
-    ('F9'),
-    ('F10'),
-    ('F11'),
-    ('F12');
+    ('T1', 1),
+    ('T2', 2),
+    ('T3', 2),
+    ('C1', 2),
+    ('C2', 4),
+    ('C3', 3),
+    ('C4', 1),
+    ('F1', 6),
+    ('F2', 5),
+    ('F3', 7),
+    ('F4', 8),
+    ('F6', 8),
+    ('F7', 10),
+    ('F8', 8),
+    ('F9', 1),
+    ('F10', 3),
+    ('F11', 4),
+    ('F12', 1);
 
 GO
     -- Stations
@@ -377,15 +382,23 @@ VALUES
     (12, 'Hillbrow');
 
 GO
-
---Bus Statuses Data
+    --Bus Statuses Data
 INSERT INTO
     BusStatuses (Status, Description)
 VALUES
-    ('Available', 'Bus is available (Unallocated to any Driver)'),
+    (
+        'Available',
+        'Bus is available (Unallocated to any Driver)'
+    ),
     ('Repairs', 'Bus is sent for Repairs'),
-    ('Decommissioned', 'Bus is no longer in use(Permanently)'),
-    ('Commissioned', 'Bus is currently in use (Allocated to Driver)');
+    (
+        'Decommissioned',
+        'Bus is no longer in use(Permanently)'
+    ),
+    (
+        'Commissioned',
+        'Bus is currently in use (Allocated to Driver)'
+    );
 
 GO
     --Bus Types
@@ -399,36 +412,21 @@ VALUES
 GO
     -- Buses Data
 INSERT INTO
-    Buses(
-        TypeID,
-        RouteID,
-        CodeID,
-        Healthstatus,
-        Active
-    )
+    Buses(Registration, RouteCode, StatusID)
 VALUES
-    (3, 2, 1, 1, 1),
-    (3, 5, 2, 1, 1),
-    (3, 7, 1, 0, 1),
-    (3, 3, 3, 0, 1),
-    (3, 3, 3, 0, 1),
-    (2, 3, 4, 0, 1),
-    (2, 4, 5, 1, 0),
-    (2, 6, 5, 1, 1),
-    (1, 3, 6, 0, 1),
-    (1, 3, 6, 0, 1),
-    (1, 5, 7, 0, 0),
-    (1, 10, 8, 1, 0),
-    (1, 8, 9, 1, 1),
-    (1, 2, 10, 1, 1),
-    (1, 12, 11, 1, 1),
-    (1, 11, 12, 1, 1),
-    (1, 2, 13, 1, 1),
-    (1, 9, 14, 1, 0),
-    (1, 11, 15, 1, 0),
-    (1, 6, 16, 0, 1),
-    (1, 7, 17, 1, 1),
-    (1, 4, 18, 1, 1);
+    ('TDG 643 MP', 2, 4),
+    ('TDG 613 MP', 5, 2),
+    ('TSG 623 MP', 7, 1),
+    ('TDT 673 MP', 3, 3),
+    ('TGG 603 MP', 1, 2),
+    ('TDG 653 MP', 3, 4),
+    ('TDG 663 MP', 4, 1),
+    ('HGG 683 MP', 6, 3),
+    ('TDG 693 MP', 8, 3),
+    ('TDG 843 MP', 3, 2),
+    ('TDG 233 MP', 5, 1),
+    ('FDG 443 MP', 10,1),
+    ('TDG 943 MP', 8, 3);
 
 GO
     --Bookings Data
@@ -442,41 +440,43 @@ INSERT INTO
         DateOfTravel
     )
 VALUES
-    (1, 11, 17,5, '12:00:00', '2022-01-22'),
-    (1, 2,18, 4, '12:50:00', '2022-03-13'),
-    (2, 3, 20, 2,'12:30:00', '2022-02-22'),
-    (4, 10, 20,3, '17:45:00', '2022-01-22'),
-    (1, 7, 21,10, '12:15:00', '2022-01-22'),
-    (1, 10, 12,11, '13:35:00', '2022-04-11'),
-    (3, 1, 13, 4,'12:00:00', '2022-01-22'),
-    (1, 4, 1,3, '11:45:00', '2022-01-16'),
-    (4, 1, 6, 1,'09:00:00', '2022-01-10'),
-    (6, 1, 8,7, '13:05:00', '2022-01-29'),
-    (5, 10,10,8, '14:10:00', '2022-01-22'),
-    (1, 4, 19, 10,'15:00:00', '2022-01-22'),
-    (4, 10, 2,11, '17:00:00', '2022-01-22'),
-    (2, 6, 3,8, '08:30:00', '2022-02-01'),
-    (1, 2, 4, 10,'16:00:00', '2022-01-22'),
-    (2, 10, 5, 1,'12:00:00', '2022-01-02'),
-    (3, 8, 7,9, '12:00:00', '2022-01-22'),
-    (1, 5, 9,8, '10:05:00', '2022-02-23'),
-    (5, 9, 14,6, '12:10:00', '2022-03-22'),
-    (6, 9, 15, 5,'12:20:00', '2022-04-01');
+    (1, 11, 17, 5, '12:00:00', '2022-01-22'),
+    (1, 2, 18, 4, '12:50:00', '2022-03-13'),
+    (2, 3, 20, 2, '12:30:00', '2022-02-22'),
+    (4, 10, 20, 3, '17:45:00', '2022-01-22'),
+    (1, 7, 21, 10, '12:15:00', '2022-01-22'),
+    (1, 10, 12, 11, '13:35:00', '2022-04-11'),
+    (3, 1, 13, 4, '12:00:00', '2022-01-22'),
+    (1, 4, 1, 3, '11:45:00', '2022-01-16'),
+    (4, 1, 6, 1, '09:00:00', '2022-01-10'),
+    (6, 1, 8, 7, '13:05:00', '2022-01-29'),
+    (5, 10, 10, 8, '14:10:00', '2022-01-22'),
+    (1, 4, 19, 10, '15:00:00', '2022-01-22'),
+    (4, 10, 2, 11, '17:00:00', '2022-01-22'),
+    (2, 6, 3, 8, '08:30:00', '2022-02-01'),
+    (1, 2, 4, 10, '16:00:00', '2022-01-22'),
+    (2, 10, 5, 1, '12:00:00', '2022-01-02'),
+    (3, 8, 7, 9, '12:00:00', '2022-01-22'),
+    (1, 5, 9, 8, '10:05:00', '2022-02-23'),
+    (5, 9, 14, 6, '12:10:00', '2022-03-22'),
+    (6, 9, 15, 5, '12:20:00', '2022-04-01');
 
 GO
     --EmployeeBuses Data
-INSERT INTO EmployeeBuses (EmployeeID, BusID, StartDate, EndDate)
-VALUES ('1', '1', '2022-04-01', '2022-04-15'),
-		('3', '2', '2022-04-16', '2022-04-30'),
-		('5', '3', '2022-05-01', '2022-05-15'),
-		('6', '4','2022-05-16', '2022-05-31'),
-		('1', '5','2022-06-01', '2022-06-15'),
-		('1', '6', '2022-06-16', '2022-06-30'),
-		('3', '7', '2022-07-01', '2022-07-15'),
-		('5', '8', '2022-07-16', '2022-07-31'),
-		('3', '9', '2022-08-01', '2022-08-15');
-GO
+INSERT INTO
+    EmployeeBuses (EmployeeID, BusID, StartDate, EndDate)
+VALUES
+    ('1', '1', '2022-04-01', '2022-04-15'),
+    ('3', '2', '2022-04-16', '2022-04-30'),
+    ('5', '3', '2022-05-01', '2022-05-15'),
+    ('6', '4', '2022-05-16', '2022-05-31'),
+    ('1', '5', '2022-06-01', '2022-06-15'),
+    ('1', '6', '2022-06-16', '2022-06-30'),
+    ('3', '7', '2022-07-01', '2022-07-15'),
+    ('5', '8', '2022-07-16', '2022-07-31'),
+    ('3', '9', '2022-08-01', '2022-08-15');
 
+GO
 GO
     -- Insert Ticket Types
 INSERT INTO
@@ -505,4 +505,5 @@ VALUES
     (10, 1, 4),
     (11, 2, 12),
     (11, 1, 4);
+
 GO
