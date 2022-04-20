@@ -20,7 +20,8 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
-input[type=text], select {
+
+select{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -29,7 +30,6 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 input[type=number] {
   width: 100%;
   padding: 12px 20px;
@@ -50,9 +50,11 @@ input[type=number] {
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
+   display:block;
+   margin: 0 auto;
 }
 
-div{
+section{
   border-radius: 5px;
   background-color: white;
  
@@ -84,7 +86,7 @@ h3{
 <body>
 
 
-  <div><h3>Add Bus</h3></div>
+  <section><h3>Add Bus</h3></section>
   <form action="" method="post">      
     <label for="bustype">Bus Type</label>
     <select  id="type" name="bustype" >
@@ -94,19 +96,8 @@ h3{
       <option value="trunk">Trunk</option>
     </select>
 
-    <label for="buscode">Bus Code</label>
-    <input type="text" id="code" name="code" placeholder="" required>
-
     <label for="seatnum">Number Of Seats</label>
     <input type="number" name="seats" id="seats" min="50" max="300" step="10">
-
-    <label for="phases">Phase</label>
-    <select id="phases" name="phases" >
-      <option value="please">Please Select A Phase</option>
-      <option value="P1A">P1A</option>
-      <option value="P1B">P1B</option>
-      <option value="P1C">P1C</option>
-    </select>
   
     <button type="submit" class="btn">Add Bus</button>
   </form>
