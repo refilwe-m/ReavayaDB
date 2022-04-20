@@ -1,0 +1,26 @@
+table {
+    font: 1em sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  table td, table th {
+    border : 1px solid black;
+    padding: 0.5em 0.5em 0.4em;
+  }
+  
+  table thead th {
+    color: white;
+    background: black;
+  }
+
+  table tbody td + td {
+    text-align: center;
+  }
+  
+  
+  table th + td {
+    text-align: right;
+    border-top-width: 5px;
+    color: white;
+    background: black;
+  }
