@@ -1,0 +1,73 @@
+body {
+    background-color: #324879;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font: 3em sans-serif;
+  }
+  
+  #my-pie-chart-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  #my-pie-chart {
+    background: conic-gradient(brown 0.00%, black 0.00% 0.55%, blue 0.55% 6.08%, green 6.08% 13.68%, yellow 13.68% 23.27%, orange 23.27% 40.47%, red 40.47%);
+    border-radius: 100%;
+      width: 40.5rem;
+      height: 40.5rem;
+  }
+  
+  #legenda {
+    margin-left: 25rem;
+    top: 1.6rem;
+    right: 1.6rem;
+    padding: 1em;
+  }
+  
+  .entry {
+    display: flex;
+    align-items: center;
+  }
+  
+  .entry-color {
+      height: 10px;
+      width: 10px;
+  }
+  
+  .month {
+    margin-left: 20px;
+    font-size: x-large;
+  }
+  
+  #color-red {
+    background-color: red;
+  }
+  
+  #color-orange {
+    background-color: orange;
+  }
+  
+  #color-yellow {
+    background-color: yellow;
+  }
+  
+  #color-green {
+    background-color: green;
+  }
+  
+  #color-blue {
+    background-color: blue;
+  }
+  
+  #color-black {
+    background-color: black;
+  }
+  
+  #color-brown {
+    background-color: brown;
+  }
