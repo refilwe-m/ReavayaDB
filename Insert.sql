@@ -377,6 +377,17 @@ VALUES
     (12, 'Hillbrow');
 
 GO
+
+--Bus Statuses Data
+INSERT INTO
+    BusStatuses (Status, Description)
+VALUES
+    ('Available', 'Bus is available (Unallocated to any Driver)'),
+    ('Repairs', 'Bus is sent for Repairs'),
+    ('Decommissioned', 'Bus is no longer in use(Permanently)'),
+    ('Commissioned', 'Bus is currently in use (Allocated to Driver)');
+
+GO
     --Bus Types
 INSERT INTO
     BusTypes (TypeName, SeatsNumber)
