@@ -9,6 +9,16 @@ const dbConnect = new sql.connect(config, (err) =>
     : console.log("connected to database: " + config.database)
 );
 
+//Route codes are linked to Route IDs....
+const getRouteFromCode = async (Code) => {
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool.request().query(`SELECT RouteID FROM dbo.RouteCodes WHERE CodeName = '${Code}'`);
+    return result.recordset[0];
+  } catch (error) {
+    console.log(error);
+  }
+}
 //Functions to interact with DB
 const getAllBuses = async () => {
   try {
@@ -126,30 +136,11 @@ removeEmployee = async (employeeID) => {
 };
 
 //add new bus
-const addBus = async (
-  busID,
-  busType,
-  busModel,
-  busCapacity,
-  busHealthStatus
-) => {
+const addBus = async (registration, routeCode, seats) => {
   try {
     const pool = await sql.connect(config);
-    pool
-      .request()
-      .query(
-        "INSERT INTO dbo.Buses (BusID, BusType, BusModel, BusCapacity, HealthStatus) VALUES (" +
-          busID +
-          ", '" +
-          busType +
-          "', '" +
-          busModel +
-          "', " +
-          busCapacity +
-          ", " +
-          busHealthStatus +
-          ")"
-      );
+    pool.request().query(
+        `INSERT INTO dbo.Buses (Registration, RouteCode, Seats) VALUES (${registration}, ${routeCode}, ${seats})`);
   } catch (error) {
     console.log(error);
   }
@@ -259,15 +250,16 @@ const sellTicket = async (
   }
 };
 
-//getAllBuses().then((result) =>console.log("Buses: \n",result));
-//getAllEmployees().then((result) =>console.log("Employees: \n",result));
-//getAllDrivers().then((result) =>console.log("Drivers: \n",result));
-//getAllWorkingBuses().then((result) =>console.log("Working: \n",result));
-//getReadyForAllocationBuses().then((result) =>console.log("Unallocated: \n",result));
-//getAllAllocatedBuses().then((result) =>console.log("Allocated: \n",result));
-//getAllFaultyBuses().then((result) =>console.log("Faulty: \n",result));
-//removeBus(1).then((result) =>console.log("Removed Bus: \n",result));
-//removeEmployee(1).then((result) =>console.log("Removed Employee: \n",result));
+// getAllBuses().then((result) =>console.log("Buses: \n",result));
+// addBus("BZT 743 MP", 2, 50);
+// getAllEmployees().then((result) =>console.log("Employees: \n",result));
+// getAllDrivers().then((result) =>console.log("Drivers: \n",result));
+// getAllWorkingBuses().then((result) =>console.log("Working: \n",result));
+// getReadyForAllocationBuses().then((result) =>console.log("Unallocated: \n",result));
+// getAllAllocatedBuses().then((result) =>console.log("Allocated: \n",result));
+// getAllFaultyBuses().then((result) =>console.log("Faulty: \n",result));
+// removeBus(1).then((result) =>console.log("Removed Bus: \n",result));
+// removeEmployee(1).then((result) =>console.log("Removed Employee: \n",result));
 
 module.exports = {
   getAllBuses,
@@ -283,5 +275,5 @@ module.exports = {
   addEmployee,
   allocateBus,
   deallocateBus,
-  sellTicket,
+  sellTicket,getRouteFromCode
 };

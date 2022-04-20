@@ -2,13 +2,28 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const {getAllBuses, getAllEmployees, getAllDrivers, getAllWorkingBuses, getReadyForAllocationBuses, getAllAllocatedBuses, getAllFaultyBuses, removeBus, removeEmployee, addBus, addEmployee, allocateBus, deallocateBus, sellTicket} = require('./src/queries')  ;
+const {
+  getAllBuses,
+  getAllEmployees,
+  getAllDrivers,
+  getAllWorkingBuses,
+  getReadyForAllocationBuses,
+  getAllAllocatedBuses,
+  getAllFaultyBuses,
+  removeBus,
+  removeEmployee,
+  addBus,
+  addEmployee,
+  allocateBus,
+  deallocateBus,
+  sellTicket,
+  getRouteFromCode,
+} = require("./src/queries");
 
 app.use("/static", express.static(__dirname));
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__dirname + "/public/scripts")));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
@@ -36,11 +51,15 @@ app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/addEmployee.html"));
 });
 
-app.post("/addBus",async (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/addBus.html"));
-  // const { BusID, BusNumber, BusType, HealthStatus } = req.body;
-  // const result = await addBus(BusID, BusNumber, BusType, HealthStatus)
-  // res.status(201).send("Bus Added Successfully");
+app.post("/addBus", async (req, res) => {
+  const { buscode, registration, seats } = req.body;
+  const output = await getRouteFromCode(buscode).then((result) => {
+    return addBus(buscode, registration, seats, output);
+  });
+  //console.log(result["RouteID"]);
+
+
+  //res.status(201).send("Bus Added Successfully");
 });
 /*
 app.post("/addEmployee", (req, res) => {
