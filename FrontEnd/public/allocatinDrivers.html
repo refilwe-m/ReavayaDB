@@ -8,93 +8,79 @@
 
     <style>
 
-          
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
+              
+      .driverBody {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        height: 6.2rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+      }
 
-#employeeName{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-#buscode{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+      #employeeName, #buscode, #busId, #phases, #startdate, #enddate{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
 
-input[type=date] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+      .driverbtn {
+        width: 50%;
+        background-color: #3F7CAC;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        display:block;
+        margin: 0 auto;
+      }
 
-.btn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-}
+      .driverSect{
+        border-radius: 5px;
+        background-color: white;
+      
+        margin: auto; 
+        width: 50%;
+      }
+      .driverForm {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        margin: auto; 
+        width: 50%;
+      }
 
-div{
-  border-radius: 5px;
-  background-color: white;
- 
-  margin: auto; 
-  width: 50%;
-}
-form {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-}
-
-h3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-}
+      #driverH3{
+        font-size: 2em;
+        border-left: 5px solid red;
+        padding: 10px;
+        color: #000;
+        letter-spacing: 5px;
+        margin-bottom: 60px;
+        font-weight: bold;
+        padding-left: 10px;
+        
+      }
 
 
 
     </style>
 </head>
-<body>
+<body class="driverBody">
+
+
     
-  <div><h3>Allocate Drivers</h3></div>
-  <form action="" method="post">  
+  <section class="driverSect"><h3 id="driverH3">Allocate Drivers</h3></section>
+  <form class="driverForm" action="" method="post">  
 
     <label for="employeeName">Employee Name</label>
     <input list="drivers" name="employeeName" id="employeeName" />
@@ -104,6 +90,9 @@ h3{
       <option value="Thembi Moroka(5)">
       <option value="Lebo Davids(6)">
     </datalist>
+
+    <label for="busID">Bus ID</label>
+    <input type="number" name="busId" id="busId" >
 
     <label for="buscode">Bus Code</label>
     <input list="codes" name="buscode" id="buscode"/>
@@ -127,13 +116,22 @@ h3{
         <option value="T3">      
     </datalist>
 
+    <label for="phases">Phase</label>
+    <select id="phases" name="phases" >
+      <option value="please">Please Select A Phase</option>
+      <option value="P1A">P1A</option>
+      <option value="P1B">P1B</option>
+      <option value="P1C">P1C</option>
+    </select>
+  
+
     <label for="startdate">Start Date</label>
-     <input type="date" name="startdate"  >
+     <input type="date" name="startdate" id="startdate" >
 
      <label for="enddate">End Date</label>
-     <input type="date" name="date"  >
+     <input type="date" name="date"  id="enddate">
   
-    <button type="submit" class="btn">Allocate Driver</button>
+    <button type="submit" class="driverbtn">Allocate Driver</button>
   </form>
 </body>
 </html>
