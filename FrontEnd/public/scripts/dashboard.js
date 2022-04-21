@@ -13,6 +13,7 @@ const createTableBody = (tableObject, rows) => {
   const nRows = rows.length;
   for (let i = 0; i < nRows; i++) {
     const tr = document.createElement("tr");
+    tr.className = "tr";
     const row = rows[i];
     for (const cell in row) {
       const td = document.createElement("td");

@@ -46,8 +46,6 @@ app.get("/getTable/:tableName", async (req, res) => {
   const headings = await getColumnNames(tableName);
   const rows = await getAllBuses();
   res.send({ headings, rows });
-  //res.send(headings);
-  //res.sendFile(path.join(__dirname, "/public/scripts/tableHeadings.js"));
 });
 
 app.get("/getAllBuses", async (req, res) => {
