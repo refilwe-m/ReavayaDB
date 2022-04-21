@@ -4,76 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Add Employee</title>
 
-    <style>
-            
-      .empBody {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        justify-content: center;
-        align-items: center;
-        height: 6.2rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-      }
-
-      #fname, #lname, #address, #phone , #dateofbirth, #email {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-
-
-      .empBtn {
-        width: 50%;
-        background-color: #3F7CAC;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-align: center;
-        display:block;
-        margin: 0 auto;
-      }
-
-      .empSect{
-        border-radius: 5px;
-        background-color: white;
-      
-        margin: auto; 
-        width: 50%;
-      }
-      .empForm {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-        margin: auto; 
-        width: 50%;
-      }
-
-      #empH3{
-        font-size: 2em;
-        border-left: 5px solid red;
-        padding: 10px;
-        color: #000;
-        letter-spacing: 5px;
-        margin-bottom: 60px;
-        font-weight: bold;
-        padding-left: 10px;
-      }
-
-
-    </style>
 </head>
 <body class="empBody">
+
+
+  <nav>
+    <div><img src="/ReavayaDB/FrontEnd/public/images/BusY_Logo.png" alt="company logo"></div>
+
+    <ul class="nav-links">
+
+        <li class="active nav-item"> <a href="AllocationDashboard.html">Home</a></li>
+
+        <li class="nav-item">
+            <a href="">
+                <div class="dropdown">
+                    <div class="btn"> Add</div>
+                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
+                </div>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="">
+                <div class="dropdown">
+                    <div class="btn"> Allocate</div>
+                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
+                </div>
+            </a>
+        </li>
+
+
+
+        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
+
+    </ul>
+    <section class="hamburger">
+
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </section>
+
+
+
+</nav>
+
 
     <section class="empSect"><h3 id="empH3">Add Employee</h3></section>
    
@@ -93,16 +72,18 @@
           
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone"
-            pattern="+[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="Format: +27 65 162 9228"
+            pattern="+[0-9]{2} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="Format: +27 65 162 9118"
             required>             
 
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" placeholder="Your Email.." required>
           
           <button type="submit" class="empBtn">Add Employee</button>
       
         </form>
 
-    
+        <footer class="empFooter">
+          <p style="text-align: center;">Made with 🤍 by Group 4</p>
+        </footer>    
 </body>
 </html>

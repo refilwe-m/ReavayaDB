@@ -4,80 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+
     <title>Allocating Drivers</title>
 
-    <style>
-
-              
-      .driverBody {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        justify-content: center;
-        align-items: center;
-        height: 6.2rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-      }
-
-      #employeeName, #busId, #phases, #startdate, #enddate{
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-
-      .driverbtn {
-        width: 50%;
-        background-color: #3F7CAC;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-align: center;
-        display:block;
-        margin: 0 auto;
-      }
-
-      .driverSect{
-        border-radius: 5px;
-        background-color: white;
-      
-        margin: auto; 
-        width: 50%;
-      }
-      .driverForm {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-        margin: auto; 
-        width: 50%;
-      }
-
-      #driverH3{
-        font-size: 2em;
-        border-left: 5px solid red;
-        padding: 10px;
-        color: #000;
-        letter-spacing: 5px;
-        margin-bottom: 60px;
-        font-weight: bold;
-        padding-left: 10px;
-        
-      }
-
-
-
-    </style>
 </head>
 <body class="driverBody">
 
 
+  <nav>
+    <div><img src="/ReavayaDB/FrontEnd/public/images/BusY_Logo.png" alt="company logo"></div>
+
+    <ul class="nav-links">
+
+        <li class="active nav-item"> <a href="AllocationDashboard.html">Home</a></li>
+
+        <li class="nav-item">
+            <a href="">
+                <div class="dropdown">
+                    <div class="btn"> Add</div>
+                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
+                </div>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a href="">
+                <div class="dropdown">
+                    <div class="btn"> Allocate</div>
+                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
+                </div>
+            </a>
+        </li>
+
+
+
+        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
+
+    </ul>
+    <section class="hamburger">
+
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </section>
+
+
+
+</nav>
     
   <section class="driverSect"><h3 id="driverH3">Allocate Drivers</h3></section>
   <form class="driverForm" action="" method="post">  
@@ -112,5 +87,8 @@
   
     <button type="submit" class="driverbtn">Allocate Driver</button>
   </form>
+  <footer class="driverFooter">
+    <p style="text-align: center;">Made with 🤍 by Group 4</p>
+  </footer>
 </body>
 </html>
