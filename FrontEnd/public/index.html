@@ -5,51 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BusY | Landing</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
 </head>
 
-<body>
-    <main id = "logins">
-        <section class = "login" id="login-stuff">
-           
-            <h1>Login | Stuff</h1>
-            <p>Bus Driver, Station Clerk</p>
-                    
-            <button type="submit" id="btn-stuff" class="btn modal-btn">Login</button>
 
-             
-        </section>
+<body class="container">
 
-        <section class = "login" id="login-hr">
-            <h1>Login | Admin</h1>
-            <p>HR, IT</p>
-            <button type="submit" id = "btn-hr" class="btn modal-btn">Login</button>
+    <nav>
+        <div><img src="./images/BusY_Logo.png" alt="company logo"></div>
 
-        </section>
+        <ul class="nav-links">
+
+
+
+            <li class="nav-item"> <a href="dashboard2.html" class="nav-link">Login</a></li>
+
+        </ul>
+    </nav>
+    <main class="main">
+
+        <form id="loginForm" action="#">
+
+            <h2 id="login">Login</h2>
+
+            <label for="username">Username</label>
+            <input type="text" required placeholder="Email" name="username" id="username">
+            <label for="password">Password</label>
+            <input type="password" required placeholder="Password" name="password" id="password">
+            <button type="submit" id="login-btn"><a href ="Dashboard.html">  Login </a></button>
+
+        </form>
     </main>
 
-    <section class="modal-bg">
-        <section id="modal">
-            <p id="close-modal">X</p>
-            <h2 id = "welcome-msg">Welcome,</h2>
-            <i class='fa-solid fa-xl fa-circle-user' style='color: red'></i>
-            <p>Please enter your credentials to login</p>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <a href="/dashboard"><button type="submit" id ="btn-login" class="btn">Login</button>
-        </a></section>
-    </section>
+</body>
 
-    <footer style="height: 50px;">
 
-    </footer>
-
-    <script src="./scripts/index.js"></script>
-
+<script src="./scripts/index.js"></script>
 </body>
 
 </html>

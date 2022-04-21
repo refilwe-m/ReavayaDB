@@ -1,153 +1,239 @@
-/* Custom Variables*/
-html{
-    /*--main-bg-color:#FAFAFA,
-    --main-sub-color:#FFFFFF,
-    --btn-color:#3F7CAC,
-    --seconday-color:#EE3134,
-    --font-family:Poppins, sans-serif;
-    --footer-bg-color:#666666*/
-    --main-dark-bg: #131313,
-    --main-dark-font-color:#FAFAFA
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: #131313;
-    color: #FAFAFA;
-    font: Poppins, sans-serif;
-    margin: 0;
-
-}
-
-/* I N D E X */
-section{
-padding: 40px 0;
-text-align: center;
-}
-
-footer{
-    background-color: #D32F2F;
-}
-
-#logins{
-    padding: 20% 0;
-}
-.login{
-    width:48%;
-    display:inline-block;   
-}
-
-.btn{
+#login-btn {
     display: inline-block;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: bolder;
+    font-size: 1em;
     background: #3F7CAC;
     border: none;
-    border-radius: 5px;
-    padding: 12px 16px;
+    border-radius: 8px;
+    padding: 0.5em 2em;
     cursor: pointer;
-    width: 100px;
-
-}
-.btn:hover{
-    background: #2e88cc;
+    color: #fff;
 }
 
-#login-hr{
-    border-left: 1px solid #ccc;
+#login-btn {
+    color: #fff;
+    text-decoration: none;
 }
 
-input{
-    border-radius: 30px;
-    padding: 1em 2em;
+#login-btn:hover {
+    background: #021524;
+}
+
+input::placeholder {
+    font-size: 1.5em;
+}
+
+input {
+    border-radius: 0.50em;
+    padding: 1.5em 2em;
     margin: 1em 0;
 }
 
-#close-modal{
-    position: absolute;
-    top: 1em;
-    right: 2em;
-    padding: 0.5em;
-    cursor: pointer;
-    font-weight: bolder;
-}
-#modal{
-    position: relative;
-    background-color: #222222;
-    padding: 5em;
-    width: 30%;
-    height: 30%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+h2 {
+    text-align: center;
 }
 
-.modal-bg{
-    position: fixed;
+#loginForm {
+    /* position: absolute;  */
+    gap: 0;
+    height: 60%;
+    width: 40%;
+    display: flex;
+    font-size: 1.7em;
+    color: #fff;
+    flex-direction: column;
+    /* display: inline-block; */
+}
+
+.container {
+    object-fit: cover;
+    background-color: #2a2a2b;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url("../images/background.jpg");
+    background-size: cover;
+    width: 100%;
+}
+
+.main {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-   
 }
 
-.modal-active{
-    visibility: visible;
-    opacity: 1;
+#login {
+    font-size: 2em;
+    color: rgb(163, 241, 46);
+    font-weight: bolder;
 }
 
-/* N A V I G A T I O N */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 15vh;
+    background-color: #3F7CAC
+}
 
-ul li{
-    text-decoration: none;    
-    display: block;
+img {
+    width: 20%;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
+
+.nav-links li {
+    list-style: none;
 }
 
 .dropdown {
     position: relative;
-    display: inline-block;
-  }
+    display: inline-block
+}
 
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(3, 26, 26);
-    min-width: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: #f0627a;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+}
 
-  header {
+.dropdown-content a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 12px 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: blue;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    margin: 0.25em auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.manBody {
     margin: 0;
-    height:fit-content;
-  }
-  
-  #nav {
-    display: inline;
-    background-color: var(--color-primary);
-  }
-  
-  .nav_icon {
-    margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  
-  #profile-pic {
-    width: 33px;
-  }
-  
-/* D A S H B O A R D */
+    padding: 50px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 6.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+#employeeName,
+#stationname {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.manBtn {
+    width: 50%;
+    background-color: #3F7CAC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.manSect {
+    border-radius: 5px;
+    background-color: white;
+    margin: auto;
+    width: 50%;
+}
+
+.manForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: auto;
+    width: 50%;
+}
+
+#manH3 {
+    font-size: 2em;
+    border-left: 5px solid red;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+@media(max-width:768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 90vh;
+        top: 8vh;
+        background-color: #3F7CAC;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        left: -100%;
+    }
+    /* .nav-links li {
+      opacity: 0;
+  } */
+    .hamburger {
+        cursor: pointer;
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-links.active {
+        left: 0;
+        text-align: left;
+    }
+}

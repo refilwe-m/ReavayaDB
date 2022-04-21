@@ -1,23 +1,17 @@
-// js code
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".nav-links");
+console.log(hamburger)
+console.log(menu)
 
-/* Modal */
-const btnLogin = document.querySelectorAll(".modal-btn");
-const btnClose = document.querySelector("#close-modal");
-const welcomeMsg = document.querySelector("#welcome-msg");
-//Stuff Login
-btnLogin[0].addEventListener("click", () => {
-  welcomeMsg.innerText = "Welcome, Stuff Member";
-  const modal = document.querySelector(".modal-bg");
-  modal.classList.add("modal-active");
-});
-btnLogin[1].addEventListener("click", () => {
-  welcomeMsg.innerText = "Welcome, Administrator";
-  const modal = document.querySelector(".modal-bg");
-  modal.classList.add("modal-active");
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active")
+
+
+
+    menu.classList.toggle("active")
 });
 
-
-btnClose.addEventListener("click", () => {
-  document.querySelector(".modal-bg").classList.remove("modal-active");
-});
-
+document.querySelectorAll(".nav-item").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    menu.classList.remove("active")
+}))
