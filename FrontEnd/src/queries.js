@@ -9,22 +9,36 @@ const dbConnect = new sql.connect(config, (err) =>
     : console.log("connected to database: " + config.database)
 );
 
+/*            B U S   F U N C T I O N S               */
 //Route codes are linked to Route IDs....
-const getRouteFromCode = async (Code) => {
+const getIDFromCode = async (Code) => {
   try {
     const pool = await sql.connect(config);
     const result = await pool.request().input('CODE', Code).query(`SELECT CodeID FROM dbo.RouteCodes WHERE CodeName = @CODE`);
-    return result.recordset[0].RouteID;
+    return result.recordset[0].CodeID;
   } catch (error) {
     console.log(error);
   }
 }
+// getIDFromCode("T1").then(console.log);
 //Functions to interact with DB
 const getAllBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool.request().query("SELECT * FROM dbo.Buses");
     return buses.recordsets[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
+//getAllBuses().then((res)=>console.log(res))
+
+//add new bus
+const addBus = async (registration, codeID, seats) => {
+  try {
+    const pool = await sql.connect(config);
+    pool.request().query(
+        `INSERT INTO dbo.Buses (Registration, RouteCode, Seats) VALUES (${registration}, ${codeID}, ${seats})`);
   } catch (error) {
     console.log(error);
   }
@@ -135,16 +149,7 @@ removeEmployee = async (employeeID) => {
   }
 };
 
-//add new bus
-const addBus = async (registration, routeCode, seats) => {
-  try {
-    const pool = await sql.connect(config);
-    pool.request().query(
-        `INSERT INTO dbo.Buses (Registration, RouteCode, Seats) VALUES (${registration}, ${routeCode}, ${seats})`);
-  } catch (error) {
-    console.log(error);
-  }
-};
+
 
 //add new employee
 const addEmployee = async (
@@ -276,5 +281,5 @@ module.exports = {
   addEmployee,
   allocateBus,
   deallocateBus,
-  sellTicket,getRouteFromCode
+  sellTicket,getIDFromCode
 };
