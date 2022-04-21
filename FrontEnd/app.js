@@ -79,12 +79,13 @@ app.post("/addBus", async (req, res) => {
   res.send("Added Bus");
   //res.redirect("/dashboard");
 });
-/*
+
 app.post("/addEmployee", (req, res) => {
   const { EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus } = req.body;
-  addEmployee(EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus).then((result) => {result.send("Employee Added Successfully");}
+  addEmployee(EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus)
+    res.send("Employee Added Successfully");}
   );
-
+/*
 app.post("/allocateDrivers", (req, res) => {
   const { BusID, EmployeeID } = req.body;
   allocateBus(BusID, EmployeeID).then((result) => {result.send("Driver Allocated Successfully");}

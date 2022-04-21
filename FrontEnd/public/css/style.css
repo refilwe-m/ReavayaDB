@@ -137,8 +137,6 @@ img {
     height: 5px;
     background-color: #fff;
     margin: 0.25em auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
 }
 
 .manBody {
