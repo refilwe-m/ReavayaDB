@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
-const {addBus,getIDFromCode,
+const {
+  addBus,
+  getIDFromCode,
   getAllBuses,
   getAllEmployees,
   getAllDrivers,
@@ -16,7 +18,6 @@ const {addBus,getIDFromCode,
   allocateBus,
   deallocateBus,
   sellTicket,
-  
 } = require("./src/queries");
 
 app.use("/static", express.static(__dirname));
@@ -46,21 +47,22 @@ app.get("/allocateDrivers", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/allocateDrivers.html"));
 });
 app.get("/allocateStationManagers", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/pages/allocateStationManagers.html"));
+  res.sendFile(
+    path.join(__dirname, "/public/pages/allocateStationManagers.html")
+  );
 });
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
 
 app.post("/addBus", async (req, res) => {
-  console.log("here",req.body);
   const { routeCode, registration, seats } = req.body;
+  console.log("Body Post",req.body);
   const codeID = await getIDFromCode(routeCode);
-  console.log("myID:",codeID);
-  let response = await addBus(codeID, registration, seats);
-  console.log(response);
-  res.send(response);
-  
+  addBus(registration, codeID, seats);
+  console.log("Added Bus");
+  res.send("Added Bus");
+  //res.redirect("/dashboard");
 });
 /*
 app.post("/addEmployee", (req, res) => {

@@ -30,7 +30,25 @@ btnAddBus.addEventListener("click", function () {
     registration: document.getElementById("registration").value,
     seats: document.getElementById("seats").value,
   };
-  //console.log(inputData);
+
+  // fetch("/addBus", {
+  //   method: "POST",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(inputData),
+  //   }).then((response) => response.json())
+  //   //Then with the data from the response in JSON...
+  //   .then((data) => {
+  //     console.log('Success:', data);
+  //   })
+  //   //Then with the error genereted...
+  //   .catch((error) => {
+  //     console.error('Error:', error);
+  //   });
+
+
+
   $.ajax({
     url: "/addBus",
     type: "POST",

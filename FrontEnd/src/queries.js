@@ -1,4 +1,5 @@
 const sql = require("mssql/msnodesqlv8");
+const { add } = require("nodemon/lib/rules");
 const config = require("../config");
 //const SP = require("../../StoredProcedures.sql");
 
@@ -34,15 +35,20 @@ const getAllBuses = async () => {
 //getAllBuses().then((res)=>console.log(res))
 
 //add new bus
-const addBus = async (registration, codeID, seats) => {
+const addBus = async (registration,codeID, seats) => {
+  console.log(registration,codeID,seats); 
   try {
     const pool = await sql.connect(config);
     pool.request().query(
-        `INSERT INTO dbo.Buses (Registration, RouteCode, Seats) VALUES (${registration}, ${codeID}, ${seats})`);
+        `INSERT INTO dbo.Buses (Registration, RouteCodeID, Seats) VALUES ('${registration}', ${codeID}, ${seats})`);
   } catch (error) {
     console.log(error);
   }
 };
+
+//addBus("WISSANLP", 1, 40);
+
+
 
 const getAllEmployees = async () => {
   try {

@@ -3,6 +3,8 @@ USE master;
 GO
     USE ReaVayaDB;
 
+    INSERT INTO dbo.Buses (Registration, RouteCodeID, Seats) VALUES ('JHD463MP', 3, 60)
+
 --Users Data
 INSERT INTO
     Users (
@@ -412,21 +414,21 @@ VALUES
 GO
     -- Buses Data
 INSERT INTO
-    Buses(Registration, RouteCode, StatusID)
+    Buses(Registration, RouteCodeID, Seats, StatusID)
 VALUES
-    ('TDG 643 MP', 2, 4),
-    ('TDG 613 MP', 5, 2),
-    ('TSG 623 MP', 7, 1),
-    ('TDT 673 MP', 3, 3),
-    ('TGG 603 MP', 1, 2),
-    ('TDG 653 MP', 3, 4),
-    ('TDG 663 MP', 4, 1),
-    ('HGG 683 MP', 6, 3),
-    ('TDG 693 MP', 8, 3),
-    ('TDG 843 MP', 3, 2),
-    ('TDG 233 MP', 5, 1),
-    ('FDG 443 MP', 10, 1),
-    ('TDG 943 MP', 8, 3);
+    ('TDG 643 MP', 2,50, 4),
+    ('TDG 613 MP', 5,150, 2),
+    ('TSG 623 MP', 7,30, 1),
+    ('TDT 673 MP', 3,250, 3),
+    ('TGG 603 MP', 1,300, 2),
+    ('TDG 653 MP', 3,70, 4),
+    ('TDG 663 MP', 4,50, 1),
+    ('HGG 683 MP', 6,60, 3),
+    ('TDG 693 MP', 8,80, 3),
+    ('TDG 843 MP', 3,90, 2),
+    ('TDG 233 MP', 5,120, 1),
+    ('FDG 443 MP', 10,130, 1),
+    ('TDG 943 MP', 8,100, 3);
 
 GO
     --Bookings Data
