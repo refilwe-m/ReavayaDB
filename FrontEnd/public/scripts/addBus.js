@@ -54,7 +54,7 @@ btnAddBus.addEventListener("click", function () {
     type: "POST",
     data: inputData,
     success: (res) => {
-      alert(res);
+      alert(`${res}: Refill form to add Another Bus`);
     },
     error: function (res) {
       alert("server error occurred");

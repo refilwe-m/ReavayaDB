@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const {
   addBus,
   getIDFromCode,
+  getTableHeadings,
   getAllBuses,
   getAllEmployees,
   getAllDrivers,
@@ -18,6 +19,7 @@ const {
   allocateBus,
   deallocateBus,
   sellTicket,
+  getColumnNames,
 } = require("./src/queries");
 
 app.use("/static", express.static(__dirname));
@@ -39,6 +41,17 @@ app.get("/addBus", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addBus.html"));
 });
 
+app.get("/tableHeadings/:tableName", async (req, res) => {
+  const tableName = req.params.tableName;
+  const headings = await getColumnNames(tableName);
+  res.send(headings);
+  //res.sendFile(path.join(__dirname, "/public/scripts/tableHeadings.js"));
+});
+
+app.get("getAllBuses", async (req, res) => {
+  
+})
+
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
@@ -54,6 +67,7 @@ app.get("/allocateStationManagers", (req, res) => {
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
+
 
 app.post("/addBus", async (req, res) => {
   const { routeCode, registration, seats } = req.body;

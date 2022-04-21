@@ -15,12 +15,15 @@ const dbConnect = new sql.connect(config, (err) =>
 const getIDFromCode = async (Code) => {
   try {
     const pool = await sql.connect(config);
-    const result = await pool.request().input('CODE', Code).query(`SELECT CodeID FROM dbo.RouteCodes WHERE CodeName = @CODE`);
+    const result = await pool
+      .request()
+      .input("CODE", Code)
+      .query(`SELECT CodeID FROM dbo.RouteCodes WHERE CodeName = @CODE`);
     return result.recordset[0].CodeID;
   } catch (error) {
     console.log(error);
   }
-}
+};
 // getIDFromCode("T1").then(console.log);
 //Functions to interact with DB
 const getAllBuses = async () => {
@@ -34,21 +37,40 @@ const getAllBuses = async () => {
 };
 //getAllBuses().then((res)=>console.log(res))
 
-//add new bus
-const addBus = async (registration,codeID, seats) => {
-  console.log(registration,codeID,seats); 
+const getColumnNames = async (tableName) => {
+  let headings = [];
   try {
     const pool = await sql.connect(config);
-    pool.request().query(
-        `INSERT INTO dbo.Buses (Registration, RouteCodeID, Seats) VALUES ('${registration}', ${codeID}, ${seats})`);
+    const cols = await pool
+      .request()
+      .query(
+        `SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='${tableName}'`
+      );
+    headings = cols.recordsets[0].map((col) => col.COLUMN_NAME);
+    return headings;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//getColumnNames("Buses").then((res)=>console.log(res));
+
+//add new bus
+const addBus = async (registration, codeID, seats) => {
+  console.log(registration, codeID, seats);
+  try {
+    const pool = await sql.connect(config);
+    pool
+      .request()
+      .query(
+        `INSERT INTO dbo.Buses (Registration, RouteCodeID, Seats) VALUES ('${registration}', ${codeID}, ${seats})`
+      );
   } catch (error) {
     console.log(error);
   }
 };
 
 //addBus("WISSANLP", 1, 40);
-
-
 
 const getAllEmployees = async () => {
   try {
@@ -154,8 +176,6 @@ removeEmployee = async (employeeID) => {
     console.log(error);
   }
 };
-
-
 
 //add new employee
 const addEmployee = async (
@@ -287,5 +307,7 @@ module.exports = {
   addEmployee,
   allocateBus,
   deallocateBus,
-  sellTicket,getIDFromCode
+  sellTicket,
+  getIDFromCode,
+  getColumnNames,
 };
