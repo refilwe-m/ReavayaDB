@@ -237,3 +237,255 @@ img {
         text-align: left;
     }
 }
+
+            
+.empBody {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 6.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  #fname, #lname, #address, #phone , #dateofbirth, #email {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+
+  .empBtn {
+    width: 50%;
+    background-color: #3F7CAC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+  }
+
+  .empSect{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+  
+    margin: auto; 
+    width: 50%;
+  }
+  .empForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: auto; 
+    width: 50%;
+  }
+
+  #empH3{
+    font-size: 2em;
+    border-left: 5px solid red;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+  
+              
+  .driverBody {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 6.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  #employeeName, #busId, #phases, #startdate, #enddate{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .driverbtn {
+    width: 50%;
+    background-color: #3F7CAC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+  }
+
+  .driverSect{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+  
+    margin: auto; 
+    width: 50%;
+  }
+  .driverForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: auto; 
+    width: 50%;
+  }
+
+  #driverH3{
+    font-size: 2em;
+    border-left: 5px solid red;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+    
+  }
+
+  
+  .manBody {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 6.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  #employeeName, #stationname{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .manBtn {
+    width: 50%;
+    background-color: #3F7CAC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+  }
+
+  .manSect{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;  
+    margin: auto; 
+    width: 50%;
+  }
+  .manForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: auto; 
+    width: 50%;
+  }
+
+  #manH3{
+    font-size: 2em;
+    border-left: 5px solid red;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+  
+  .ticketBody{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: 6.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    }
+
+    #ticketType, #description, #price {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    .ticketBtn {
+    width: 50%;
+    background-color: #3F7CAC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    display:block;
+    margin: 0 auto;
+    }
+
+    .ticketSect{
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;    
+    margin: auto; 
+    width: 50%;
+    }
+    .ticketForm {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: auto; 
+    width: 50%;
+    }
+
+    #ticketH3{
+    font-size: 2em;
+    border-left: 5px solid red;
+    padding: 10px;
+    color: #000;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    font-weight: bold;
+    padding-left: 10px;
+    }
