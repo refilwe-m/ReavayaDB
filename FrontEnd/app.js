@@ -41,15 +41,18 @@ app.get("/addBus", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addBus.html"));
 });
 
-app.get("/tableHeadings/:tableName", async (req, res) => {
+app.get("/getTable/:tableName", async (req, res) => {
   const tableName = req.params.tableName;
   const headings = await getColumnNames(tableName);
-  res.send(headings);
+  const rows = await getAllBuses();
+  res.send({ headings, rows });
+  //res.send(headings);
   //res.sendFile(path.join(__dirname, "/public/scripts/tableHeadings.js"));
 });
 
-app.get("getAllBuses", async (req, res) => {
-  
+app.get("/getAllBuses", async (req, res) => {
+const buses = await getAllBuses();
+res.send(buses);
 })
 
 app.get("/addEmployee", (req, res) => {

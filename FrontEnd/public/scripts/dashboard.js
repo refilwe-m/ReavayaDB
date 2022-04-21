@@ -1,6 +1,6 @@
 const tableObject = document.createElement("TABLE");
 
-const createTableHeadings = (tableObject, headings) => {
+const createTableHead = (tableObject, headings) => {
   tableObject.createTHead();
   for (let heading of headings) {
     const th = document.createElement("th");
@@ -9,17 +9,37 @@ const createTableHeadings = (tableObject, headings) => {
   }
 };
 
+const createTableBody = (tableObject, rows) => {
+  const nRows = rows.length;
+  for (let i = 0; i < nRows; i++) {
+    const tr = document.createElement("tr");
+    const row = rows[i];
+    for (const cell in row) {
+      const td = document.createElement("td");
+      td.innerHTML = row[cell];
+      tr.appendChild(td);
+    }
+    tableObject.appendChild(tr);
+  }
+
+};
+
+const createTable = (tableObject, { headings, rows }) => {
+  createTableHead(tableObject, headings);
+  createTableBody(tableObject, rows);
+};
+
 //View Bus DashBoard
 document
   .getElementsByClassName("side-links")[0]
   .addEventListener("click", () => {
     inputData = "Buses";
     $.ajax({
-      url: `/tableHeadings/${inputData}`,
+      url: `/getTable/${inputData}`,
       type: "GET",
       data: inputData,
       success: (res) => {
-        createTableHeadings(tableObject, res);
+        createTable(tableObject, res);
       },
       error: function (res) {
         alert("server error occurred");
@@ -27,6 +47,4 @@ document
     });
     document.getElementById("bus-data").appendChild(tableObject);
   });
-//Get Table Length
-// tableObject.tHead.appendChild(th).value = "BusID";
-// console.log(tableObject);
+
