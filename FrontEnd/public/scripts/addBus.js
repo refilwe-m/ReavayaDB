@@ -54,7 +54,7 @@ btnAddBus.addEventListener("click", function () {
     type: "POST",
     data: inputData,
     success: (res) => {
-      alert("Bus Added Successfully");
+      alert(res);
     },
     error: function (res) {
       alert("server error occurred");
