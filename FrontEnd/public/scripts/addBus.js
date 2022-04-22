@@ -41,7 +41,6 @@ btnAddBus.addEventListener("click", function () {
       },
       body: JSON.stringify(data),
     }).then((res) => alert(res))
-    
   };
 
   fetchPost("http://localhost:3000/addBus", inputData)
