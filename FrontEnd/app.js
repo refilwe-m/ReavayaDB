@@ -27,6 +27,8 @@ app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__dirname + "/public/scripts")));
 app.use(express.static(path.join(__dirname + "/public/pages")));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json()); //Check
+//app.use(express.raw());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/index.html"));
@@ -49,9 +51,9 @@ app.get("/getTable/:tableName", async (req, res) => {
 });
 
 app.get("/getAllBuses", async (req, res) => {
-const buses = await getAllBuses();
-res.send(buses);
-})
+  const buses = await getAllBuses();
+  res.send(buses);
+});
 
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
@@ -69,22 +71,40 @@ app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
 
-
+/* POST EndPoints */
 app.post("/addBus", async (req, res) => {
   const { routeCode, registration, seats } = req.body;
-  console.log("Body Post",req.body);
+  console.log("Body Post", req.body);
   const codeID = await getIDFromCode(routeCode);
   addBus(registration, codeID, seats);
-  console.log("Added Bus");
+  //console.log("Added Bus");
   res.send("Added Bus");
   //res.redirect("/dashboard");
 });
 
 app.post("/addEmployee", (req, res) => {
-  const { EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus } = req.body;
-  addEmployee(EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus)
-    res.send("Employee Added Successfully");}
+  const {
+    EmployeeID,
+    EmployeeName,
+    EmployeeSurname,
+    EmployeeEmail,
+    EmployeePhone,
+    EmployeeAddress,
+    PositionID,
+    HealthStatus,
+  } = req.body;
+  addEmployee(
+    EmployeeID,
+    EmployeeName,
+    EmployeeSurname,
+    EmployeeEmail,
+    EmployeePhone,
+    EmployeeAddress,
+    PositionID,
+    HealthStatus
   );
+  res.send("Employee Added Successfully");
+});
 /*
 app.post("/allocateDrivers", (req, res) => {
   const { BusID, EmployeeID } = req.body;

@@ -2,7 +2,7 @@ const typeOptions = document.getElementById("bustype");
 const busTypes = { C: 5, F: 10, T: 3 };
 let routeCode = "";
 
-typeOptions.addEventListener("change", function () {
+typeOptions.addEventListener("change", () => {
   const selectedBusType = typeOptions.options[typeOptions.selectedIndex].value;
   const prefix = selectedBusType[0].toUpperCase();
   //DataList Object and append child
@@ -30,34 +30,20 @@ btnAddBus.addEventListener("click", function () {
     registration: document.getElementById("registration").value,
     seats: document.getElementById("seats").value,
   };
+  console.log(inputData);
 
-  // fetch("/addBus", {
-  //   method: "POST",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(inputData),
-  //   }).then((response) => response.json())
-  //   //Then with the data from the response in JSON...
-  //   .then((data) => {
-  //     console.log('Success:', data);
-  //   })
-  //   //Then with the error genereted...
-  //   .catch((error) => {
-  //     console.error('Error:', error);
-  //   });
+  const fetchPost = (url, data) => {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => alert(res))
+    
+  };
 
-
-
-  $.ajax({
-    url: "/addBus",
-    type: "POST",
-    data: inputData,
-    success: (res) => {
-      alert(`${res}: Refill form to add Another Bus`);
-    },
-    error: function (res) {
-      alert("server error occurred");
-    },
-  });
+  fetchPost("http://localhost:3000/addBus", inputData)
+    
 });
