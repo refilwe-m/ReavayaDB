@@ -5,33 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/navigation.css">
     <title>Navigation bar</title>
-    <style>
-        .navigation{
-            position: fixed;
-            height: 100%;
-            width: 18rem;
-            background-color: #3F7CAC;
-            transition: 0.5s;
-            overflow: hidden;
-        }
-    </style>
+    
 </head>
 <body>
     <nav class="navigation">
 
         <ul>
+            <li class="logo">
+                <img src="../images/BusY_Logo.png" alt="company logo" height="10%" width="40%">
+            </li>
+            <li class="dashboard">
+                <a href="dashboard.html">
+                     <i class="fa-solid fa-house"></i>
+                     <label class="title">Dashboard</label>
+                   </a>
+            </li>
+               
+               
             <li>
-                <img src="../images/BusY_Logo.png" alt="company logo" height="" width="30%">
+                <a href="">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <label class="title">Add</label>
+                  
+                </a>
             </li>
             <li>
-                <i class="fa-solid fa-grid-horizontal">Dashboard</i>
+                <a href="">
+                    <i class="fa-solid fa-file-signature" ></i>
+                    <label class="title">Allocate</label>
+                </a>
             </li>
-            <li>
-                <i class="fa-solid fa-circle-plus">Add</i>
-            </li>
-            <li>
-                <i class='fa fa-power-off fa-lg'>Sign out</i>
+            <li class="signout" style="position: fixed; bottom: 1rem;">
+                <a href="index.html">
+                    <i class="fa-solid fa-power-off"></i>
+                    <label class="title">Sign out</label>
+                </a>
             </li>
         </ul>
 	   	
