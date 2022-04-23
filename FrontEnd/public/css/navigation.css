@@ -13,7 +13,7 @@
 }
 .navigation ul li{
     position: relative;
-    width: 90%;
+    width: 100%;
     list-style: none;
     border-top-left-radius: 1.8rem;
     border-bottom-left-radius: 1.8rem;

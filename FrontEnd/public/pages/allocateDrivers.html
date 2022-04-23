@@ -4,61 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
 
     <title>Allocating Drivers</title>
 
 </head>
-<body class="driverBody">
-
-
-  <nav>
-    <div><img src="../images/BusY_Logo.png" alt="company logo"></div>
-
-    <ul class="nav-links">
-
-        <li class="active nav-item"> <a href="dashboard.html">Home</a></li>
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Add</div>
-                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
-                </div>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Allocate</div>
-                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
-                </div>
-            </a>
-        </li>
-
-
-
-        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
-
-    </ul>
-    <section class="hamburger">
-
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </section>
-
-
-
-</nav>
+<body>
     
-  <section class="driverSect"><h3 id="driverH3">Allocate Drivers</h3></section>
-  <form class="driverForm" action="" method="post">  
+  <section><h1>Allocate Drivers</h1></section>
+  <form method="post">  
 
     <label for="employeeName">Employee Name</label>
-    <input list="drivers" name="employeeName" id="employeeName" required/>
+    <input list="drivers" name="employeeName" class="form-input" required/>
     <datalist  id="drivers"  >      
       <option value="Lebo Matheba(1)">
       <option value="Benny Thomas(3)">
@@ -67,11 +24,11 @@
     </datalist>
 
     <label for="busID">Bus ID</label>
-    <input type="number" name="busId" id="busId" required>
+    <input type="number" name="busId" class="form-input" required>
 
    
     <label for="phases">Phase</label>
-    <select id="phases" name="phases" required >
+    <select id="phases" name="phases" class="form-input" required >
       <option value="please">Please Select A Phase</option>
       <option value="P1A">P1A</option>
       <option value="P1B">P1B</option>
@@ -80,15 +37,15 @@
   
 
     <label for="startdate">Start Date</label>
-     <input type="date" name="startdate" id="startdate" required>
+     <input type="date" name="startdate" class="form-input" required>
 
      <label for="enddate">End Date</label>
-     <input type="date" name="date"  id="enddate">
+     <input type="date" name="date"  class="form-input">
   
-    <button type="submit" class="driverbtn">Allocate Driver</button>
+    <button type="submit">Allocate Driver</button>
   </form>
-  <footer class="driverFooter">
-    <p style="text-align: center;">Made with 🤍 by Group 4</p>
+  <footer>
+    <p>Made with 🤍 by Group 4</p>
   </footer>
 </body>
 </html>

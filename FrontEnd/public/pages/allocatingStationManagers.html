@@ -4,61 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
 
-    <title>Document</title>
+    <title>Allocating Station Manager</title>
     
 </head>
-<body class="manBody">
+<body>
 
-  <nav>
-    <div><img src="../images/BusY_Logo.png" alt="company logo"></div>
-
-    <ul class="nav-links">
-
-        <li class="active nav-item"> <a href="dashboard.html">Home</a></li>
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Add</div>
-                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
-                </div>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Allocate</div>
-                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
-                </div>
-            </a>
-        </li>
-
-
-
-        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
-
-    </ul>
-    <section class="hamburger">
-
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </section>
-
-
-
-</nav>
-
-    <section class="manSect"><h3 id="manH3">Allocate Station Managers</h3></section>
-    <form class="manForm" action="" method="post"> 
-     
+    <section><h1>Allocate Station Managers</h1></section>
+    <form method="post">      
 
     <label for="employeeName">Employee Name</label>
-    <input list="managers" name="employeeName" id="employeeName" />
+    <input list="managers" name="employeeName" class="form-input" />
     <datalist  id="managers"  >      
       <option value="Sam Tau(4)">
       <option value="Zandile Dlamini(8)">
@@ -66,7 +23,7 @@
     </datalist>
 
     <label for="stationname">Station Name</label>
-    <input list="stations" name="stationname" id="stationname"/>
+    <input list="stations" name="stationname" class="form-input"/>
     <datalist  id="stations"  >        
         <option value="Lake View">
         <option value="Thokoza Park">
@@ -80,14 +37,12 @@
         <option value="SABC Media Park">
         <option value="Hillbrow">
       
-    </datalist>
-
-    
+    </datalist>    
   
-    <button type="submit" class="manBtn">Allocate Station Manager</button>
+    <button type="submit">Allocate Station Manager</button>
   </form>
-  <footer class="manFooter">
-    <p style="text-align: center;">Made with 🤍 by Group 4</p>
+  <footer>
+    <p>Made with 🤍 by Group 4</p>
   </footer>
 </body>
 </html>

@@ -8,56 +8,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/forms.css">
   <title>Adding A New Bus</title>
  
 </head>
-<body class="busBody">
-  <nav>
-    <div><img src="../images/BusY_Logo.png" alt="company logo"></div>
-
-    <ul class="nav-links">
-
-        <li class="active nav-item"> <a href="dashboard.html">Home</a></li>
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Add</div>
-                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
-                </div>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Allocate</div>
-                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
-                </div>
-            </a>
-        </li>
-
-
-
-        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
-
-    </ul>
-    <section class="hamburger">
-
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </section>
-
-
-
-</nav>
-  <section class="busSect"><h3 id="busH3">Add Bus</h3></section>
-  <form class="busForm" action="" method="post">      
+<body>
+ 
+  <section><h1>Add Bus</h1></section>
+  <form method="post">      
     <label for="bustype">Bus Type</label>
-    <select  id="bustype" name="bustype" >
+    <select class="form-input">
       <option value="PleaseSelectBusType">Please Select Bus Type</option>
       <option value="feeder">Feeder</option>
       <option value="complimentary">Complimentary</option>
@@ -87,17 +47,17 @@
     </datalist>
 
     <label for="registration">Registrion Number</label>
-    <input type="text" name="registration" id="registration" class = "form-input" min="30" max="300" step="10" required>
+    <input type="text" name="registration" class = "form-input" min="30" max="300" step="10" required>
 
     <label for="seatnum">Number Of Seats</label>
     <input type="number" name="seats" id="seats" class = "form-input" min="30" max="300" step="1" required>
   
-    <button type="button" id = "btnAddBus" class="busBtn">Add Bus</button>
+    <button type="button">Add Bus</button>
   </form>
 <script src="./scripts/addBus.js"></script>
 
-<footer class="busFooter">
-  <p style="text-align: center;">Made with 🤍 by Group 4</p>
+<footer>
+  <p>Made with 🤍 by Group 4</p>
 </footer>
 </body>
 </html>
