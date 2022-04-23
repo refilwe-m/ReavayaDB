@@ -3,7 +3,7 @@
 .navigation{
     position: fixed;
     height: 100%;
-    width: 18rem;
+    width: 20em;
     background-color: #3F7CAC;
    
 }
@@ -15,8 +15,8 @@
     position: relative;
     width: 100%;
     list-style: none;
-    border-top-left-radius: 1.8rem;
-    border-bottom-left-radius: 1.8rem;
+    border-top-left-radius: 1.8em;
+    border-bottom-left-radius: 1.8em;
 }
 .navigation ul li:hover{
     background-color: white;           
@@ -24,7 +24,7 @@
 }
 
 .logo{
-    margin-bottom: 3rem;
+    margin-bottom: 3em;
     pointer-events: none; 
 }
 .navigation ul li a{
@@ -41,23 +41,23 @@
 .navigation ul li a i {
     position: relative;
     display: block;
-     min-width: 3.7rem;
-    height: 3.7rem;
-    line-height: 3.7rem; 
+    min-width: 2em;
+    height: 2em;
+    line-height: 2em; 
     text-align: center;
-    font-size: 1.75rem;           
+    font-size: 1.75em;           
    
 } 
 .navigation ul li a .title{
     position: relative;
     display: block;           
-    height: 3.7rem;
-    line-height: 3.7rem;
+    height: 3em;
+    line-height: 3.7em;
     font-weight: bold;           
 }
 
 .title{
-    margin-left: 1rem;
+    margin-left: 1em;
     color: white ;
     font-family: "Poppins",sans-serif;
 }
