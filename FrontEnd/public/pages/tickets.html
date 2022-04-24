@@ -4,75 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
 
     <title>Tickets</title>
 
     
 </head>
-<body class="ticketBody">
+<body>
 
-    
-  <nav>
-    <div><img src="../images/BusY_Logo.png" alt="company logo"></div>
-
-    <ul class="nav-links">
-
-        <li class="active nav-item"> <a href="dashboard.html">Home</a></li>
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Add</div>
-                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
-                </div>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Allocate</div>
-                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
-                </div>
-            </a>
-        </li>
-
-
-
-        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
-
-    </ul>
-    <section class="hamburger">
-
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </section>
-
-
-
-</nav>
-    <section class="ticketSect"><h3 id="ticketH3">Tickets</h3></section>
+    <section><h1>Tickets</h1></section>
    
-    <form class="ticketForm" action="" method="post">
+    <form method="post">
   
       <label for="ticketType">Ticket Type</label>
-      <input type="text" id="ticketType" name="ticketType" required>
+      <input type="text" name="ticketType" class="form-input" required>
   
       <label for="description">Description</label>
-      <input type="text" name="description" id="description" required>
+      <input type="text" name="description" class="form-input" required>
   
       <label for="price">Ticket Price</label>
-      <input type="text" name="price" id="price" >  
+      <input type="text" name="price" class="form-input" >  
     
       
-      <button type="submit" class="ticketBtn">Add Ticket</button>
+      <button type="submit">Add Ticket</button>
   
     </form>
-    <footer class="ticketFooter">
-        <p style="text-align: center;">Made with 🤍 by Group 4</p>
+    <footer>
+        <p>Made with 🤍 by Group 4</p>
       </footer>
 </body>
 </html>
