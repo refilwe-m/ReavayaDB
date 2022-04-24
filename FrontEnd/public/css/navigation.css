@@ -1,15 +1,19 @@
 /* Nomcebo Navigation Bar style */
 *{
-    padding: 0;
     margin: 0;
-    }
-
+}
 .navigation{
     position: fixed;
     height: 100%;
     width: 18rem;
     background-color: #3F7CAC;
    
+}
+
+img {
+    height: 10%;
+    width: 40%;
+
 }
 .navigation ul{
     position: absolute;
@@ -22,10 +26,10 @@
     border-top-left-radius: 1.8rem;
     border-bottom-left-radius: 1.8rem;
 }
-.navigation ul li:hover{
+ .navigation ul li:hover{
     background-color: white;           
 
-}
+} 
 
 .logo{
     margin-bottom: 3rem;
@@ -33,13 +37,13 @@
 }
 .navigation ul li a{
     position: relative;
-    display: block;
+    /* display: block; */
     width: 100%;
     display: flex;
     text-decoration: none;
     color: rgb(49, 189, 199);
 }
-.navigation ul li:hover .title{
+ .navigation ul li:hover .title{
     color: rgb(49, 189, 199);
 }
 .navigation ul li a i {
@@ -66,7 +70,40 @@
     font-family: "Poppins",sans-serif;
 }
 
+nav ul ul  {
+    
+    position: absolute;
+    left: 15.3rem;
+    top:0.3rem;
+    width: 12rem;
+  box-shadow: 0.25rem 0.25rem 0.25rem rgb(0, 0, 1);
+  font-family: "Poppins",sans-serif;
+    display: none;
+    padding: 1.1rem;
+  
+}
 
-#Welcome-msg {
-    color: #000;
-  }
+nav ul .dropdown  {
+    position: relative
+}
+
+nav ul .dropdown:hover ul {
+    display:block
+    
+}
+
+
+
+.Allocate {
+    margin-top: 1rem;
+    justify-content: space-around;
+  
+}
+
+nav ul ul li {
+padding: 1.25rem;
+}
+
+nav ul ul a:hover {
+  color: #3F7CAC;
+}

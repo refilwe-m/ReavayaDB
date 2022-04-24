@@ -87,33 +87,79 @@
    
   }
     
-  img {
-      width: 10%;
-      padding: 1em 1em;
 
-  }
 
  /* form Navigation styles */
- .navigation {
+ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 15vh;
-  background-color: #3F7CAC
+  background-color: #3F7CAC;
+ 
+  
 }
 
+img {
+  width: 10%;
+}
 
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  
+}
 
-.nav-links {
+nav ul li{
+  list-style: none;
+
+  
+ 
+}
+
+nav ul li a{
+text-decoration: none;
+ padding: 2rem 1rem; 
+ text-align: center;
+ color: white ;
+  font-family: "Poppins",sans-serif;
+}
+/* .nav-links {
   display: flex;
   justify-content: space-around;
   width: 20%;
+} */
+
+nav ul ul  {
+ /* display: flex;
+ flex-direction: column; */
+  display: none;
+  position: absolute;
+  padding: 2em 0rem;
+  background: #3F7CAC;
+  width: 12rem;
+}
+nav ul .dropdown:hover ul {
+  display:block
+  
 }
 
-.nav-links li {
-  list-style: none;
+nav ul ul li {
+  padding: 1rem;
+  }
+  
+ 
+
+  .navigation ul li:hover a{
+    color: rgb(49, 189, 199);
 }
 
+nav ul ul:hover a{
+  color: white;
+}
+
+/*
 .dropdown {
   position: relative;
   display: inline-block
@@ -139,7 +185,7 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+ */
 
 
   /* form Styles */

@@ -14,28 +14,40 @@
 
         <ul>
             <li class="logo">
-                <img src="../images/BusY_Logo.png" alt="company logo" height="10%" width="40%">
+                <img src="../images/BusY_Logo.png" alt="company logo" >
             </li>
-            <li class="dashboard">
-                <a href="dashboard.html">
+            <li class="dashboard active" >
+                <a href="navbar.html">
                      <i class="fa-solid fa-house"></i>
                      <label class="title">Dashboard</label>
                    </a>
             </li>
                
                
-            <li>
+            <li class="dropdown">
                 <a href="">
                     <i class="fa-solid fa-circle-plus"></i>
                     <label class="title">Add</label>
                   
                 </a>
+                
+                    <ul>
+                        <li><a href="addBus.html">Add Bus</a></li>
+                        <li><a href="addEmployee.html">Add Employee</a></li>
+                       <li><a href="tickets.html">Add Ticket</a></li>
+                    </ul>
+              
+              
             </li>
-            <li>
+            <li class="dropdown" >
                 <a href="">
                     <i class="fa-solid fa-file-signature" ></i>
                     <label class="title">Allocate</label>
-                </a>
+                </a>   <ul class="Allocate">
+                    <li><a href="allocatingStationManagers.html">Allocate Station Manager</a></li>
+                        <li><a href="allocateDrivers.html">Allocate Driver</a></li>
+                    
+                </ul>
             </li>
             <li class="signout" style="position: fixed; bottom: 1rem;">
                 <a href="index.html">

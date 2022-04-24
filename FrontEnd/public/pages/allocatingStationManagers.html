@@ -11,47 +11,53 @@
 </head>
 <body class="manBody">
 
-  <nav  class="navigation">
-    <img src="../images/BusY_Logo.png" alt="company logo">
-
-    <ul class="nav-links">
-
-        <li class="active nav-item"> <a href="dashboard.html">Home</a></li>
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Add</div>
-                    <div class="dropdown-content"><a href="addBus.html">Add Bus</a><a href="tickets.html" class="nav-link">Add Ticket</a><a href="addEmployee.html" class="nav-link">Add Employee</a></div>
-                </div>
-            </a>
-        </li>
-
-
-        <li class="nav-item">
-            <a href="">
-                <div class="dropdown">
-                    <div class="btn"> Allocate</div>
-                    <div class="dropdown-content"><a href="allocateDrivers.html" class="nav-link">Allocate Driver</a><a href="allocatingStationManagers.html" class="nav-link">Allocate Station Manager</a></div>
-                </div>
-            </a>
-        </li>
-
-
-
-        <li class="nav-item"><a href="index.html" class="nav-link">Logout</a></li>
-
-    </ul>
-    <section class="hamburger">
-
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </section>
-
-
-
-</nav>
+    <nav class="navigation">
+        <img src="../images/BusY_Logo.png" alt="company logo">
+     
+         <ul >
+     
+             <li class="active "> <a href="navbar.html">Home</a></li>
+     
+             <li class="dropdown">
+                 <a href="">
+                     
+                      <label class="title">Add</label></a> 
+                        <ul>
+                        <li><a href="addBus.html">Bus</a></li>
+                        <li><a href="addEmployee.html">Employee</a></li>
+                       <li><a href="tickets.html">Ticket</a></li>
+                    </ul>
+                   
+             </li>
+     
+     
+             <li class="dropdown">
+                 <a href="">
+                    
+                      <label class="title">Allocate</label>
+                         
+                 </a><ul class="Allocate">
+                  <li><a href="allocatingStationManagers.html">Manager</a></li>
+                      <li><a href="allocateDrivers.html">Driver</a></li>
+                  
+              </ul>
+             </li>
+     
+     
+     
+             <li class="logout"><a href="index.html" >Logout</a></li>
+     
+         </ul>
+         <section class="hamburger">
+     
+             <span class="bar"></span>
+             <span class="bar"></span>
+             <span class="bar"></span>
+         </section>
+     
+     
+     
+     </nav>
 
     <section class="manSect"><h3 id="manH3">Allocate Station Managers</h3></section>
     <form class="manForm" action="" method="post"> 
