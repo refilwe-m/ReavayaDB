@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <link rel="stylesheet" href="../css/navigation.css" />
+  <script src="../scripts/dashboard.js" defer></script>
+  <script src="../scripts/greetings.js" defer></script>
   <link rel="icon" href="../images/Just_BusY_logo.ico" />
   <link rel="stylesheet" href="../css/dashboard.css" />
   <title>Navigation bar</title>
@@ -59,11 +61,28 @@
   </nav>
   <main>
     <h1 id="Welcome-msg"></h1>
+    <section id="dash-container">
+      <article id="nav-container">
+          <section id="side-nav">
+              <ul>
+                  <li class="side-links">
+                      <i class='fa fa-bus fa-lg'></i>Buses
+                  </li>
+                  <li class="side-links">
+                      <i class='fa fa-drivers-license fa-lg' ></i>Employees
+                  </li>
+                 
+              </ul>
+          </section>
+      </article>
+      <article id="bus-data">
+
+      </article>
+  </section>
   </main>
 
 
 </body>
-<script src="../scripts/dashboard.js"></script>
-<script src="../scripts/greetings.js"></script>
+
 
 </html>
