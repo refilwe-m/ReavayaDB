@@ -1,6 +1,6 @@
 body {
   margin: 0;      
-  height: 6.2rem;
+  /* height: 6.2rem; */
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
 } 
@@ -71,7 +71,7 @@ nav {
   height: 10vh;
   background-color: #3F7CAC;
   width: 100%;
-  position: fixed;
+ 
   
 }
 
@@ -88,9 +88,11 @@ nav ul {
 
 nav ul li{
   list-style: none;
-
-  
  
+}
+
+nav ul li .title{
+padding: 1em;
 }
 
 nav ul li a{
@@ -120,10 +122,12 @@ nav ul ul li {
   
  
 
-  .navigation ul li:hover a{
-    color: rgb(49, 189, 199);
+  nav ul li:hover .title{
+    color:rgb(49, 189, 199) ;
+    
+   
 }
 
-nav ul ul:hover a{
-  color: white;
+nav ul ul a:hover {
+  color: rgb(49, 189, 199);
 }

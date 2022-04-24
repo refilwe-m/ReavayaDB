@@ -41,7 +41,7 @@ img {
     width: 100%;
     display: flex;
     text-decoration: none;
-    color: rgb(49, 189, 199);
+     color: rgb(49, 189, 199); 
 }
  .navigation ul li:hover .title{
     color: rgb(49, 189, 199);
@@ -94,16 +94,21 @@ nav ul .dropdown:hover ul {
 
 
 
-.Allocate {
-    margin-top: 1rem;
-    justify-content: space-around;
-  
+nav ul ul li {
+padding: 0rem 0.4rem;
+
 }
 
-nav ul ul li {
-padding: 1.25rem;
+nav ul ul a {
+    border-top-left-radius: 1.8rem;
+    border-bottom-left-radius: 1.8rem;
+   font-weight: bolder;
+   padding: 1em 1em 1em 1.3em;
+   
 }
 
 nav ul ul a:hover {
-  color: #3F7CAC;
+    background: #3F7CAC;
+    color: white;
+    
 }
