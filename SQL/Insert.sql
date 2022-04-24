@@ -5,151 +5,6 @@ GO
 
     INSERT INTO dbo.Buses (Registration, RouteCodeID, Seats) VALUES ('JHD463MP', 3, 60)
 
---Users Data
-INSERT INTO
-    Users (
-        FirstName,
-        LastName,
-        DateOfBirth,
-        ResAddress,
-        City,
-        CellphoneNum,
-        EmailAddress
-    )
-VALUES
-    (
-        'Refilwe',
-        'Mashile',
-        '1995-12-27',
-        '806 Grandrose Ave',
-        'Soweto',
-        '0845434648',
-        'refilwe-mashile@yahoo.com'
-    ),
-    (
-        'Nomcebo',
-        'Ndimande',
-        '1999-12-29',
-        '26 Market Drive',
-        'Park Town',
-        '0817217371',
-        'ndimandnomcebo1@gmail.com'
-    ),
-    (
-        'Itumeleng',
-        'Matheba',
-        '1997-02-26',
-        '60 Mandela St',
-        'Braamfontein',
-        '0674545321',
-        'itumeleng123@gmail.com'
-    ),
-    (
-        'Ryan',
-        'Williams',
-        '1990-11-23',
-        '16 James St',
-        'Park Town',
-        '0804359867',
-        'williams.ryan@yahoo.com'
-    ),
-    (
-        'Andrew',
-        'Brown',
-        '1989-10-27',
-        '75 East Hanry Lane',
-        'Lake View',
-        '0675145325',
-        'andrewcool123@gmail.com'
-    ),
-    (
-        'Aaron',
-        'Wilson',
-        '2000-01-01',
-        '81 Baker Av',
-        'Thokoza',
-        '0876573902',
-        'aaronaaron@gmail.com'
-    ),
-    (
-        'Jordan',
-        'Smith',
-        '1985-06-27',
-        '63 Thompson Lane',
-        'Ellis Park',
-        '0839838784',
-        'jordan1120@gmail.com'
-    ),
-    (
-        'August',
-        'Alsina',
-        '1989-04-24',
-        '167 Gartner St',
-        'Braamfontein',
-        '0849709865',
-        'augustalsin@yahho.com'
-    ),
-    (
-        'Buhle',
-        'Mlilo',
-        '1994-06-07',
-        '73 Cambridge St',
-        'Dobsonville',
-        '0739843621',
-        'mlilobuhle23@yahoo.com'
-    ),
-    (
-        'Thando',
-        'Mvubu',
-        '1999-07-21',
-        '72 Daffodil Cres',
-        'Cresta',
-        '0659782975',
-        'thandom@gmail.com'
-    ),
-    (
-        'Emily',
-        'Jones',
-        '2001-08-01',
-        '720 West Port Drive',
-        'Soweto',
-        '0651629852',
-        'jonesemy@gmail.com'
-    );
-
-GO
-    --AccountTypes Data
-INSERT INTO
-    AccountTypes (TypeName)
-VALUES
-    ('Online'),
-    ('On-Site');
-
-GO
-    --Accounts Data
-INSERT INTO
-    Accounts (
-        UserID,
-        CardNumber,
-        TypeID,
-        Points,
-        CreatedAT,
-        Balance
-    )
-VALUES
-    ('1', '0001', '1', '23', '2020-01-17', '80'),
-    ('2', '0002', '2', '10', '2022-12-01', '23'),
-    ('3', '0003', '2', '20', '2018-03-08', '56'),
-    ('4', '0004', '1', '50', '2020-02-05', '0'),
-    ('5', '0005', '1', '0', '2022-11-01', '0'),
-    ('6', '0006', '1', '28', '2021-07-26', '15'),
-    ('7', '0007', '1', '30', '2017-08-01', '74'),
-    ('8', '0008', '2', '100', '2022-01-08', '89'),
-    ('9', '0009', '1', '78', '2021-10-30', '51'),
-    ('10', '0010', '2', '63', '2022-04-01', '23'),
-    ('11', '0011', '2', '0', '2022-04-09', '0');
-
-GO
     --Positions Data
 INSERT INTO
     Positions (PositionName)
@@ -160,18 +15,7 @@ VALUES
     ('StationManager');
 
 GO
-    --Fares Data
-INSERT INTO
-    Fares (StartKM, EndKM, Fare)
-VALUES
-    (0, 5, 9),
-    (5.1, 10, 11),
-    (10.1, 15, 13.50),
-    (15.1, 25, 16),
-    (25.1, 35, 17),
-    (35.1, 50, 18);
 
-GO
     --Employees Data
 INSERT INTO
     Employees (
@@ -354,6 +198,7 @@ VALUES
     ('C2', 4),
     ('C3', 3),
     ('C4', 4),
+    ('C5', 4),
     ('F1', 6),
     ('F2', 5),
     ('F3', 7),
@@ -367,23 +212,7 @@ VALUES
     ('F12', 2);
 
 GO
-    -- Stations
-INSERT INTO
-    Stations(RouteID, Name)
-VALUES
-    (3, 'Lakeview'),
-    (2, 'Thokoza Park'),
-    (5, 'Wits Station'),
-    (8, 'UJ Sophiatown Res'),
-    (7, 'Parktown'),
-    (2, 'Joburg Theatre'),
-    (11, 'Russik Street'),
-    (7, 'Library Gardens'),
-    (1, 'Milpark'),
-    (8, 'SABC Media Park'),
-    (12, 'Hillbrow');
 
-GO
     --Bus Statuses Data
 INSERT INTO
     BusStatuses (Status, Description)
@@ -403,15 +232,7 @@ VALUES
     );
 
 GO
-    --Bus Types
-INSERT INTO
-    BusTypes (TypeName, SeatsNumber)
-VALUES
-    ('Feeder', 100),
-    ('Complementary', 150),
-    ('Trunk', 300);
 
-GO
     -- Buses Data
 INSERT INTO
     Buses(Registration, RouteCodeID, Seats, StatusID)
@@ -431,9 +252,9 @@ VALUES
     ('TDG 943 MP', 8,100, 3);
 
 GO
+
     --Bookings Data
-INSERT INTO
-    Bookings(
+INSERT INTO Bookings(
         FareID,
         AccountID,
         BusID,
@@ -479,7 +300,7 @@ VALUES
     ('3', '9', '2022-08-01', '2022-08-15');
 
 GO
-GO
+
     -- Insert Ticket Types
 INSERT INTO
     TicketTypes (TicketType, Price)
@@ -507,5 +328,182 @@ VALUES
     (10, 1, 4),
     (11, 2, 12),
     (11, 1, 4);
+
+GO
+
+--Users Data
+INSERT INTO
+    Users (
+        FirstName,
+        LastName,
+        DateOfBirth,
+        ResAddress,
+        City,
+        CellphoneNum,
+        EmailAddress
+    )
+VALUES
+    (
+        'Refilwe',
+        'Mashile',
+        '1995-12-27',
+        '806 Grandrose Ave',
+        'Soweto',
+        '0845434648',
+        'refilwe-mashile@yahoo.com'
+    ),
+    (
+        'Nomcebo',
+        'Ndimande',
+        '1999-12-29',
+        '26 Market Drive',
+        'Park Town',
+        '0817217371',
+        'ndimandnomcebo1@gmail.com'
+    ),
+    (
+        'Itumeleng',
+        'Matheba',
+        '1997-02-26',
+        '60 Mandela St',
+        'Braamfontein',
+        '0674545321',
+        'itumeleng123@gmail.com'
+    ),
+    (
+        'Ryan',
+        'Williams',
+        '1990-11-23',
+        '16 James St',
+        'Park Town',
+        '0804359867',
+        'williams.ryan@yahoo.com'
+    ),
+    (
+        'Andrew',
+        'Brown',
+        '1989-10-27',
+        '75 East Hanry Lane',
+        'Lake View',
+        '0675145325',
+        'andrewcool123@gmail.com'
+    ),
+    (
+        'Aaron',
+        'Wilson',
+        '2000-01-01',
+        '81 Baker Av',
+        'Thokoza',
+        '0876573902',
+        'aaronaaron@gmail.com'
+    ),
+    (
+        'Jordan',
+        'Smith',
+        '1985-06-27',
+        '63 Thompson Lane',
+        'Ellis Park',
+        '0839838784',
+        'jordan1120@gmail.com'
+    ),
+    (
+        'August',
+        'Alsina',
+        '1989-04-24',
+        '167 Gartner St',
+        'Braamfontein',
+        '0849709865',
+        'augustalsin@yahho.com'
+    ),
+    (
+        'Buhle',
+        'Mlilo',
+        '1994-06-07',
+        '73 Cambridge St',
+        'Dobsonville',
+        '0739843621',
+        'mlilobuhle23@yahoo.com'
+    ),
+    (
+        'Thando',
+        'Mvubu',
+        '1999-07-21',
+        '72 Daffodil Cres',
+        'Cresta',
+        '0659782975',
+        'thandom@gmail.com'
+    ),
+    (
+        'Emily',
+        'Jones',
+        '2001-08-01',
+        '720 West Port Drive',
+        'Soweto',
+        '0651629852',
+        'jonesemy@gmail.com'
+    );
+
+GO
+    --AccountTypes Data
+INSERT INTO
+    AccountTypes (TypeName)
+VALUES
+    ('Online'),
+    ('On-Site');
+
+GO
+    --Accounts Data
+INSERT INTO
+    Accounts (
+        UserID,
+        CardNumber,
+        TypeID,
+        Points,
+        CreatedAT,
+        Balance
+    )
+VALUES
+    ('1', '0001', '1', '23', '2020-01-17', '80'),
+    ('2', '0002', '2', '10', '2022-12-01', '23'),
+    ('3', '0003', '2', '20', '2018-03-08', '56'),
+    ('4', '0004', '1', '50', '2020-02-05', '0'),
+    ('5', '0005', '1', '0', '2022-11-01', '0'),
+    ('6', '0006', '1', '28', '2021-07-26', '15'),
+    ('7', '0007', '1', '30', '2017-08-01', '74'),
+    ('8', '0008', '2', '100', '2022-01-08', '89'),
+    ('9', '0009', '1', '78', '2021-10-30', '51'),
+    ('10', '0010', '2', '63', '2022-04-01', '23'),
+    ('11', '0011', '2', '0', '2022-04-09', '0');
+
+GO
+
+    --Fares Data
+INSERT INTO
+    Fares (StartKM, EndKM, Fare)
+VALUES
+    (0, 5, 9),
+    (5.1, 10, 11),
+    (10.1, 15, 13.50),
+    (15.1, 25, 16),
+    (25.1, 35, 17),
+    (35.1, 50, 18);
+
+GO
+
+    -- Stations
+INSERT INTO
+    Stations(RouteID, Name)
+VALUES
+    (3, 'Lakeview'),
+    (2, 'Thokoza Park'),
+    (5, 'Wits Station'),
+    (8, 'UJ Sophiatown Res'),
+    (7, 'Parktown'),
+    (2, 'Joburg Theatre'),
+    (11, 'Russik Street'),
+    (7, 'Library Gardens'),
+    (1, 'Milpark'),
+    (8, 'SABC Media Park'),
+    (12, 'Hillbrow');
 
 GO
