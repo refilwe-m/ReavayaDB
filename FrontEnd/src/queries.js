@@ -1,17 +1,13 @@
 const sql = require("mssql/msnodesqlv8");
-const { add } = require("nodemon/lib/rules");
 const config = require("../config");
-//const SP = require("../../StoredProcedures.sql");
 
-//Connect to Database
 const dbConnect = new sql.connect(config, (err) =>
   err
     ? console.log(err)
-    : console.log("connected to database: " + config.database)
+    : console.log(`connected to the "${config.database}" database.`)
 );
 
 /*            B U S   F U N C T I O N S               */
-//Route codes are linked to Route IDs....
 const getIDFromCode = async (Code) => {
   try {
     const pool = await sql.connect(config);
@@ -24,8 +20,8 @@ const getIDFromCode = async (Code) => {
     console.log(error);
   }
 };
-// getIDFromCode("T1").then(console.log);
-//Functions to interact with DB
+//getIDFromCode("T1").then(console.log);
+
 const getAllBuses = async () => {
   try {
     const pool = await sql.connect(config);
@@ -37,25 +33,6 @@ const getAllBuses = async () => {
 };
 //getAllBuses().then((res)=>console.log(res))
 
-const getColumnNames = async (tableName) => {
-  let headings = [];
-  try {
-    const pool = await sql.connect(config);
-    const cols = await pool
-      .request()
-      .query(
-        `SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='${tableName}'`
-      );
-    headings = cols.recordsets[0].map((col) => col.COLUMN_NAME);
-    return headings;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//getColumnNames("Buses").then((res)=>console.log(res));
-
-//add new bus
 const addBus = async (registration, codeID, seats) => {
   console.log(registration, codeID, seats);
   try {
@@ -69,61 +46,35 @@ const addBus = async (registration, codeID, seats) => {
     console.log(error);
   }
 };
+//addBus('REF 743 MP', 2, 150);
 
-//addBus("WISSANLP", 1, 40);
-
-const getAllEmployees = async () => {
-  try {
-    const pool = await sql.connect(config);
-    const employees = await pool.request().query("SELECT * FROM dbo.Employees");
-    return employees.recordsets[0];
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const getAllDrivers = async () => {
-  try {
-    const pool = await sql.connect(config);
-    const drivers = await pool
-      .request()
-      .query("SELECT * FROM dbo.Employees WHERE PositionID = 3");
-    return drivers.recordsets[0];
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//Get All working busses
-getAllWorkingBuses = async () => {
+const getAllWorkingBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool
       .request()
-      .query("SELECT * FROM dbo.Buses WHERE HealthStatus = 1");
+      .query("SELECT * FROM dbo.Buses WHERE StatusID IN  (1,4)");
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
 };
+//getAllWorkingBuses().then((result) =>console.log("Working (ALLOCATED & AVAILABLE): \n",result));
 
-//Get Working & Unallocated Buses
-getReadyForAllocationBuses = async () => {
+const getReadyForAllocationBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool
       .request()
-      .query(
-        "SELECT * FROM dbo.Buses WHERE BusID NOT IN (SELECT BusID FROM dbo.EmployeeBuses) AND HealthStatus = 1"
-      );
+      .query("SELECT * FROM dbo.Buses WHERE StatusID = 1");
     return buses.recordsets[0];
   } catch (error) {
     console.log(error);
   }
 };
+//getReadyForAllocationBuses().then((result) =>console.log("Unallocated: \n",result));
 
-//Get All Allocated Buses
-getAllAllocatedBuses = async () => {
+const getAllAllocatedBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool
@@ -137,8 +88,7 @@ getAllAllocatedBuses = async () => {
   }
 };
 
-//Get Faulty Buses
-getAllFaultyBuses = async () => {
+const getAllFaultyBuses = async () => {
   try {
     const pool = await sql.connect(config);
     const buses = await pool
@@ -163,8 +113,55 @@ const removeBus = async (busID) => {
   }
 };
 
-//Remove Employee
-removeEmployee = async (employeeID) => {
+/*            E M P L O Y E E S   F U N C T I O N S               */
+const addEmployee = async (
+  positionID,
+  name,
+  surname,
+  dob,
+  address,
+  phone,
+  email
+) => {
+  try {
+    const pool = await sql.connect(config);
+    await pool
+      .request()
+      .query(
+        `INSERT INTO dbo.Employees (PositionID, FirstName, LastName, DateOfBirth, ResAddress, CellphoneNum, EmailAddress) 
+        VALUES (${positionID},'${name}', '${surname}', '${dob}','${address}','${phone}','${email}')`
+      );
+  } catch (error) {
+    console.log(error);
+  }
+};
+//addEmployee(3,"John","Doe","01/01/2000","1, Main Street","0771234567","refilwe@bbd.co.za");
+
+const getAllEmployees = async () => {
+  try {
+    const pool = await sql.connect(config);
+    const employees = await pool.request().query("SELECT * FROM dbo.Employees");
+    return employees.recordsets[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
+//getAllEmployees().then((result) =>console.log("Employees: \n",result));
+
+const getAllDrivers = async () => {
+  try {
+    const pool = await sql.connect(config);
+    const drivers = await pool
+      .request()
+      .query("SELECT * FROM dbo.Employees WHERE PositionID = 3");
+    return drivers.recordsets[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
+//getAllDrivers().then((result) =>console.log("Drivers: \n",result));
+
+const removeEmployee = async (employeeID) => {
   try {
     const pool = await sql.connect(config);
     const employees = await pool
@@ -172,45 +169,6 @@ removeEmployee = async (employeeID) => {
       .input("EMPLOYEE_ID", sql.Int, employeeID)
       .query("DELETE FROM dbo.Employees WHERE EmployeeID = @EMPLOYEE_ID");
     return employees.recordsets[0];
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//add new employee
-const addEmployee = async (
-  employeeID,
-  employeeName,
-  employeeSurname,
-  employeeEmail,
-  employeePhone,
-  employeeAddress,
-  employeePositionID,
-  employeeHealthStatus
-) => {
-  try {
-    const pool = await sql.connect(config);
-    await pool
-      .request()
-      .query(
-        "INSERT INTO dbo.Employees (EmployeeID, EmployeeName, EmployeeSurname, EmployeeEmail, EmployeePhone, EmployeeAddress, PositionID, HealthStatus) VALUES (" +
-          employeeID +
-          ", '" +
-          employeeName +
-          "', '" +
-          employeeSurname +
-          "', '" +
-          employeeEmail +
-          "', '" +
-          employeePhone +
-          "', '" +
-          employeeAddress +
-          "', " +
-          employeePositionID +
-          ", " +
-          employeeHealthStatus +
-          ")"
-      );
   } catch (error) {
     console.log(error);
   }
@@ -281,13 +239,39 @@ const sellTicket = async (
   }
 };
 
+/* U T I L I T Y   F U N C T I O N S */
+const getColumnNames = async (tableName) => {
+  let headings = [];
+  try {
+    const pool = await sql.connect(config);
+    const cols = await pool
+      .request()
+      .query(
+        `SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='${tableName}'`
+      );
+    headings = cols.recordsets[0].map((col) => col.COLUMN_NAME);
+    return headings;
+  } catch (error) {
+    console.log(error);
+  }
+};
+//getColumnNames("Buses").then((res)=>console.log(res));
+
+const getIDFromCol = async (a,b,value, tableName) => {
+  try {
+    const pool = await sql.connect(config);
+    const result = await pool
+      .request()
+      .input("VALUE", b)
+      .query(`SELECT ${a} FROM dbo.${tableName} WHERE ${a} = @VALUE`);
+    return result.recordset[0].CodeID;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // getAllBuses().then((result) =>console.log("Buses: \n",result));
 // getRouteFromCode("T2").then((result) => console.log(result["RouteID"]));
-//addBus('BZT 743 MP', 2, 50);
-// getAllEmployees().then((result) =>console.log("Employees: \n",result));
-// getAllDrivers().then((result) =>console.log("Drivers: \n",result));
-// getAllWorkingBuses().then((result) =>console.log("Working: \n",result));
-// getReadyForAllocationBuses().then((result) =>console.log("Unallocated: \n",result));
 // getAllAllocatedBuses().then((result) =>console.log("Allocated: \n",result));
 // getAllFaultyBuses().then((result) =>console.log("Faulty: \n",result));
 // removeBus(1).then((result) =>console.log("Removed Bus: \n",result));
