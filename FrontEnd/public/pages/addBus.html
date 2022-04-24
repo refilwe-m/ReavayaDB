@@ -1,109 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/forms.css" />
+    <title>Add Employee</title>
+  </head>
+  <body>
+    <nav class="navigation">
+      <img src="../images/BusY_Logo.png" alt="company logo" />
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="../css/style.css">
-  <title>Adding A New Bus</title>
- 
-</head>
-<body class="busBody">
-  <nav class="navigation">
-    <img src="../images/BusY_Logo.png" alt="company logo">
- 
-     <ul >
- 
-         <li class="active "> <a href="navbar.html">Home</a></li>
- 
-         <li class="dropdown">
-             <a href="">
-                 
-                  <label class="title">Add</label></a> 
-                    <ul>
-                    <li><a href="addBus.html">Bus</a></li>
-                    <li><a href="addEmployee.html">Employee</a></li>
-                   <li><a href="tickets.html">Ticket</a></li>
-                </ul>
-               
-         </li>
- 
- 
-         <li class="dropdown">
-             <a href="">
-                
-                  <label class="title">Allocate</label>
-                     
-             </a><ul class="Allocate">
-              <li><a href="allocatingStationManagers.html">Manager</a></li>
-                  <li><a href="allocateDrivers.html">Driver</a></li>
-              
+      <ul>
+        <li class="active"><a href="navbar.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href=""> <label class="title">Add</label></a>
+          <ul>
+            <li><a href="addBus.html">Bus</a></li>
+            <li><a href="addEmployee.html">Employee</a></li>
+            <li><a href="tickets.html">Ticket</a></li>
           </ul>
-         </li>
- 
- 
- 
-         <li class="logout"><a href="index.html" >Logout</a></li>
- 
-     </ul>
-     <section class="hamburger">
- 
-         <span class="bar"></span>
-         <span class="bar"></span>
-         <span class="bar"></span>
-     </section>
- 
- 
- 
- </nav>
-  <section class="busSect"><h1 id="busH3">Add Bus</h1></section>
-  <form class="busForm" action="" method="post">      
-    <label for="bustype">Bus Type</label>
-    <select  id="bustype" name="bustype" >
-      <option value="PleaseSelectBusType">Please Select Bus Type</option>
-      <option value="feeder">Feeder</option>
-      <option value="complimentary">Complimentary</option>
-      <option value="trunk">Trunk</option>
-    </select>
+        </li>
 
-    <label for="buscode">Route Code</label>
-    <input list="codes" id = "buscode" name="buscode" class="form-input"/>
-    <datalist  id="codes"  >        
-        <option value="C1">
-        <option value="C2">
-        <option value="C3">
-        <option value="C4">
-        <option value="F1">
-        <option value="F2">
-        <option value="F3">
-        <option value="F4">
-        <option value="F5">
-        <option value="F6">
-        <option value="F7">
-        <option value="F8">
-        <option value="F9">
-        <option value="F10">
-        <option value="T1">
-        <option value="T2">
-        <option value="T3">      
-    </datalist>
+        <li class="dropdown">
+          <a href="">
+            <label class="title">Allocate</label>
+          </a>
+          <ul class="Allocate">
+            <li><a href="allocatingStationManagers.html">Manager</a></li>
+            <li><a href="allocateDrivers.html">Driver</a></li>
+          </ul>
+        </li>
 
-    <label for="registration">Registrion Number</label>
-    <input type="text" name="registration" id="registration" class = "form-input" min="30" max="300" step="10" required>
+        <li class="logout"><a href="index.html">Logout</a></li>
+      </ul>
+    </nav>
+    <section><h1>Add Employee</h1></section>
 
-    <label for="seatnum">Number Of Seats</label>
-    <input type="number" name="seats" id="seats" class = "form-input" min="30" max="300" step="1" required>
-  
-    <button type="button" id = "btnAddBus" class="busBtn">Add Bus</button>
-  </form>
-<script src="./scripts/addBus.js"></script>
+    <form method="post">
+      <label for="role">Role</label>
+      <select class="form-input">
+        <option value="driver">Driver</option>
+        <option value="station_manager">Station Manager</option>
+        <option value="Admin">Admin</option>
+      </select>
 
-<footer class="busFooter">
-  <p style="text-align: center;">Made with 🤍 by Group 4</p>
-</footer>
-</body>
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        name="firstname"
+        class="form-input"
+        placeholder="Your name.."
+        required
+      />
+
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        name="lastname"
+        class="form-input"
+        placeholder="Your last name.."
+        required
+      />
+
+      <label for="dateofbirth">Date Of Birth</label>
+      <input type="date" name="date" class="form-input" required />
+
+      <label for="address">Residential Address</label>
+      <input type="address" name="address" class="form-input" required />
+
+      <label for="phone">Phone Number</label>
+      <input
+        type="tel"
+        name="phone"
+        class="form-input"
+        placeholder="Format: +27 65 162 9118"
+        class="form-input"
+        required
+      />
+
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        name="email"
+        class="form-input"
+        placeholder="Your Email.."
+        required
+      />
+
+      <button type="submit">Add Employee</button>
+    </form>
+
+    <footer>
+      <p>Made with 🤍 by Group 4</p>
+    </footer>
+  </body>
 </html>

@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <link rel="stylesheet" href="../css/navigation.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/navigation.css" />
     <title>Navigation bar</title>
-    
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navigation">
+      <ul>
+        <li class="logo">
+          <img src="../images/BusY_Logo.png" alt="company logo" />
+        </li>
+        <li class="dashboard active">
+          <a href="navbar.html">
+            <i class="fa-solid fa-house"></i>
+            <label class="title">Dashboard</label>
+          </a>
+        </li>
 
-        <ul>
-            <li class="logo">
-                <img src="../images/BusY_Logo.png" alt="company logo" >
+        <li class="dropdown">
+          <a href="">
+            <i class="fa-solid fa-circle-plus"></i>
+            <label class="title">Add</label>
+          </a>
+
+          <ul>
+            <li><a href="addBus.html">Add Bus</a></li>
+            <li><a href="addEmployee.html">Add Employee</a></li>
+            <li><a href="tickets.html">Add Ticket</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="">
+            <i class="fa-solid fa-file-signature"></i>
+            <label class="title">Allocate</label>
+          </a>
+          <ul class="Allocate">
+            <li>
+              <a href="allocatingStationManagers.html"
+                >Allocate Station Manager</a >
             </li>
-            <li class="dashboard active" >
-                <a href="navbar.html">
-                     <i class="fa-solid fa-house"></i>
-                     <label class="title">Dashboard</label>
-                   </a>
-            </li>
-               
-               
-            <li class="dropdown">
-                <a href="">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    <label class="title">Add</label>
-                  
-                </a>
-                
-                    <ul>
-                        <li><a href="addBus.html">Add Bus</a></li>
-                        <li><a href="addEmployee.html">Add Employee</a></li>
-                       <li><a href="tickets.html">Add Ticket</a></li>
-                    </ul>
-              
-              
-            </li>
-            <li class="dropdown" >
-                <a href="">
-                    <i class="fa-solid fa-file-signature" ></i>
-                    <label class="title">Allocate</label>
-                </a>   <ul class="Allocate">
-                    <li><a href="allocatingStationManagers.html">Allocate Station Manager</a></li>
-                        <li><a href="allocateDrivers.html">Allocate Driver</a></li>
-                    
-                </ul>
-            </li>
-            <li class="signout" style="position: fixed; bottom: 1rem;">
-                <a href="index.html">
-                    <i class="fa-solid fa-power-off"></i>
-                    <label class="title">Sign out</label>
-                </a>
-            </li>
-        </ul>
-	   	
+            <li><a href="allocateDrivers.html">Allocate Driver</a></li>
+          </ul>
+        </li>
+        <li class="signout" style="position: fixed; bottom: 1rem">
+          <a href="index.html">
+            <i class="fa-solid fa-power-off"></i>
+            <label class="title">Sign out</label>
+          </a>
+        </li>
+      </ul>
     </nav>
-<main>
-<h1 id="Welcome-msg">Welcome, </h1>
+    <main>
+      <h1 id="Welcome-msg">Welcome,</h1>
+    </main>
 
-</main>
-
-<script src="../scripts/index.js"></script>
-
-</body>
+    <script src="../scripts/index.js"></script>
+  </body>
 </html>

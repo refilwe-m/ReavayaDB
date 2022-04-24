@@ -1,99 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/forms.css" />
 
-    <title>Document</title>
-    
-</head>
-<body class="manBody">
-
+    <title>Allocating Station Manager</title>
+  </head>
+  <body>
     <nav class="navigation">
-        <img src="../images/BusY_Logo.png" alt="company logo">
-     
-         <ul >
-     
-             <li class="active "> <a href="navbar.html">Home</a></li>
-     
-             <li class="dropdown">
-                 <a href="">
-                     
-                      <label class="title">Add</label></a> 
-                        <ul>
-                        <li><a href="addBus.html">Bus</a></li>
-                        <li><a href="addEmployee.html">Employee</a></li>
-                       <li><a href="tickets.html">Ticket</a></li>
-                    </ul>
-                   
-             </li>
-     
-     
-             <li class="dropdown">
-                 <a href="">
-                    
-                      <label class="title">Allocate</label>
-                         
-                 </a><ul class="Allocate">
-                  <li><a href="allocatingStationManagers.html">Manager</a></li>
-                      <li><a href="allocateDrivers.html">Driver</a></li>
-                  
-              </ul>
-             </li>
-     
-     
-     
-             <li class="logout"><a href="index.html" >Logout</a></li>
-     
-         </ul>
-         <section class="hamburger">
-     
-             <span class="bar"></span>
-             <span class="bar"></span>
-             <span class="bar"></span>
-         </section>
-     
-     
-     
-     </nav>
+      <img src="../images/BusY_Logo.png" alt="company logo" />
 
-    <section class="manSect"><h3 id="manH3">Allocate Station Managers</h3></section>
-    <form class="manForm" action="" method="post"> 
-     
+      <ul>
+        <li class="active"><a href="navbar.html">Home</a></li>
 
-    <label for="employeeName">Employee Name</label>
-    <input list="managers" name="employeeName" id="employeeName" />
-    <datalist  id="managers"  >      
-      <option value="Sam Tau(4)">
-      <option value="Zandile Dlamini(8)">
-      <option value="David Smith(12)">
-    </datalist>
+        <li class="dropdown">
+          <a href=""> <label class="title">Add</label></a>
+          <ul>
+            <li><a href="addBus.html">Bus</a></li>
+            <li><a href="addEmployee.html">Employee</a></li>
+            <li><a href="tickets.html">Ticket</a></li>
+          </ul>
+        </li>
 
-    <label for="stationname">Station Name</label>
-    <input list="stations" name="stationname" id="stationname"/>
-    <datalist  id="stations"  >        
-        <option value="Lake View">
-        <option value="Thokoza Park">
-        <option value="Wits Station">
-        <option value="UJ Sophiatown Res">
-        <option value="Park Town">
-        <option value="Joburg Theatre">
-        <option value="Russik Street">
-        <option value="Library Gardens">
-        <option value="Mil Park">
-        <option value="SABC Media Park">
-        <option value="Hillbrow">
-      
-    </datalist>
+        <li class="dropdown">
+          <a href="">
+            <label class="title">Allocate</label>
+          </a>
+          <ul class="Allocate">
+            <li><a href="allocatingStationManagers.html">Manager</a></li>
+            <li><a href="allocateDrivers.html">Driver</a></li>
+          </ul>
+        </li>
 
-    
-  
-    <button type="submit" class="manBtn">Allocate Station Manager</button>
-  </form>
-  <footer class="manFooter">
-    <p style="text-align: center;">Made with 🤍 by Group 4</p>
-  </footer>
-</body>
+        <li class="logout"><a href="index.html">Logout</a></li>
+      </ul>
+    </nav>
+    <section><h1>Allocate Station Managers</h1></section>
+    <form method="post">
+      <label for="employeeName">Employee Name</label>
+      <input list="managers" name="employeeName" class="form-input" />
+      <datalist id="managers">
+        <option value="Sam Tau(4)"></option>
+        <option value="Zandile Dlamini(8)"></option>
+        <option value="David Smith(12)"></option>
+      </datalist>
+
+      <label for="stationname">Station Name</label>
+      <input list="stations" name="stationname" class="form-input" />
+      <datalist id="stations">
+        <option value="Lake View"></option>
+        <option value="Thokoza Park"></option>
+        <option value="Wits Station"></option>
+        <option value="UJ Sophiatown Res"></option>
+        <option value="Park Town"></option>
+        <option value="Joburg Theatre"></option>
+        <option value="Russik Street"></option>
+        <option value="Library Gardens"></option>
+        <option value="Mil Park"></option>
+        <option value="SABC Media Park"></option>
+        <option value="Hillbrow"></option>
+      </datalist>
+
+      <button type="submit">Allocate Station Manager</button>
+    </form>
+    <footer>
+      <p>Made with 🤍 by Group 4</p>
+    </footer>
+  </body>
 </html>
