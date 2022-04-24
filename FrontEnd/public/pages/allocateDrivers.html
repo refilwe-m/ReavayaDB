@@ -8,6 +8,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
   />
+  <script src="../scripts/forms.js" defer></script>
     <link rel="stylesheet" href="../css/forms.css" />
     <link rel="icon" href="../images/Just_BusY_logo.ico" />
 
@@ -15,41 +16,51 @@
   </head>
   <body>
     <nav class="navigation">
-      <img src="../images/BusY_Logo.png" alt="company logo" />
-
-      <ul>
-        <li class="active "> <a href="dashboard.html">
-          <i class="fa-solid fa-house"></i>
-          <label class="title">Home</label></a></li>
-
-        <li class="dropdown">
-          <a href=""> 
-            <i class="fa-solid fa-circle-plus"></i>
-            <label class="title">Add</label></a>
-          <ul>
-            <li><a href="addBus.html">Bus</a></li>
-            <li><a href="addEmployee.html">Employee</a></li>
-            <li><a href="tickets.html">Ticket</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="">
-            <i class="fa-solid fa-file-signature"></i>
-            <label class="title">Allocate</label>
-          </a>
-          <ul class="Allocate">
-            <li><a href="allocatingStationManagers.html">Manager</a></li>
-            <li><a href="allocateDrivers.html">Driver</a></li>
-          </ul>
-        </li>
-
+      <img src="../images/BusY_Logo.png" alt="company logo">
+   
+       <ul class="nav-links">
+   
+          <li class="active "> <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <label class="title">Home</label></a></li>
+   
+           <li class="dropdown">
+               <a href="">
+                <i class="fa-solid fa-circle-plus"></i>
+                    <label class="title">Add</label></a> 
+                      <ul>
+                      <li><a href="addBus.html">Bus</a></li>
+                      <li><a href="addEmployee.html">Employee</a></li>
+                     <li><a href="tickets.html">Ticket</a></li>
+                  </ul>
+                 
+           </li>
+   
+   
+           <li class="dropdown">
+               <a href="">
+                <i class="fa-solid fa-file-signature"></i> 
+                  <label class="title">Allocate</label>
+                       
+               </a><ul class="Allocate">
+                <li><a href="allocatingStationManagers.html">Manager</a></li>
+                    <li><a href="allocateDrivers.html">Driver</a></li>
+                
+            </ul>
+           </li>
+   
+   
+   
+          
+       <li class="logout" ><a href="index.html" >
+        <i class="fa-solid fa-power-off"></i>
+        <label class="title">Logout</label></a></li>
+   
+       </ul>
        
-        <li class="logout" ><a href="index.html" >
-          <i class="fa-solid fa-power-off"></i>
-          <label class="title">Logout</label></a></li>
-      </ul>
-    </nav>
+       <i class="fa-solid fa-bars"></i> 
+   
+   </nav>
     <section><h1>Allocate Drivers</h1></section>
     <form method="post">
       <label for="employeeName">Employee Name</label>

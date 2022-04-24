@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="../scripts/addEmployee.js" defer></script>
+  <script src="../scripts/forms.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
   <link rel="stylesheet" href="../css/forms.css">
   <link rel="icon" href="../images/Just_BusY_logo.ico" />
@@ -17,7 +18,7 @@
   <nav class="navigation">
     <img src="../images/BusY_Logo.png" alt="company logo">
 
-    <ul>
+    <ul class="nav-links">
 
       <li class="active "> <a href="dashboard.html">
           <i class="fa-solid fa-house"></i>
@@ -58,45 +59,56 @@
 
     </ul>
 
-
+    <i class="fa-solid fa-bars"></i>
 
   </nav>
   <section>
     <h1>Add Employee</h1>
   </section>
 
-  <form>
+  <form method="post">
 
-    <label for="role">Role</label>
-    <select id="role" class="form-input">
-      <option value="PleaseSelectRole">Please Select Employment Role</option>
-      <option value="Driver">Driver</option>
-      <option value="Station Manager">Station Manager</option>
-      <option value="Admin">Admin</option>
-    </select>
+    </ul>
 
 
-    <label for="fname">First Name</label>
-    <input type="text" name="firstname" id="firstName" class="form-input" required>
 
-    <label for="lname">Last Name</label>
-    <input type="text" name="lastname" id="lastName" class="form-input" required>
+    </nav>
+    <section>
+      <h1>Add Employee</h1>
+    </section>
 
-    <label for="dateofbirth">Date Of Birth</label>
-    <input type="date" name="date" id="dob" class="form-input" required>
+    <form>
 
-    <label for="address">Residential Address</label>
-    <input type="address" name="address" id="address" class="form-input" required>
+      <label for="role">Role</label>
+      <select id="role" class="form-input">
+        <option value="PleaseSelectRole">Please Select Employment Role</option>
+        <option value="Driver">Driver</option>
+        <option value="Station Manager">Station Manager</option>
+        <option value="Admin">Admin</option>
+      </select>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" name="phone" id="phone" class="form-input" class="form-input" required>
 
-    <label for="email">Email Address</label>
-    <input type="email" name="email" id="email" class="form-input" required>
+      <label for="fname">First Name</label>
+      <input type="text" name="firstname" id="firstName" class="form-input" required>
 
-    <button type="submit" id="btnAddEmployee">Add Employee</button>
+      <label for="lname">Last Name</label>
+      <input type="text" name="lastname" id="lastName" class="form-input" required>
 
-  </form>
+      <label for="dateofbirth">Date Of Birth</label>
+      <input type="date" name="date" id="dob" class="form-input" required>
+
+      <label for="address">Residential Address</label>
+      <input type="address" name="address" id="address" class="form-input" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="phone" id="phone" class="form-input" class="form-input" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" class="form-input" required>
+
+      <button type="submit" id="btnAddEmployee">Add Employee</button>
+
+    </form>
 
 </body>
 
