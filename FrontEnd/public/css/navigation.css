@@ -61,3 +61,6 @@
     color: white ;
     font-family: "Poppins",sans-serif;
 }
+.signout{
+    position: fixed; bottom: 1rem;
+}
