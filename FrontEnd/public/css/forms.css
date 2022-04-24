@@ -39,15 +39,17 @@ section{
 form{
   border-radius: 0.31em;
   background-color: #f2f2f2;
-  padding: 1.25em;
+  padding: 1.1em;
   margin: auto; 
   width: 50%;
+  
+ 
 }
 
 h1{
  
   border-left: 0.31em solid red;
-  padding: 0.63em; 
+  padding: 0.4em; 
   color: #000;
   letter-spacing: 0.31em;
 }
@@ -66,9 +68,10 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 15vh;
+  height: 10vh;
   background-color: #3F7CAC;
- 
+  width: 100%;
+  position: fixed;
   
 }
 
@@ -97,15 +100,9 @@ text-decoration: none;
  color: white ;
   font-family: "Poppins",sans-serif;
 }
-/* .nav-links {
-  display: flex;
-  justify-content: space-around;
-  width: 20%;
-} */
 
 nav ul ul  {
- /* display: flex;
- flex-direction: column; */
+
   display: none;
   position: absolute;
   padding: 2em 0rem;

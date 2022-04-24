@@ -22,8 +22,10 @@
     font-size: 0.5em;
   }
   
-  h2 {
+  p {
     text-align: center;
+    margin-bottom: 0.5em;
+    margin-top: 00.50em;
   }
   
   #loginForm {
@@ -86,541 +88,26 @@
  
    
   }
+
+  img {
+    width: 10%;
+    padding: 1em 1em;
+  }
     
 
 
- /* form Navigation styles */
- nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 15vh;
-  background-color: #3F7CAC;
- 
-  
-}
 
-img {
-  width: 10%;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  width: 40%;
-  
-}
-
-nav ul li{
-  list-style: none;
 
   
- 
-}
 
-nav ul li a{
-text-decoration: none;
- padding: 2rem 1rem; 
- text-align: center;
- color: white ;
-  font-family: "Poppins",sans-serif;
-}
-/* .nav-links {
-  display: flex;
-  justify-content: space-around;
-  width: 20%;
-} */
-
-nav ul ul  {
- /* display: flex;
- flex-direction: column; */
-  display: none;
-  position: absolute;
-  padding: 2em 0rem;
-  background: #3F7CAC;
-  width: 12rem;
-}
-nav ul .dropdown:hover ul {
-  display:block
-  
-}
-
-nav ul ul li {
-  padding: 1rem;
-  }
-  
- 
-
-  .navigation ul li:hover a{
-    color: rgb(49, 189, 199);
-}
-
-nav ul ul:hover a{
-  color: white;
-}
-
-/*
-.dropdown {
-  position: relative;
-  display: inline-block
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  padding: 12px 16px;
-}
-
-.dropdown-content a:hover {
-  background-color: blue;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
- */
-
-
-  /* form Styles */
-
-  .manBody {
-    margin: 0;
-    padding: 50px;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    height: 6.2rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-#employeeName,
-#stationname {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.manBtn {
-    width: 50%;
-    background-color: #3F7CAC;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-}
-
-.manSect {
-    border-radius: 5px;
-    background-color: white;
-    margin: auto;
-    width: 50%;
-}
-
-.manForm {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin: auto;
-    width: 50%;
-}
-
-#manH3 {
-    font-size: 2em;
-    border-left: 5px solid red;
-    padding: 10px;
-    color: #000;
-    letter-spacing: 5px;
-    margin-bottom: 60px;
-    font-weight: bold;
-    padding-left: 10px;
-}
-.empBody {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-#fname, #lname, #address, #phone , #dateofbirth, #email {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-
-.empBtn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  display:block;
-  margin: 0 auto;
-}
-
-.empSect{
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-
-  margin: auto; 
-  width: 50%;
-}
-.empForm {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-}
-
-#empH3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-}
-
-            
-.driverBody {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-#employeeName, #busId, #phases, #startdate, #enddate{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.driverbtn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  display:block;
-  margin: 0 auto;
-}
-
-.driverSect{
-  border-radius: 5px;
-  background-color: white;
-  padding: 20px;
-
-  margin: auto; 
-  width: 50%;
-}
-.driverForm {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-}
-
-#driverH3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-  
-}
-
-
-.manBody {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-#employeeName, #stationname{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.manBtn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  display:block;
-  margin: 0 auto;
-}
-
-.manSect{
-  border-radius: 5px;
-  background-color: white;
-  padding: 20px;  
-  margin: auto; 
-  width: 50%;
-}
-.manForm {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-}
-
-#manH3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-}
-
-
-.ticketBody{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  height: 6.2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  }
-
-  #ticketType, #description, #price {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  }
-
-  .ticketBtn {
-  width: 50%;
-  background-color: #3F7CAC;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  display:block;
-  margin: 0 auto;
-  }
-
-  .ticketSect{
-  border-radius: 5px;
-  background-color: white;
-  padding: 20px;    
-  margin: auto; 
-  width: 50%;
-  }
-  .ticketForm {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  margin: auto; 
-  width: 50%;
-  }
-
-  #ticketH3{
-  font-size: 2em;
-  border-left: 5px solid red;
-  padding: 10px;
-  color: #000;
-  letter-spacing: 5px;
-  margin-bottom: 60px;
-  font-weight: bold;
-  padding-left: 10px;
-  }
-  .ticketFooter, .manFooter, .driverFooter, .empFooter , .busFooter{
-      padding: 10px 20px;
-      background: #3F7CAC;
-      color: rgb(49, 189, 199);
-      position: fixed;
-      bottom: 0;
-      width: 100%;          
-      height: 50px;
-    }
-
-    /* Side Nav*/
-    #dash-container {
-      display: flex;
-      align-items: stretch;
-      
-    }
     
-    #nav-container{
-      height: 100%;
-    }
-    #side-nav{
-      background-color: #12C0B8;
-    }
 
-    .side-links{
-      display: block;
-      padding: 20px;
-      text-decoration: none;
-      font-size: 1.2em;
-      font-weight: bold;
-      
-     
-    }
 
-    .side-links:hover{
-      background-color: #ffffff;
-      border-radius: 30px;
-    }
 
-    .tr{
-      background-color: #2095bc;
-      border-bottom:1px solid #f2f2f2;
-      padding: 2em;
-      font-weight: 200;
-    }
-
-        
-  .busBody {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      height: 6.2rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    #bustype{
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    .form-input {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    .busBtn {
-      width: 50%;
-      background-color: #3F7CAC;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      text-align: center;
-      display:block;
-      margin: 0 auto;
-    }
-
-    .busSect{
-      border-radius: 5px;
-      background-color: white;
-      padding: 20px;      
-      margin: auto; 
-      width: 50%;
-    }
-    .busForm {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-      margin: auto; 
-      width: 50%;
-    }
-
-    #busH3{
-      font-size: 2em;
-      border-left: 5px solid red;
-      padding: 10px;
-      color: #000;
-      letter-spacing: 5px;
-      margin-bottom: 60px;
-      font-weight: bold;
-      padding-left: 10px;
-    }
 
   
 
-/* end of form containers */
+
   
   
   @media(max-width:768px){
@@ -632,7 +119,7 @@ nav ul ul:hover a{
      
     } */
   
-    h2 {
+ p {
       text-align: left;
       margin-bottom: 1em;
     }
@@ -647,13 +134,30 @@ nav ul ul:hover a{
       width: 20%;
       padding: 1em 1em;
     }
+
+    input::placeholder {
+      font-size: 1.em;
+    }
+
+    .formElements {
+      border-radius: 0.60em;
+      padding: 1em 1em;
+      margin: 1em 0;
+      font-size: 0.4em;
+    }
+
+    #login-btn {
   
+      
+     font-size: 0.7em;
+     padding: 0.2em 0.2em;
+     border-radius: 0.2em;
+    
+    } 
   
   }
   
-  .container {
-    height: 100vh; 
-  }
+  
   
   
   
