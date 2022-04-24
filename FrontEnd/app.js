@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const {
   addBus,
   getIDFromCode,
+  getIDFromCol,
   getTableHeadings,
   getAllBuses,
   getAllEmployees,
@@ -39,7 +40,6 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/addBus", (req, res) => {
-  // console.log('get');
   res.sendFile(path.join(__dirname, "/public/pages/addBus.html"));
 });
 
@@ -74,35 +74,25 @@ app.get("/addEmployee", (req, res) => {
 /* POST EndPoints */
 app.post("/addBus", async (req, res) => {
   const { routeCode, registration, seats } = req.body;
-  console.log("Body Post", req.body);
-  const codeID = await getIDFromCode(routeCode);
+  const codeID = await getIDFromCol(
+    "CodeID",
+    "CodeName",
+    routeCode,
+    "RouteCodes"
+  );
   addBus(registration, codeID, seats);
-  //console.log("Added Bus");
   res.send("Added Bus");
-  //res.redirect("/dashboard");
 });
 
-app.post("/addEmployee", (req, res) => {
-  const {
-    EmployeeID,
-    EmployeeName,
-    EmployeeSurname,
-    EmployeeEmail,
-    EmployeePhone,
-    EmployeeAddress,
-    PositionID,
-    HealthStatus,
-  } = req.body;
-  addEmployee(
-    EmployeeID,
-    EmployeeName,
-    EmployeeSurname,
-    EmployeeEmail,
-    EmployeePhone,
-    EmployeeAddress,
-    PositionID,
-    HealthStatus
+app.post("/addEmployee", async (req, res) => {
+  const { role, firstName, lastName, dob, address, email, phone } = req.body;
+  const roleID = await getIDFromCol(
+    "PositionID",
+    "PositionName",
+    role,
+    "Positions"
   );
+  addEmployee(roleID, firstName, lastName, dob, address, phone, email);
   res.send("Employee Added Successfully");
 });
 /*

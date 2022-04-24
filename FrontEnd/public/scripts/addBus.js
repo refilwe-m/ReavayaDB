@@ -2,6 +2,17 @@ const typeOptions = document.getElementById("bustype");
 const busTypes = { C: 5, F: 10, T: 3 };
 let routeCode = "";
 
+const fetchPost = (url, data) => {
+  fetch(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  }).then((res) => alert(res));
+};
+
 typeOptions.addEventListener("change", () => {
   const selectedBusType = typeOptions.options[typeOptions.selectedIndex].value;
   const prefix = selectedBusType[0].toUpperCase();
@@ -15,8 +26,6 @@ typeOptions.addEventListener("change", () => {
 });
 
 const codeOptions = document.getElementById("buscode");
-//const  = document.getElementById("codes");
-
 codeOptions.addEventListener("change", function () {
   if (codeOptions.value.trim() != "") {
     routeCode = codeOptions.value;
@@ -24,25 +33,12 @@ codeOptions.addEventListener("change", function () {
 });
 
 const btnAddBus = document.getElementById("btnAddBus");
-btnAddBus.addEventListener("click", function () {
+btnAddBus.addEventListener("click", () => {
   const inputData = {
     routeCode: routeCode,
     registration: document.getElementById("registration").value,
     seats: document.getElementById("seats").value,
   };
-  console.log(inputData);
 
-  const fetchPost = (url, data) => {
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((res) => alert(res))
-  };
-
-  fetchPost("http://localhost:3000/addBus", inputData)
-    
+  fetchPost("http://localhost:3000/addBus", inputData);
 });

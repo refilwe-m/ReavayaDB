@@ -257,18 +257,19 @@ const getColumnNames = async (tableName) => {
 };
 //getColumnNames("Buses").then((res)=>console.log(res));
 
-const getIDFromCol = async (a,b,value, tableName) => {
+const getIDFromCol = async (IDName,ColName,colValue, tableName) => {
   try {
     const pool = await sql.connect(config);
     const result = await pool
       .request()
-      .input("VALUE", b)
-      .query(`SELECT ${a} FROM dbo.${tableName} WHERE ${a} = @VALUE`);
-    return result.recordset[0].CodeID;
+      .input("VALUE", colValue)
+      .query(`SELECT ${IDName} FROM dbo.${tableName} WHERE ${ColName} = @VALUE`);
+    return result.recordset[0][IDName];
   } catch (error) {
     console.log(error);
   }
 };
+//getIDFromCol("PositionID","PositionName","Driver","Positions").then(console.log);
 
 // getAllBuses().then((result) =>console.log("Buses: \n",result));
 // getRouteFromCode("T2").then((result) => console.log(result["RouteID"]));
@@ -294,4 +295,5 @@ module.exports = {
   sellTicket,
   getIDFromCode,
   getColumnNames,
+  getIDFromCol
 };
