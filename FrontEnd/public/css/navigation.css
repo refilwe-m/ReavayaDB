@@ -1,0 +1,72 @@
+/* Nomcebo Navigation Bar style */
+*{
+    padding: 0;
+    margin: 0;
+    }
+
+.navigation{
+    position: fixed;
+    height: 100%;
+    width: 18rem;
+    background-color: #3F7CAC;
+   
+}
+.navigation ul{
+    position: absolute;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 90%;
+    list-style: none;
+    border-top-left-radius: 1.8rem;
+    border-bottom-left-radius: 1.8rem;
+}
+.navigation ul li:hover{
+    background-color: white;           
+
+}
+
+.logo{
+    margin-bottom: 3rem;
+    pointer-events: none; 
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: rgb(49, 189, 199);
+}
+.navigation ul li:hover .title{
+    color: rgb(49, 189, 199);
+}
+.navigation ul li a i {
+    position: relative;
+    display: block;
+     min-width: 3.7rem;
+    height: 3.7rem;
+    line-height: 3.7rem; 
+    text-align: center;
+    font-size: 1.75rem;           
+   
+} 
+.navigation ul li a .title{
+    position: relative;
+    display: block;           
+    height: 3.7rem;
+    line-height: 3.7rem;
+    font-weight: bold;           
+}
+
+.title{
+    margin-left: 1rem;
+    color: white ;
+    font-family: "Poppins",sans-serif;
+}
+
+
+#Welcome-msg {
+    color: #000;
+  }
