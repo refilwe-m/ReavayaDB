@@ -64,7 +64,7 @@
     <section><h1>Allocate Drivers</h1></section>
     <form method="post">
       <label for="employeeName">Employee Name</label>
-      <input list="drivers" name="employeeName" class="form-input" required />
+      <input list="drivers" id = "employeeName" name="employeeName" class="form-input" required />
       <datalist id="drivers">
         <option value="Lebo Matheba(1)"></option>
         <option value="Benny Thomas(3)"></option>
@@ -84,10 +84,10 @@
       </select>
 
       <label for="startdate">Start Date</label>
-      <input type="date" name="startdate" class="form-input" required />
+      <input type="date" id = "startDate" name="startdate" class="form-input" required />
 
       <label for="enddate">End Date</label>
-      <input type="date" name="date" class="form-input" />
+      <input type="date" id = "endDate" name="date" class="form-input" />
 
       <button type="submit">Allocate Driver</button>
     </form>
