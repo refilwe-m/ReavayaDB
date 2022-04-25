@@ -113,8 +113,8 @@ GO
 	);
 
 GO
-	CREATE TABLE EmployeeBuses (
-		EmployeeBusID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
+	CREATE TABLE DriverBuses (
+		AllocationID INT IDENTITY (1, 1) PRIMARY KEY NOT NULL,
 		EmployeeID INT FOREIGN KEY (EmployeeID) REFERENCES Employees (EmployeeID),
 		BusID INT FOREIGN KEY (BusID) REFERENCES Buses (BusID),
 		StartDate DATE NOT NULL,
