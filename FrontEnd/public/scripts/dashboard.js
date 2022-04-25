@@ -22,7 +22,6 @@ const createTableBody = (tableObject, rows) => {
     }
     tableObject.appendChild(tr);
   }
-
 };
 
 const createTable = (tableObject, { headings, rows }) => {
@@ -31,21 +30,20 @@ const createTable = (tableObject, { headings, rows }) => {
 };
 
 //View Bus DashBoard
-document
-  .getElementsByClassName("side-links")[0]
-  .addEventListener("click", () => {
-    inputData = "Buses";
-    $.ajax({
-      url: `/getTable/${inputData}`,
-      type: "GET",
-      data: inputData,
-      success: (res) => {
-        createTable(tableObject, res);
-      },
-      error: function (res) {
-        alert("server error occurred");
-      },
-    });
-    document.getElementById("bus-data").appendChild(tableObject);
+const btnViewDashboard = document.getElementsByClassName("dashboard")[0];
+btnViewDashboard.addEventListener("click", () => {
+  //Event.preventDefault();
+  inputData = "Buses";
+  fetch(`http://localhost:3000/getTable/${inputData}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  }).then(async (res) => {
+    const results = await res.json();
+    console.log(results);
+    createTable(tableObject, results);
   });
-
+  document.getElementById("bus-data").appendChild(tableObject);
+});
