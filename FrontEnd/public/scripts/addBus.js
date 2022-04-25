@@ -40,5 +40,7 @@ btnAddBus.addEventListener("click", () => {
     seats: document.getElementById("seats").value,
   };
 
-  fetchPost("http://localhost:3000/addBus", inputData);
+  fetchPost("http://localhost:3000/addBus", inputData)
+    .then((res) => res.json())
+    .then(async (res) => alert(await res.text()));
 });
