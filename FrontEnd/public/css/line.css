@@ -1,5 +1,5 @@
-body {
-    /* background: #ccc; */
+/* body {
+    
     padding: 20px;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@ body {
   
   body, html {
     height: 100%;
-  }
+  } */
   .graph-container {
     position: relative;
   }
