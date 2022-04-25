@@ -95,14 +95,20 @@ app.post("/addEmployee", async (req, res) => {
   addEmployee(roleID, firstName, lastName, dob, address, phone, email);
   res.send("Employee Added Successfully");
 });
-/*
-app.post("/allocateDrivers", (req, res) => {
-  const { BusID, EmployeeID } = req.body;
-  allocateBus(BusID, EmployeeID).then((result) => {result.send("Driver Allocated Successfully");}
+
+app.post("/allocateDrivers", async (req, res) => {
+  const { busID, employeeName, startDate, endDate } = req.body;
+  const employeeID = await getIDFromCode(
+    "EmployeeID",
+    "FirstName",
+    employeeName,
+    "Employees"
   );
+  allocateBus(busID, employeeID, startDate, endDate);
+  res.send("Driver Allocated Successfully");
 });
 
-
+/*
 app.post("/sellTicket", (req) => {
   const { TicketID, TicketPrice, TicketSeat, BusID, EmployeeID } = req.body;
   sellTicket(TicketID, TicketPrice, TicketSeat, BusID, EmployeeID).then((result) => {result.send("Ticket Sold Successfully");}

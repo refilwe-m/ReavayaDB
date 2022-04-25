@@ -173,22 +173,24 @@ const removeEmployee = async (employeeID) => {
 };
 
 //allocate bus to employee
-const allocateBus = async (busID, employeeID) => {
+const allocateBus = async (busID, employeeID, startDate, endDate) => {
   try {
     const pool = await sql.connect(config);
-    await pool
-      .request()
-      .query(
-        "INSERT INTO dbo.EmployeeBuses (BusID, EmployeeID) VALUES (" +
-          busID +
-          ", " +
-          employeeID +
-          ")"
-      );
+    await pool.request().query(
+      `INSERT INTO dbo.DriverBuses (EmployeeID, BusID, StartDate, EndDate) 
+        VALUES (${busID},${employeeID}, '${startDate}', '${endDate}')`
+    );
+    await pool.request().query(
+      `UPDATE dbo.Buses
+      SET StatusID = 4
+      WHERE BusID = ${busID} ; `
+    );
+
   } catch (error) {
     console.log(error);
   }
 };
+//allocateBus(1,1,"01/01/2020","01/01/2021").then(res=>console.log("Added"));
 
 //deallocate bus from employee
 const deallocateBus = async (busID, employeeID) => {

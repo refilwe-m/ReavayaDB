@@ -31,8 +31,9 @@ const createTable = (tableObject, { headings, rows }) => {
 
 //View Bus DashBoard
 const btnViewDashboard = document.getElementsByClassName("dashboard")[0];
-btnViewDashboard.addEventListener("click", () => {
-  //Event.preventDefault();
+btnViewDashboard.addEventListener("click", (event) => {
+  event.preventDefault();
+  //event.preventOnload = true;
   inputData = "Buses";
   fetch(`http://localhost:3000/getTable/${inputData}`, {
     method: "GET",
@@ -44,6 +45,8 @@ btnViewDashboard.addEventListener("click", () => {
     const results = await res.json();
     console.log(results);
     createTable(tableObject, results);
+    //const Statuses = await res.json();
+    //change Status
   });
   document.getElementById("bus-data").appendChild(tableObject);
 });
