@@ -125,12 +125,10 @@ const addEmployee = async (
 ) => {
   try {
     const pool = await sql.connect(config);
-    await pool
-      .request()
-      .query(
-        `INSERT INTO dbo.Employees (PositionID, FirstName, LastName, DateOfBirth, ResAddress, CellphoneNum, EmailAddress) 
+    await pool.request().query(
+      `INSERT INTO dbo.Employees (PositionID, FirstName, LastName, DateOfBirth, ResAddress, CellphoneNum, EmailAddress) 
         VALUES (${positionID},'${name}', '${surname}', '${dob}','${address}','${phone}','${email}')`
-      );
+    );
   } catch (error) {
     console.log(error);
   }
@@ -257,13 +255,15 @@ const getColumnNames = async (tableName) => {
 };
 //getColumnNames("Buses").then((res)=>console.log(res));
 
-const getIDFromCol = async (IDName,ColName,colValue, tableName) => {
+const getIDFromCol = async (IDName, ColName, colValue, tableName) => {
   try {
     const pool = await sql.connect(config);
     const result = await pool
       .request()
       .input("VALUE", colValue)
-      .query(`SELECT ${IDName} FROM dbo.${tableName} WHERE ${ColName} = @VALUE`);
+      .query(
+        `SELECT ${IDName} FROM dbo.${tableName} WHERE ${ColName} = @VALUE`
+      );
     return result.recordset[0][IDName];
   } catch (error) {
     console.log(error);
@@ -295,5 +295,5 @@ module.exports = {
   sellTicket,
   getIDFromCode,
   getColumnNames,
-  getIDFromCol
+  getIDFromCol,
 };
