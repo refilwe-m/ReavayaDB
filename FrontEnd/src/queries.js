@@ -190,7 +190,7 @@ const allocateBus = async (busID, employeeID, startDate, endDate) => {
     console.log(error);
   }
 };
-//allocateBus(1,1,"01/01/2020","01/01/2021").then(res=>console.log("Added"));
+//allocateBus(4,5,"01/01/2020","01/01/2021").then(res=>console.log("Allocated"));
 
 //deallocate bus from employee
 const deallocateBus = async (busID, employeeID) => {
@@ -271,6 +271,7 @@ const getIDFromCol = async (IDName, ColName, colValue, tableName) => {
     console.log(error);
   }
 };
+//getIDFromCol("Status","StatusID",4, "BusStatuses").then((res)=>console.log(res));
 //getIDFromCol("PositionID","PositionName","Driver","Positions").then(console.log);
 
 // getAllBuses().then((result) =>console.log("Buses: \n",result));

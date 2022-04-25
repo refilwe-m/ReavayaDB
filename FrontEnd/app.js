@@ -55,6 +55,11 @@ app.get("/getAllBuses", async (req, res) => {
   res.send(buses);
 });
 
+app.get("/getAllDrivers", async (req, res) => {
+  const drivers = await getAllDrivers();
+  res.send(drivers);
+});
+
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
@@ -70,6 +75,10 @@ app.get("/allocateStationManagers", (req, res) => {
 app.get("/addEmployee", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/pages/addEmployee.html"));
 });
+
+/* app.get("/changeStatus", (req, res) => {
+  getIDFromCol("Status","StatusID",4, "BusStatuses")
+}); */
 
 /* POST EndPoints */
 app.post("/addBus", async (req, res) => {
