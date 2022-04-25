@@ -6,7 +6,6 @@ const admins = {
 };
 
 let Answer = localStorage.getItem("txtValue");
-console.log (admins[Answer])
 document.getElementById("Welcome-msg").innerHTML = "Welcome, " + admins[Answer] + "."
 document.getElementById("Welcome-msg").style.color = "rgb(49, 189, 199";
 document.getElementById("Welcome-msg").style.fontSize = "2.5em";
