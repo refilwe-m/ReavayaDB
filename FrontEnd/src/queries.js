@@ -100,19 +100,6 @@ const getAllFaultyBuses = async () => {
   }
 };
 
-//Remove Bus
-const removeBus = async (busID) => {
-  try {
-    const pool = await sql.connect(config);
-    const buses = await pool
-      .request()
-      .query("DELETE FROM dbo.Buses WHERE BusID = " + busID);
-    return buses.recordsets[0];
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 /*            E M P L O Y E E S   F U N C T I O N S               */
 const addEmployee = async (
   positionID,
@@ -185,29 +172,25 @@ const allocateBus = async (busID, employeeID, startDate, endDate) => {
       SET StatusID = 4
       WHERE BusID = ${busID} ; `
     );
-
   } catch (error) {
     console.log(error);
   }
 };
 //allocateBus(4,5,"01/01/2020","01/01/2021").then(res=>console.log("Allocated"));
 
-//deallocate bus from employee
-const deallocateBus = async (busID, employeeID) => {
+const removeBus = async (busID) => {
   try {
     const pool = await sql.connect(config);
-    await pool
-      .request()
-      .query(
-        "DELETE FROM dbo.EmployeeBuses WHERE BusID = " +
-          busID +
-          " AND EmployeeID = " +
-          employeeID
-      );
+    await pool.request().query(
+      `UPDATE dbo.Buses
+      SET StatusID = 3
+      WHERE BusID = ${busID} ; `
+    );
   } catch (error) {
     console.log(error);
   }
 };
+//removeBus(4).then(res=>console.log("Deallocated"));
 
 //sell ticket
 const sellTicket = async (
@@ -273,12 +256,10 @@ const getIDFromCol = async (IDName, ColName, colValue, tableName) => {
 };
 //getIDFromCol("Status","StatusID",4, "BusStatuses").then((res)=>console.log(res));
 //getIDFromCol("PositionID","PositionName","Driver","Positions").then(console.log);
-
 // getAllBuses().then((result) =>console.log("Buses: \n",result));
 // getRouteFromCode("T2").then((result) => console.log(result["RouteID"]));
 // getAllAllocatedBuses().then((result) =>console.log("Allocated: \n",result));
 // getAllFaultyBuses().then((result) =>console.log("Faulty: \n",result));
-// removeBus(1).then((result) =>console.log("Removed Bus: \n",result));
 // removeEmployee(1).then((result) =>console.log("Removed Employee: \n",result));
 
 module.exports = {
@@ -294,7 +275,6 @@ module.exports = {
   addBus,
   addEmployee,
   allocateBus,
-  deallocateBus,
   sellTicket,
   getIDFromCode,
   getColumnNames,
